@@ -28,7 +28,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-ins
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:14px;overflow-x:auto}
 nav b{font:800 1.1rem 'Playfair Display',serif;white-space:nowrap}
 nav div{display:flex;gap:18px;font-size:.85rem;white-space:nowrap}
-nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--gold2)}
+nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav a:hover{color:var(--gold2)}
+
 /* hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:100px 0 50px;overflow:hidden;text-align:center}
 .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,21,13,.55),var(--bg)),var(--hbg) center/cover;filter:saturate(1.1);transform:scale(1.08)}
@@ -42,99 +44,84 @@ nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--gold2)}
 .panel{position:absolute;inset:0;border-radius:20px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 18px 40px rgba(0,0,0,.55);-webkit-box-reflect:below 6px linear-gradient(transparent 70%,rgba(255,255,255,.22));background:var(--bg2)}
 .panel img{width:100%;height:100%;object-fit:cover;display:block}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
 .marq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--bg2);padding:14px 0}
 .marq span{display:inline-block;animation:mq 28s linear infinite;font:600 1.15rem 'Playfair Display',serif;color:var(--gold)}
 @keyframes mq{to{transform:translateX(-50%)}}
-/* menu */
-.tabs{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 18px}
-@media(min-width:800px){.tabs{justify-content:center}}
-.tab{flex:none;border:1px solid var(--line);background:var(--glass);color:var(--ink);border-radius:999px;padding:10px 20px;font:600 .85rem Manrope,sans-serif;cursor:pointer;transition:.2s}
-.tab[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2b1d00;border-color:transparent}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;perspective:1000px}
-.item{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transform-style:preserve-3d;transition:transform .15s,box-shadow .3s;backdrop-filter:blur(8px)}
-.item:hover{box-shadow:0 24px 50px rgba(0,0,0,.5),0 0 0 1px var(--gold)}
-.item:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.18),transparent 55%);opacity:var(--go,0);transition:opacity .2s}
-.ph{height:150px;position:relative;background:linear-gradient(135deg,#1c5a38,#0b2216)}
-.ph img{width:100%;height:100%;object-fit:cover;display:block}
-.ph em{position:absolute;right:12px;bottom:-14px;font:800 1.05rem 'Playfair Display',serif;font-style:normal;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2b1d00;padding:6px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.4);transform:translateZ(30px)}
-.bd{padding:22px 16px 16px;display:flex;flex-direction:column;gap:12px;flex:1}
-.bd h3{font:700 1rem Manrope,sans-serif}
-.qty{display:flex;align-items:center;gap:10px;margin-top:auto}
-.qty button{width:36px;height:36px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:1.2rem;cursor:pointer}
-.qty span{min-width:22px;text-align:center;font-weight:700}
-.add{width:100%;border:1.5px solid var(--gold);background:transparent;color:var(--gold2);border-radius:999px;padding:9px;font:700 .9rem Manrope,sans-serif;cursor:pointer;transition:.2s}
-.add:hover{background:var(--gold);color:#2b1d00}
+
 /* panels */
 .box{background:var(--glass);border:1px solid var(--line);border-radius:26px;padding:26px;max-width:660px;margin:0 auto;backdrop-filter:blur(12px);box-shadow:0 30px 70px rgba(0,0,0,.45)}
-label{display:block;font-weight:700;font-size:.85rem;margin:16px 0 6px;color:var(--gold2)}
-input,textarea,select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--ink);font:500 .95rem Manrope,sans-serif}
-select option{background:#0d2417}
-.lines{margin:0;padding:0;list-style:none}
-.lines li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
-.empty{color:var(--mute)}
-.total{display:flex;justify-content:space-between;font:800 1.4rem 'Playfair Display',serif;padding-top:12px;color:var(--gold2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:7px 14px;font:600 .8rem Manrope,sans-serif;cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green)}
-.err{color:#ff8a8a;font-size:.85rem;min-height:1.3em;margin:8px 0}
 .rev{text-align:center}
 .stars{color:var(--gold);font-size:1.9rem;letter-spacing:6px;text-shadow:0 0 18px rgba(227,185,74,.6)}
 .quote{background:rgba(0,0,0,.3);border:1px dashed var(--gold);border-radius:16px;padding:18px;margin:16px 0;min-height:110px;text-align:left;font-style:italic;color:#efe6c8}
-.quote.pop{animation:pop .5s}
-@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.quote.pop{animation:pop .5s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.95)}}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;perspective:900px}
-.cc{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:24px;text-align:center;text-decoration:none;transition:transform .3s,box-shadow .3s;font-weight:600}
-.cc:hover{transform:translateY(-6px) rotateX(8deg);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.cc{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:24px;text-align:center;text-decoration:none;transition:transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275),box-shadow .4s;font-weight:600}
+.cc:hover{transform:translateY(-8px) rotateX(10deg);box-shadow:0 25px 50px rgba(0,0,0,.5), 0 0 0 1px var(--gold)}
 .cc b{display:block;font:800 1.2rem 'Playfair Display',serif;color:var(--gold);margin-bottom:4px}
-footer{text-align:center;color:var(--mute);font-size:.8rem;padding:26px 18px 100px;border-top:1px solid var(--line)}
-.pill{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:none}
-.pill.on{display:inline-flex}
-.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--green);color:#fff;padding:12px 22px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:70;max-width:92vw;text-align:center;font-weight:600}
+
+/* 3D Menu Section (At the bottom) */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;perspective:1200px;margin-top:20px;padding:20px 0;}
+.scene{width:100%;height:380px;position:relative;}
+.card-3d{width:100%;height:100%;position:relative;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;cursor:pointer;animation:float 6s ease-in-out infinite;}
+.scene:nth-child(2n) .card-3d{animation-delay:-2s;}
+.scene:nth-child(3n) .card-3d{animation-delay:-4s;}
+.card-3d.is-flipped{transform:rotateY(180deg) scale(1.05);}
+.card__face{position:absolute;width:100%;height:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:26px;padding:30px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,0.5);display:flex;flex-direction:column;}
+.card__face--front{align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(0,0,0,.4));}
+.card__face--front h3{font-size:2.4rem;color:var(--gold);text-shadow:0 10px 20px rgba(0,0,0,0.5);margin-bottom:12px;line-height:1.2;}
+.card__face--front p{color:var(--gold2);font-weight:600;font-size:0.95rem;text-transform:uppercase;letter-spacing:2px;opacity:0.8;}
+.card__face--front .tap-icon{margin-top:20px;width:40px;height:40px;border-radius:50%;background:rgba(227,185,74,.15);display:flex;align-items:center;justify-content:center;animation:pulse 2s infinite;}
+.card__face--back{transform:rotateY(180deg);background:linear-gradient(180deg, var(--bg2), #051009);justify-content:flex-start;overflow-y:auto;}
+.card__face--back::-webkit-scrollbar{width:6px;}
+.card__face--back::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px;}
+.card__face--back h4{color:var(--gold2);text-align:center;font-size:1.4rem;margin:0 0 20px 0;border-bottom:1px solid var(--line);padding-bottom:10px;}
+.card__face--back ul{list-style:none;padding:0;margin:0;}
+.card__face--back li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed rgba(227,185,74,.15);font-size:1.05rem;color:var(--ink);font-weight:500;}
+.card__face--back li span.price{color:var(--gold);font-family:'Playfair Display',serif;font-weight:800;font-size:1.15rem;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotateX(2deg) rotateY(-2deg);}
+  50%{transform:translateY(-15px) rotateX(-2deg) rotateY(2deg);}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,185,74,.4);}
+  70%{box-shadow:0 0 0 15px rgba(227,185,74,0);}
+  100%{box-shadow:0 0 0 0 rgba(227,185,74,0);}
+}
+
+/* Developer link footer */
+footer{text-align:center;padding:40px 18px 80px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:20px;}
+.dev-link{display:inline-flex;align-items:center;gap:14px;padding:12px 24px;background:rgba(0,0,0,.4);border:1px solid var(--gold);border-radius:999px;text-decoration:none;color:var(--gold2);font-size:0.9rem;font-weight:600;transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+.dev-link:hover{background:var(--gold);color:#111;transform:translateY(-4px) scale(1.03);box-shadow:0 15px 40px rgba(227,185,74,.4);}
+.dev-link svg{width:22px;height:22px;fill:currentColor;}
+
+.toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--gold);color:#000;padding:12px 22px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:70;max-width:92vw;text-align:center;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.5);}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><b class="gt">Ali Bhai Biryani</b><div><a href="#menu">Menu</a><a href="#order">Order</a><a href="#review">Review</a><a href="#contact">Find us</a></div></div></nav>
+<nav><div class="wrap"><b class="gt">Ali Bhai Biryani</b><div><a href="#review">Review</a><a href="#contact">Find us</a><a href="#menu">Menu</a></div></div></nav>
 
 <header class="hero" id="hero"><div class="wrap">
-<img class="logo" src="alibhailogo.jpeg" alt="Al-Gani's Ali Bhai Biryani logo">
+<img class="logo" src="alibhailogo.jpeg" alt="Al-Gani's Ali Bhai Biryani logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzAiIGhlaWdodD0iMjMwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMGQyNDE3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjRweCIgZmlsbD0iI2UzYjk0YSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFsaSBCaGFpIEJpcnlhbmk8L3RleHQ+PC9zdmc+'">
 <h1 class="gt">Real Taste.<br>Real Biryani.</h1>
-<p>Slow-cooked dum biryani, crispy fry piece, royal paneer and kaju biryani, plus Indo-Chinese favourites. Build your order and send it straight to the owner on WhatsApp.</p>
+<p>Slow-cooked dum biryani, crispy fry piece, royal paneer and kaju biryani, plus Indo-Chinese favourites. Experience Khammam's finest.</p>
 <div class="stage" id="stage" aria-label="Food photos, drag to rotate"><div class="ring" id="ring"></div></div>
-<div class="ctas"><a class="btn gold" href="#menu">Explore the menu</a><a class="btn ghost" href="tel:+919848564387">Call us</a></div>
+<div class="ctas"><a class="btn gold" href="#menu">Tap into our 3D Menu</a><a class="btn ghost" href="tel:+919848564387">Call for Reservations</a></div>
 </div></header>
 
 <div class="marq" aria-hidden="true"><span id="mq"></span></div>
 
-<section id="menu"><div class="wrap">
-<h2 class="gt">Our Menu</h2><p class="sub">Choose your dishes. Your selection is added to the order form below.</p>
-<div class="tabs" id="tabs" role="group" aria-label="Menu categories"></div>
-<div class="grid" id="grid"></div>
-</div></section>
-
-<section id="order"><div class="wrap">
-<h2 class="gt">Send Your Order</h2><p class="sub">Your dishes and special requests go to the owner's WhatsApp in one tap.</p>
-<div class="box">
-<ul class="lines" id="lines"></ul>
-<div class="total"><span>Total</span><span id="total">₹0</span></div>
-<label for="nm">Your name</label><input id="nm" autocomplete="name" placeholder="Your name">
-<label for="ty">Order type</label>
-<select id="ty"><option>Dine-in (table)</option><option>Takeaway</option><option>Home delivery</option></select>
-<label>Quick concerns</label><div class="chips" id="chips"></div>
-<label for="nt">Message to the owner</label>
-<textarea id="nt" rows="3" placeholder="Example: less spicy, deliver to Indira Nagar, call before arriving"></textarea>
-<p class="err" id="err" role="alert"></p>
-<button class="btn wa" id="send" style="width:100%">Send to Owner on WhatsApp</button>
-</div>
-</div></section>
-
 <section id="review"><div class="wrap rev">
-<h2 class="gt">Loved your meal?</h2><p class="sub">One tap writes a fresh 5-star review, copies it and opens Google Reviews. Paste, choose your stars and post.</p>
+<h2 class="gt">Loved your meal?</h2><p class="sub">One tap writes a fresh 5-star review, copies it and opens Google Reviews.</p>
 <div class="box">
 <div class="stars" aria-hidden="true">★★★★★</div>
 <div class="quote" id="quote" aria-live="polite">Your review will appear here.</div>
-<button class="btn gold" id="post" style="width:100%">Write, copy and open Google Reviews</button>
+<button class="btn gold" id="post" style="width:100%">Write & Post to Google</button>
 </div>
 </div></section>
 
@@ -147,49 +134,50 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:26px 18px 100
 <a class="cc" href="https://www.google.com/maps?cid=11349762933536175206" target="_blank" rel="noopener"><b>Directions</b>Open in Google Maps</a>
 </div>
 </div></section>
-<footer>© Al-Gani's Ali Bhai Biryani &amp; Cafe Restaurant, Khammam</footer>
 
-<a class="btn wa pill" id="pill" href="#order">Cart <span id="pc">0</span> · <span id="pt">₹0</span></a>
+<!-- Menu relocated to the bottom with 3D interactive floating cards -->
+<section id="menu"><div class="wrap">
+<h2 class="gt">The Royal Menu</h2><p class="sub">Tap any card to reveal the varieties in stunning 3D.</p>
+<div class="menu-grid" id="menu-grid">
+  <!-- JavaScript will inject 3D cards here -->
+</div>
+</div></section>
+
+<footer>
+  <div>© Al-Gani's Ali Bhai Biryani &amp; Cafe Restaurant, Khammam</div>
+  
+  <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener" class="dev-link">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    <span>Developed by Syed Zeeshaan Ali | High-Fledged Engineering &amp; Digital Tech Solutions</span>
+  </a>
+</footer>
+
 <div class="toast" id="toast" role="status"></div>
 
 <script>
 (function(){
 "use strict";
-var PH="919848564387";
 var REVIEW_URL="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0";
-/* ===== PEXELS PHOTOS: replace any URL below with your own from pexels.com/search/food ===== */
 var P="https://images.pexels.com/photos/";
-var IMG={
- biryani:P+"34159109/pexels-photo-34159109/free-photo-of-traditional-kerala-chicken-biryani-in-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=900",
- fry:P+"32825910/pexels-photo-32825910/free-photo-of-delicious-biryani-preparation-with-lemon-squeeze.jpeg?auto=compress&cs=tinysrgb&w=900",
- paneer:P+"34159106/pexels-photo-34159106/free-photo-of-traditional-kerala-chicken-biryani-in-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=900",
- chinese:P+"34159112/pexels-photo-34159112/free-photo-of-traditional-indian-chicken-curry-and-rice.jpeg?auto=compress&cs=tinysrgb&w=900",
- extras:P+"34159113/pexels-photo-34159113/free-photo-of-authentic-kerala-chicken-curry-in-traditional-pot.jpeg?auto=compress&cs=tinysrgb&w=900"
-};
-var CAT_IMG=[null,IMG.biryani,IMG.fry,IMG.paneer,IMG.chinese,IMG.extras];
-var CATS=["All","Chicken Biryani","Fry Piece","Paneer & Kaju","Rice, Noodles & Chinese","Unlimited & Extras"];
-var M=[
-["Single Biryani (Chicken) – 1 piece",120,1],["Full Chicken Biryani – 2 pieces",150,1],["KG Biryani (Chicken) – 3 pieces",180,1],["Couple Pack Chicken Biryani – 4 pieces",300,1],["Family Chicken Biryani – 6 pieces",500,1],["Jumbo Chicken Biryani – 9 pieces",750,1],
-["Fry Piece Biryani – Single",160,2],["Fry Piece Biryani – Full",250,2],["Fry Piece Couple Pack",350,2],["Fry Piece Family",550,2],["Fry Piece Jumbo",800,2],
-["Paneer Biryani – Single",180,3],["Paneer Biryani – Full",250,3],["Paneer Biryani – Couple",400,3],["Paneer Biryani – Family",550,3],["Paneer Biryani – Jumbo",800,3],["Kaju Biryani Paneer",250,3],["Kaju Biryani",260,3],["Bagara with Chicken Curry",120,3],
-["Egg Fried Rice (Basmati)",90,4],["Egg Noodles",70,4],["Chicken Fried Rice",100,4],["Chicken Noodles",90,4],["Egg Manchuria",90,4],["Chicken Manchuria",120,4],["Chicken 65",150,4],["Chilli Chicken",140,4],["Kaju Chicken",160,4],["Veg Noodles",70,4],["Veg Fried Rice (Basmati)",80,4],["Manchuria Fried Rice",80,4],["Manchuria Noodles",70,4],["Kaju Fried Rice",100,4],["Veg Manchuria",80,4],["Paneer Fried Rice",90,4],["Kaju Egg Fried Rice",120,4],["Kaju Egg Noodles",110,4],["Kaju Noodles",100,4],["Chicken Curry",80,4],
-["Biryani Unlimited Rice – 1 piece (table only)",130,5],["Extra Piece",50,5],["Extra Rice",80,5]
+var ph=[
+  P+"34159109/pexels-photo-34159109/free-photo-of-traditional-kerala-chicken-biryani-in-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=900",
+  P+"32825910/pexels-photo-32825910/free-photo-of-delicious-biryani-preparation-with-lemon-squeeze.jpeg?auto=compress&cs=tinysrgb&w=900",
+  P+"34159106/pexels-photo-34159106/free-photo-of-traditional-kerala-chicken-biryani-in-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=900",
+  P+"34159112/pexels-photo-34159112/free-photo-of-traditional-indian-chicken-curry-and-rice.jpeg?auto=compress&cs=tinysrgb&w=900",
+  P+"34159113/pexels-photo-34159113/free-photo-of-authentic-kerala-chicken-curry-in-traditional-pot.jpeg?auto=compress&cs=tinysrgb&w=900"
 ];
-M.forEach(function(m,i){m.id=i});
-var cart={},cat=0,concerns=[];
+
 function $(i){return document.getElementById(i)}
-function rs(n){return "₹"+n}
 var tt;function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){e.classList.remove("on")},2800)}
 function photo(src,alt){var i=document.createElement("img");i.alt=alt||"";i.loading="lazy";i.referrerPolicy="no-referrer";i.onerror=function(){i.style.display="none"};i.src=src;return i}
 
 /* hero background + marquee */
-$("hero").style.setProperty("--hbg","url('"+IMG.fry+"')");
+$("hero").style.setProperty("--hbg","url('"+ph[1]+"')");
 var mk="Dum Biryani ✦ Fry Piece ✦ Paneer Biryani ✦ Kaju Biryani ✦ Fried Rice ✦ Noodles ✦ Chicken 65 ✦ Manchuria ✦ ";
 $("mq").textContent=mk+mk+mk+mk;
 
-/* 3D ring */
+/* 3D ring on hero */
 var ring=$("ring"),stage=$("stage"),ang=0,drag=false,lx=0;
-var ph=[IMG.biryani,IMG.fry,IMG.paneer,IMG.chinese,IMG.extras];
 ph.forEach(function(u,i){var d=document.createElement("div");d.className="panel";d.appendChild(photo(u,"Signature dish "+(i+1)));ring.appendChild(d)});
 function layout(){var r=window.innerWidth<520?170:250;for(var i=0;i<ph.length;i++)ring.children[i].style.transform="rotateY("+(i*360/ph.length)+"deg) translateZ("+r+"px)"}
 function spin(){if(!drag)ang+=.3;ring.style.transform="rotateX(-6deg) rotateY("+ang+"deg)";requestAnimationFrame(spin)}
@@ -198,59 +186,108 @@ window.addEventListener("pointerup",function(){drag=false});
 window.addEventListener("pointermove",function(e){if(drag){ang+=(e.clientX-lx)*.5;lx=e.clientX}});
 layout();window.addEventListener("resize",layout);spin();
 
-/* menu */
-function tabs(){var t=$("tabs");t.innerHTML="";CATS.forEach(function(c,i){var b=document.createElement("button");b.className="tab";b.textContent=c;b.setAttribute("aria-pressed",i===cat);b.onclick=function(){cat=i;tabs();grid()};t.appendChild(b)})}
-function grid(){
-var g=$("grid");g.innerHTML="";
-M.forEach(function(m){
-if(cat&&m[2]!==cat)return;
-var d=document.createElement("div");d.className="item";
-var top=document.createElement("div");top.className="ph";top.appendChild(photo(CAT_IMG[m[2]],m[0]));
-var pr=document.createElement("em");pr.textContent=rs(m[1]);top.appendChild(pr);
-var bd=document.createElement("div");bd.className="bd";
-var h=document.createElement("h3");h.textContent=m[0];bd.appendChild(h);
-var q=cart[m.id]||0,qb=document.createElement("div");qb.className="qty";
-if(!q){var a=document.createElement("button");a.className="add";a.textContent="Add to order";a.onclick=function(){chg(m.id,1)};qb.appendChild(a)}
-else{var mi=document.createElement("button");mi.textContent="−";mi.setAttribute("aria-label","Remove one");mi.onclick=function(){chg(m.id,-1)};
-var sp=document.createElement("span");sp.textContent=q;
-var pl=document.createElement("button");pl.textContent="+";pl.setAttribute("aria-label","Add one");pl.onclick=function(){chg(m.id,1)};
-qb.appendChild(mi);qb.appendChild(sp);qb.appendChild(pl)}
-bd.appendChild(qb);d.appendChild(top);d.appendChild(bd);
-d.addEventListener("pointermove",function(e){if(e.pointerType==="touch")return;var r=d.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;d.style.transform="rotateY("+((x-.5)*16)+"deg) rotateX("+((.5-y)*16)+"deg) translateZ(10px)";d.style.setProperty("--gx",(x*100)+"%");d.style.setProperty("--gy",(y*100)+"%");d.style.setProperty("--go",1)});
-d.addEventListener("pointerleave",function(){d.style.transform="";d.style.setProperty("--go",0)});
-g.appendChild(d)})}
-function chg(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];grid();summary()}
-function totals(){var c=0,t=0;for(var k in cart){c+=cart[k];t+=cart[k]*M[+k][1]}return[c,t]}
-function summary(){
-var l=$("lines");l.innerHTML="";var tl=totals();
-if(!tl[0]){var e=document.createElement("li");e.className="empty";e.textContent="No dishes selected yet. Add dishes from the menu above.";l.appendChild(e)}
-for(var k in cart){var m=M[+k],li=document.createElement("li"),a=document.createElement("span"),b=document.createElement("span");a.textContent=cart[k]+" × "+m[0];b.textContent=rs(cart[k]*m[1]);li.appendChild(a);li.appendChild(b);l.appendChild(li)}
-$("total").textContent=rs(tl[1]);$("pc").textContent=tl[0]+" items";$("pt").textContent=rs(tl[1]);$("pill").classList.toggle("on",tl[0]>0)}
+/* 3D Interactive Menu Generation */
+var menuData = [
+  {
+    category: "Chicken Biryani",
+    items: [
+      { name: "Single Biryani (1 piece)", price: "₹120" },
+      { name: "Full Biryani (2 pieces)", price: "₹150" },
+      { name: "KG Biryani (3 pieces)", price: "₹180" },
+      { name: "Couple Pack (4 pieces)", price: "₹300" },
+      { name: "Family Pack (6 pieces)", price: "₹500" },
+      { name: "Jumbo Pack (9 pieces)", price: "₹750" }
+    ]
+  },
+  {
+    category: "Fry Piece Biryani",
+    items: [
+      { name: "Single", price: "₹160" },
+      { name: "Full", price: "₹250" },
+      { name: "Couple Pack", price: "₹350" },
+      { name: "Family", price: "₹550" },
+      { name: "Jumbo", price: "₹800" }
+    ]
+  },
+  {
+    category: "Paneer & Kaju",
+    items: [
+      { name: "Paneer Biryani – Single", price: "₹180" },
+      { name: "Paneer Biryani – Full", price: "₹250" },
+      { name: "Paneer Biryani – Family", price: "₹550" },
+      { name: "Kaju Biryani", price: "₹260" },
+      { name: "Bagara with Chicken Curry", price: "₹120" }
+    ]
+  },
+  {
+    category: "Rice & Noodles",
+    items: [
+      { name: "Egg Fried Rice (Basmati)", price: "₹90" },
+      { name: "Chicken Fried Rice", price: "₹100" },
+      { name: "Veg Noodles", price: "₹70" },
+      { name: "Chicken Noodles", price: "₹90" },
+      { name: "Kaju Egg Noodles", price: "₹110" },
+      { name: "Biryani Unlimited Rice (Table)", price: "₹130" }
+    ]
+  },
+  {
+    category: "Indo-Chinese Starters",
+    items: [
+      { name: "Chicken 65", price: "₹150" },
+      { name: "Chilli Chicken", price: "₹140" },
+      { name: "Kaju Chicken", price: "₹160" },
+      { name: "Chicken Manchuria", price: "₹120" },
+      { name: "Veg Manchuria", price: "₹80" },
+      { name: "Egg Manchuria", price: "₹90" }
+    ]
+  }
+];
 
-/* concerns */
-["Less spicy","Extra spicy","Extra raita","Pack separately","Call me before delivery","Need it urgently","Bulk or party order"].forEach(function(c){
-var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=c;b.setAttribute("aria-pressed","false");
-b.onclick=function(){var i=concerns.indexOf(c);if(i>-1)concerns.splice(i,1);else concerns.push(c);b.setAttribute("aria-pressed",i===-1)};
-$("chips").appendChild(b)});
+function build3DMenu() {
+  var grid = $("menu-grid");
+  menuData.forEach(function(cat) {
+    var scene = document.createElement("div");
+    scene.className = "scene";
+    
+    var card = document.createElement("div");
+    card.className = "card-3d";
+    card.onclick = function() {
+      // Toggle flip
+      this.classList.toggle("is-flipped");
+    };
+    
+    // Front Face
+    var front = document.createElement("div");
+    front.className = "card__face card__face--front";
+    front.innerHTML = `<h3>${cat.category}</h3>
+                       <p>Tap to View Varieties</p>
+                       <div class="tap-icon">
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-.553.894L15 18.5m-6-8.5v8.5m-6-8.5v8.5"/></svg>
+                       </div>`;
+    
+    // Back Face (List)
+    var back = document.createElement("div");
+    back.className = "card__face card__face--back";
+    var listHTML = `<h4>${cat.category}</h4><ul>`;
+    cat.items.forEach(function(item) {
+      listHTML += `<li><span>${item.name}</span> <span class="price">${item.price}</span></li>`;
+    });
+    listHTML += `</ul>`;
+    back.innerHTML = listHTML;
+    
+    card.appendChild(front);
+    card.appendChild(back);
+    scene.appendChild(card);
+    grid.appendChild(scene);
+  });
+}
+build3DMenu();
 
-/* send order to owner's WhatsApp */
-$("send").onclick=function(){
-var tl=totals(),note=$("nt").value.trim(),nm=$("nm").value.trim();
-if(!tl[0]&&!note&&!concerns.length){$("err").textContent="Select at least one dish or write your concern before sending.";return}
-$("err").textContent="";
-var L=["*New request – Al-Gani's Ali Bhai Biryani*","Name: "+(nm||"Not given"),"Order type: "+$("ty").value,""];
-if(tl[0]){L.push("*Items*");for(var k in cart){var m=M[+k];L.push(cart[k]+" x "+m[0]+" – "+rs(cart[k]*m[1]))}L.push("*Total: "+rs(tl[1])+"*")}
-else L.push("(No dishes selected – enquiry only)");
-if(concerns.length)L.push("","*Concerns:* "+concerns.join(", "));
-if(note)L.push("","*Message:* "+note);
-window.open("https://wa.me/"+PH+"?text="+encodeURIComponent(L.join("\n")),"_blank","noopener");
-toast("Opening WhatsApp with your order…")};
-
-/* reviews: 16 x 16 x 16 x 14 = 57,000+ unique reviews */
-var A=["Absolutely loved the biryani here!","Best biryani in Khammam, hands down.","Went with my family and everyone enjoyed it.","Such a satisfying meal at a fair price.","Finally found a proper dum biryani spot.","Tried it on a friend's suggestion and it was worth it.","Great food and great vibes.","Had lunch here today and was thoroughly impressed.","This place never disappoints.","What a flavourful experience!","Came here after work and left very happy.","Genuinely tasty food from the first bite.","One of my favourite biryani places now.","Highly recommend Ali Bhai Biryani.","Ordered for a group and it was a hit.","A real hidden gem in Indira Nagar."];
-var B=["The chicken biryani was fragrant, perfectly spiced and the pieces were tender.","The fry piece biryani had crisp, juicy chicken with rich masala rice.","The paneer biryani was soft, flavourful and well balanced.","The kaju biryani was rich and generous with cashews.","The chicken 65 was crunchy outside and juicy inside.","The chicken fried rice and noodles were hot, fresh and full of flavour.","The chicken manchuria was spicy, saucy and just right.","The jumbo pack was great value for our group.","The bagara rice with chicken curry tasted homely and delicious.","The egg fried rice was fluffy and well cooked.","The unlimited rice with biryani was a real treat.","The basmati rice was long-grained, aromatic and not oily.","The chilli chicken had a perfect kick.","The portions were generous for the price.","The kaju chicken was creamy and full of taste.","The veg fried rice and manchuria combo was excellent."];
-var C=["Service was quick and the staff were polite.","The place was clean and the team was very friendly.","Food was served hot and fresh.","The owner was welcoming and made sure we were happy.","Takeaway packing was neat and nothing spilled.","Seating was comfortable and the atmosphere was pleasant.","Delivery arrived on time and still piping hot.","Prices are very reasonable for this quality.","The staff handled our order without any delay.","Hygiene and taste both stood out.","Great hospitality from the whole team.","Quick service even during the rush.","Everything tasted freshly made.","The menu has plenty of choices for every taste.","Ordering on WhatsApp was smooth and easy.","They even adjusted the spice level for us."];
-var D=["Will definitely visit again!","Five stars from me.","Do try it once, you will come back.","Perfect for family dinners and group orders.","Keep up the great work!","Totally worth every rupee.","Already planning my next visit.","Recommended to all biryani lovers in Khammam.","A must-visit near Indira Nagar.","Thank you, Ali Bhai team!","Highly recommended.","Great job, keep serving this taste.","Easily five stars.","Can't wait to order again."];
+/* reviews generator */
+var A=["Absolutely loved the biryani here!","Best biryani in Khammam, hands down.","Went with my family and everyone enjoyed it.","Such a satisfying meal at a fair price.","Finally found a proper dum biryani spot."];
+var B=["The chicken biryani was fragrant, perfectly spiced and the pieces were tender.","The fry piece biryani had crisp, juicy chicken with rich masala rice.","The paneer biryani was soft, flavourful and well balanced.","The chicken 65 was crunchy outside and juicy inside."];
+var C=["Service was quick and the staff were polite.","The place was clean and the team was very friendly.","Food was served hot and fresh.","Prices are very reasonable for this quality.","Everything tasted freshly made."];
+var D=["Will definitely visit again!","Five stars from me.","Do try it once, you will come back.","Perfect for family dinners and group orders.","Highly recommended."];
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
 var lastR="";
 function gen(){var r;do{r=[pick(A),pick(B),pick(C),pick(D)].join(" ")}while(r===lastR);lastR=r;var q=$("quote");q.textContent=r;q.classList.remove("pop");void q.offsetWidth;q.classList.add("pop");return r}
@@ -262,9 +299,8 @@ return ok}
 $("post").onclick=function(){
 var t=gen(),ok=copy(t);
 window.open(REVIEW_URL,"_blank","noopener");
-toast(ok?"Review copied. Paste it on Google and post.":"Opening Google Reviews. Press and hold the text above to copy it.")};
+toast(ok?"Review copied! Paste it on Google.":"Opening Google Reviews. Press and hold to copy text above.")};
 
-tabs();grid();summary();
 })();
 </script>
 </body>
