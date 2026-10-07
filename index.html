@@ -4,372 +4,436 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Gani's Ali Bhai Biryani – Khammam</title>
-<meta name="description" content="Al-Gani's Ali Bhai Biryani, Khammam. Dum biryani, fry piece, paneer and kaju biryani, fried rice, noodles and Indo-Chinese. Order on WhatsApp.">
-<link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060606;--surf:#121212;--p:#ff5722;--pl:#ff9a6b;--glow:rgba(255,87,34,.42);--tx:#fff;--mu:#a9a9a9;--glass:rgba(22,22,22,.72);--bd:rgba(255,255,255,.09);--grad:linear-gradient(135deg,#ffa270,#ff5722);--wa:#22c15e;box-sizing:border-box}
-body.crimson{--bg:#1a0505;--surf:#2b0a0a;--p:#d4af37;--pl:#f3e5ab;--glow:rgba(212,175,55,.42);--glass:rgba(42,10,10,.72);--grad:linear-gradient(135deg,#f3e5ab,#d4af37)}
-*,*:before,*:after{box-sizing:inherit}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:Manrope,system-ui,sans-serif;line-height:1.6;overflow-x:hidden;transition:background .5s;padding-bottom:env(safe-area-inset-bottom,0px)}
-h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;margin:0;font-weight:800}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit}
-:focus-visible{outline:3px solid var(--pl);outline-offset:3px}
-#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
-main,header,footer,.marq{position:relative;z-index:1}
-.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
-section{padding:90px 0}
-.ac{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-h2{font-size:clamp(2.1rem,5vw,3.4rem);text-align:center}
-.sub{text-align:center;color:var(--mu);max-width:620px;margin:12px auto 40px;font-size:1.05rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:15px 30px;font:800 .98rem Manrope,sans-serif;cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.3,1.3),box-shadow .35s}
-.bp{background:var(--grad);color:#111;box-shadow:0 10px 28px var(--glow)}
-.bp:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 16px 38px var(--glow)}
-.bo{background:transparent;border:1.5px solid var(--p);color:var(--pl)}
-.bo:hover{background:var(--glow);color:#fff;transform:translateY(-4px)}
-.bw{background:linear-gradient(135deg,#3ee27f,var(--wa));color:#04230f;box-shadow:0 10px 28px rgba(34,193,94,.38)}
-.bw:hover{transform:translateY(-3px) scale(1.02)}
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding-top:env(safe-area-inset-top,0px);background:rgba(6,6,6,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
-body.crimson nav{background:rgba(26,5,5,.8)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-nav b{font:800 1.25rem 'Playfair Display',serif;white-space:nowrap}
-.links{display:flex;gap:22px;align-items:center;font-size:.9rem;font-weight:600}
-.links a{color:var(--mu);transition:color .3s}.links a:hover{color:var(--pl)}
-.tg{background:var(--glass);border:1px solid var(--bd);color:var(--pl);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:.82rem}
-.tg:hover{background:var(--glow);color:#fff}
-@media(max-width:640px){.links a{display:none}}
-/* hero */
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;text-align:center;perspective:1300px;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,var(--glow),transparent 55%);opacity:.55;pointer-events:none}
-.hc{position:relative;transform-style:preserve-3d;transition:transform .12s ease-out}
-.logo{width:min(210px,52vw);border-radius:30px;background:#fff;padding:8px;box-shadow:0 0 0 3px var(--p),0 24px 60px var(--glow);animation:fl 6s ease-in-out infinite;transform:translateZ(40px)}
-@keyframes fl{50%{transform:translateY(-14px) translateZ(40px) rotateY(8deg)}}
-.hero h1{font-size:clamp(2.8rem,9vw,6.4rem);line-height:1.04;margin:22px 0 16px;transform:translateZ(30px)}
-.hero p{font-size:1.1rem;color:var(--mu);max-width:600px;margin:0 auto 20px;transform:translateZ(20px)}
-.stage{perspective:1300px;height:360px;margin:34px auto 26px;cursor:grab;touch-action:pan-y;position:relative}
-.stage:active{cursor:grabbing}
-.ring{position:absolute;left:50%;top:48%;width:210px;height:270px;margin:-135px 0 0 -105px;transform-style:preserve-3d}
-.pn{position:absolute;inset:0;border-radius:24px;overflow:hidden;border:1px solid var(--bd);background:var(--surf);box-shadow:0 24px 44px rgba(0,0,0,.85);-webkit-box-reflect:below 8px linear-gradient(transparent 62%,rgba(255,255,255,.16))}
-.pn img{width:100%;height:100%;object-fit:cover;display:block}
-.pn:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.7))}
-.ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;transform:translateZ(40px)}
-/* marquee */
-.marq{border-block:1px solid var(--bd);background:var(--surf);overflow:hidden;white-space:nowrap;padding:18px 0}
-.marq span{display:inline-block;animation:mq 38s linear infinite;font:700 1.15rem 'Playfair Display',serif;color:var(--pl);letter-spacing:2px;text-transform:uppercase}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* menu cards */
-.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:38px;perspective:1600px}
-.scene{height:540px;animation:hf 7s ease-in-out infinite}
-.scene:nth-child(2n){animation-delay:-2.3s}.scene:nth-child(3n){animation-delay:-4.6s}
-@keyframes hf{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.c3{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.8,.2,1);cursor:pointer}
-.c3.flip{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;border-radius:30px;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;border:1px solid var(--bd);box-shadow:0 28px 54px rgba(0,0,0,.8)}
-.front{display:flex;align-items:flex-end;justify-content:center;text-align:center;background:var(--surf) center/cover no-repeat}
-.front:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.96) 8%,rgba(0,0,0,.2) 70%)}
-.fc{position:relative;padding:34px 24px;width:100%}
-.fc h3{font-size:2.1rem;line-height:1.15;text-shadow:0 8px 24px #000}
-.fc p{margin:10px 0 0;color:var(--pl);font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:.8rem}
-.cnt{display:inline-block;margin-top:14px;padding:5px 14px;border-radius:999px;background:var(--glow);border:1px solid var(--p);font-size:.78rem;font-weight:700}
-.tap{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;background:var(--glass);border:1px solid var(--p);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-.tap:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid var(--p);animation:rp 2s infinite}
-@keyframes rp{from{transform:scale(1);opacity:.9}to{transform:scale(1.9);opacity:0}}
-.back{transform:rotateY(180deg);background:linear-gradient(160deg,var(--surf),var(--bg));padding:26px 18px 18px;display:flex;flex-direction:column;cursor:default}
-.back h4{color:var(--pl);font-size:1.45rem;text-align:center;padding-bottom:14px;border-bottom:1px solid var(--bd);margin-bottom:6px}
-.bs{flex:1;overflow-y:auto;padding-right:8px;-webkit-overflow-scrolling:touch}
-.bs::-webkit-scrollbar{width:4px}.bs::-webkit-scrollbar-thumb{background:var(--p);border-radius:9px}
-.bs ul{list-style:none;margin:0;padding:0}
-.bs li{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px dashed var(--bd);font-size:.93rem;font-weight:600}
-.bs li .n{flex:1}
-.bs li .n small{display:block;color:var(--mu);font-weight:500;font-size:.76rem}
-.bs li strong{color:var(--p);font:800 1.05rem 'Playfair Display',serif;white-space:nowrap}
-.q{display:flex;align-items:center;gap:6px}
-.q button{width:30px;height:30px;border-radius:50%;border:0;background:var(--grad);color:#111;font-size:1.05rem;font-weight:800;cursor:pointer;line-height:1}
-.q button.mi{background:var(--glass);color:var(--tx);border:1px solid var(--bd)}
-.q span{min-width:18px;text-align:center;font-weight:800;font-size:.9rem}
-.fb{margin-top:12px;background:transparent;border:1px solid var(--bd);color:var(--mu);border-radius:999px;padding:9px;cursor:pointer;font-weight:700;font-size:.82rem}
-.fb:hover{color:#fff;border-color:var(--p)}
-/* review */
-.rz{position:relative;max-width:920px;margin:0 auto;border-radius:34px;overflow:hidden;border:1px solid var(--bd);background:var(--surf);box-shadow:0 30px 70px rgba(0,0,0,.7)}
-.rt{position:absolute;inset:0;display:flex;width:200%;animation:sb 45s linear infinite;opacity:.28}
-.rt img{width:10%;height:100%;object-fit:cover;filter:saturate(.8)}
-@keyframes sb{to{transform:translateX(-50%)}}
-.rg{position:relative;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:58px 34px;text-align:center}
-.st{color:var(--p);font-size:2.4rem;letter-spacing:10px;text-shadow:0 0 22px var(--glow);margin:6px 0 20px}
-.qt{background:rgba(0,0,0,.55);border-left:4px solid var(--p);border-radius:10px;padding:26px;margin:0 auto 28px;min-height:130px;font-style:italic;font-size:1.15rem;max-width:660px;display:flex;align-items:center;justify-content:center;line-height:1.8}
-.qt.pop{animation:pp .6s cubic-bezier(.2,.9,.3,1.3)}
-@keyframes pp{from{opacity:0;transform:scale(.95) translateY(10px)}}
-/* contact */
-.cl{display:grid;gap:34px}
-@media(min-width:900px){.cl{grid-template-columns:1fr 1fr;align-items:stretch}}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;perspective:1000px}
-.cc{background:var(--glass);border:1px solid var(--bd);border-radius:24px;padding:30px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .4s cubic-bezier(.2,.9,.3,1.3)}
-.cc:hover{transform:translateY(-10px) rotateX(6deg);background:var(--glow);border-color:var(--p);box-shadow:0 22px 44px rgba(0,0,0,.6)}
-.cc b{font:800 1.35rem 'Playfair Display',serif;color:var(--pl);margin-bottom:4px}
-.cc span{color:var(--mu);font-size:.9rem}
-.map{background:var(--glass);border:1px solid var(--bd);border-radius:26px;padding:10px;box-shadow:0 26px 60px rgba(0,0,0,.65);transition:transform .4s;min-height:340px}
-.map:hover{transform:scale(1.02) rotateY(-2deg) rotateX(2deg)}
-.map iframe{width:100%;height:100%;min-height:320px;border:0;border-radius:18px}
-footer{text-align:center;padding:60px 20px 110px;border-top:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;gap:26px;background:var(--bg)}
-footer .cp{color:var(--mu);font-size:.92rem}
-.dev{display:inline-flex;align-items:center;gap:14px;background:var(--surf);border:1px solid var(--bd);padding:13px 28px;border-radius:999px;transition:all .4s cubic-bezier(.2,.9,.3,1.3)}
-.dev:hover{background:var(--p);transform:translateY(-5px);box-shadow:0 16px 32px var(--glow)}
-.dev svg{width:21px;height:21px;fill:var(--p);transition:.3s}
-.dev span{color:var(--mu);font-weight:700;font-size:.88rem;transition:.3s}
-.dev:hover svg{fill:#000}.dev:hover span{color:#000}
-/* cart */
-.pill{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:120;display:none}
-.pill.on{display:inline-flex}
-.sheet{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
-.sheet.on{display:flex}
-.sb2{width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:var(--surf);border:1px solid var(--bd);border-radius:30px 30px 0 0;padding:26px 22px calc(26px + env(safe-area-inset-bottom,0px));animation:up .4s cubic-bezier(.2,.9,.3,1.1)}
-@keyframes up{from{transform:translateY(60px);opacity:0}}
-.sb2 h3{font-size:1.7rem;margin-bottom:8px}
-.ln{list-style:none;margin:0;padding:0}
-.ln li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--bd);font-size:.92rem}
-.tot{display:flex;justify-content:space-between;font:800 1.4rem 'Playfair Display',serif;color:var(--pl);padding-top:12px}
-label{display:block;font-weight:800;font-size:.82rem;margin:16px 0 6px;color:var(--pl)}
-input,textarea,select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--bd);background:rgba(0,0,0,.35);color:var(--tx);font:500 .95rem Manrope,sans-serif}
-select option{background:#151515}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--bd);background:transparent;color:var(--tx);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.8rem;cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--p);border-color:var(--p);color:#111}
-.err{color:#ff8f8f;font-size:.85rem;min-height:1.3em;margin:8px 0}
-.row2{display:flex;gap:10px;margin-top:6px}
-.toast{position:fixed;left:50%;bottom:calc(40px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#fff;color:#000;padding:15px 30px;border-radius:999px;opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.9,.3,1.3);z-index:300;font-weight:800;box-shadow:0 20px 50px rgba(0,0,0,.6);text-align:center;max-width:92vw}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+:root {
+    --primary: #FF4500;
+    --bg-dark: #0f0f11;
+    --text-light: #ffffff;
+    --text-muted: #8b8b93;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+*, *:before, *:after { box-sizing: inherit; }
+body, html { 
+    margin: 0; padding: 0; width: 100%; height: 100%; 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--bg-dark); 
+    color: var(--text-light); 
+    overflow: hidden; /* Prevents scroll, acts as a web-app */
+}
+
+/* Background Giant Text */
+.bg-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(8rem, 20vw, 25rem);
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Navigation */
+nav {
+    position: absolute; top: 0; left: 0; width: 100%;
+    padding: 30px 5vw; display: flex; justify-content: space-between; align-items: center;
+    z-index: 10;
+}
+.logo-container { display: flex; align-items: center; gap: 15px; }
+.logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); transition: 0.5s ease;}
+.logo-text { font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Main Slider Layout */
+.slider-container {
+    position: relative; width: 100%; height: 100vh;
+    display: flex; align-items: center; z-index: 2;
+    padding: 0 5vw;
+}
+
+/* Left Content Area */
+.content-area {
+    flex: 1; max-width: 600px;
+    opacity: 1; transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.content-area.fade-out { opacity: 0; transform: translateY(-30px); }
+.badge {
+    display: inline-block; padding: 8px 16px; border-radius: 50px;
+    background: var(--glass); border: 1px solid var(--border);
+    color: var(--primary); font-weight: 700; margin-bottom: 20px;
+    letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;
+    backdrop-filter: blur(10px); transition: 0.5s ease;
+}
+.title { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.1; margin: 0 0 20px; }
+.desc { font-size: 1.2rem; color: var(--text-muted); margin: 0 0 40px; max-width: 450px; line-height: 1.6; }
+.price-row { display: flex; align-items: center; gap: 30px; }
+.price { font-size: 3rem; font-weight: 900; color: var(--primary); transition: 0.5s ease;}
+.btn-order {
+    background: var(--primary); color: #fff; border: none;
+    padding: 18px 40px; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; gap: 10px;
+    transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+}
+.btn-order:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5); }
+
+/* Right Visual Area (Interactive Food) */
+.visual-area {
+    flex: 1; position: relative; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+.food-plate-container {
+    position: relative; width: clamp(300px, 40vw, 600px); height: clamp(300px, 40vw, 600px);
+    cursor: pointer; z-index: 5;
+}
+.food-plate {
+    width: 100%; height: 100%; border-radius: 50%;
+    background-size: cover; background-position: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.5);
+    animation: rotatePlate 40s linear infinite;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative; border: 4px solid rgba(255,255,255,0.05);
+}
+@keyframes rotatePlate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.food-plate-container:hover .food-plate { transform: scale(1.05); box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 0 10px var(--glass); }
+.food-plate-container:hover .tap-hint { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+.tap-hint {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+    color: #fff; padding: 15px 25px; border-radius: 50px;
+    font-weight: 700; font-size: 1rem; opacity: 0;
+    transition: all 0.3s ease; pointer-events: none; border: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+/* Floating UI Badges */
+.floating-badge {
+    position: absolute; background: var(--glass); backdrop-filter: blur(12px);
+    border: 1px solid var(--border); padding: 15px 25px; border-radius: 20px;
+    display: flex; align-items: center; gap: 15px; font-weight: 700;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 6;
+    animation: float 6s ease-in-out infinite;
+}
+.fb-1 { top: 20%; right: -5%; animation-delay: 0s; }
+.fb-2 { bottom: 15%; left: 0%; animation-delay: -3s; }
+.floating-badge span { font-size: 1.5rem; color: #FFD700; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* Slider Controls */
+.controls {
+    position: absolute; bottom: 40px; left: 5vw; display: flex; gap: 10px; z-index: 10;
+}
+.dot {
+    width: 40px; height: 4px; background: rgba(255,255,255,0.2);
+    border-radius: 2px; cursor: pointer; transition: 0.3s; overflow: hidden; position: relative;
+}
+.dot.active { background: rgba(255,255,255,0.4); width: 60px; }
+.dot-fill {
+    position: absolute; top: 0; left: 0; height: 100%; width: 0%;
+    background: var(--primary); transition: background 0.5s ease;
+}
+
+/* "How it's made" Modal Overlay */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 12, 0.95); backdrop-filter: blur(20px);
+    z-index: 1000; display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px;
+    max-width: 1000px; width: 90%; background: var(--glass);
+    border: 1px solid var(--border); border-radius: 30px; padding: 50px;
+    transform: translateY(50px) scale(0.95); transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8); position: relative;
+}
+.modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+.modal-close {
+    position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1);
+    border: none; color: #fff; width: 40px; height: 40px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; transition: 0.3s;
+}
+.modal-close:hover { background: var(--primary); transform: rotate(90deg); }
+.modal-image {
+    width: 100%; aspect-ratio: 1; border-radius: 50%;
+    background-size: cover; background-position: center;
+    border: 4px solid var(--primary); box-shadow: 0 0 50px var(--primary-glow);
+    animation: rotatePlate 20s linear infinite;
+}
+.modal-info h3 { font-size: 2.5rem; margin: 0 0 10px; font-family: 'Playfair Display', serif; }
+.modal-info p { color: var(--text-muted); margin: 0 0 30px; font-size: 1.1rem; }
+.process-list { list-style: none; padding: 0; margin: 0; }
+.process-list li {
+    display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;
+    background: rgba(0,0,0,0.3); padding: 15px 20px; border-radius: 15px;
+    border-left: 4px solid var(--primary);
+}
+.process-list li span.step { font-weight: 900; color: var(--primary); font-size: 1.2rem; }
+.process-list li p { margin: 0; color: #e0e0e0; font-size: 1rem; }
+
+/* Developer Link */
+.dev-link {
+    position: absolute; bottom: 20px; right: 5vw;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--glass); border: 1px solid var(--border);
+    padding: 10px 20px; border-radius: 50px; text-decoration: none;
+    color: var(--text-muted); font-size: 0.8rem; font-weight: 700;
+    transition: 0.3s; z-index: 10; backdrop-filter: blur(5px);
+}
+.dev-link:hover { color: #fff; border-color: var(--primary); background: rgba(0,0,0,0.5); }
+
+@media (max-width: 900px) {
+    body, html { overflow-y: auto; overflow-x: hidden; height: auto; }
+    .slider-container { flex-direction: column; height: auto; padding: 120px 5vw 100px; gap: 50px; text-align: center; }
+    .price-row { justify-content: center; }
+    .modal-content { grid-template-columns: 1fr; padding: 30px; }
+    .modal-image { width: 60%; margin: 0 auto; }
+    .controls { position: relative; bottom: auto; left: auto; justify-content: center; margin-top: 20px; }
+    .dev-link { position: relative; right: auto; bottom: auto; margin: 20px auto; width: max-content; }
+    nav { padding: 20px 5vw; }
+    .nav-links { display: none; }
+    .bg-text { font-size: 6rem; }
+}
 </style>
 </head>
 <body>
-<canvas id="fx" aria-hidden="true"></canvas>
 
-<nav><div class="wrap"><b class="ac">Ali Bhai Biryani</b>
-<div class="links"><a href="#menu">Menu</a><a href="#review">Reviews</a><a href="#contact">Visit</a><button class="tg" id="tg" type="button">🎨 Theme</button></div></div></nav>
+<div class="bg-text" id="bg-text">BIRYANI</div>
 
-<header class="hero" id="hero"><div class="wrap hc" id="hc">
-<img class="logo" src="logo.jpg" alt="Al-Gani's Ali Bhai Biryani logo">
-<h1>Real Taste.<br><span class="ac">Real Biryani.</span></h1>
-<p>Slow-cooked dum biryani, crispy fry piece, royal paneer and kaju biryani, and fiery Indo-Chinese. The true taste of Khammam.</p>
-<div class="stage" id="stage" aria-label="Drag or swipe to rotate the food gallery"><div class="ring" id="ring"></div></div>
-<div class="ctas"><a class="btn bp" href="#menu">Order from the Menu</a><a class="btn bo" href="tel:+919848564387">Call for Reservations</a></div>
-</div></header>
+<nav>
+    <div class="logo-container">
+        <img class="logo-img" src="alibhailogo.jpeg" alt="Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzExMSIvPjwvc3ZnPg=='">
+        <span class="logo-text">ALI BHAI</span>
+    </div>
+    <div class="nav-links">
+        <a href="#menu">Menu</a>
+        <a href="#story">Our Story</a>
+        <a href="tel:+919848564387">Contact</a>
+    </div>
+</nav>
 
-<div class="marq" aria-hidden="true"><span id="mq"></span></div>
+<div class="slider-container">
+    <div class="content-area" id="content-area">
+        <div class="badge" id="slide-category">Premium Biryani</div>
+        <h1 class="title" id="slide-title">Royal Dum<br>Biryani</h1>
+        <p class="desc" id="slide-desc">Slow-cooked to perfection over firewood. Every grain of basmati is infused with our secret family spices and tender chicken.</p>
+        <div class="price-row">
+            <span class="price" id="slide-price">150/-</span>
+            <button class="btn-order" onclick="window.open('https://wa.me/919848564387', '_blank')">Order Now</button>
+        </div>
+    </div>
 
-<main>
-<section id="menu"><div class="wrap">
-<h2 class="ac">The Royal Menu</h2>
-<p class="sub">Tap a card to flip it and see every dish with its price. Use + to add dishes, then send your order to the owner on WhatsApp.</p>
-<div class="mg" id="mg"></div>
-</div></section>
-
-<section id="review"><div class="wrap">
-<div class="rz"><div class="rt" id="rt"></div>
-<div class="rg">
-<h2>Loved the food?</h2>
-<p class="sub" style="color:#ccc">One tap writes a fresh 5-star review, copies it and opens our Google page. Paste it, choose your stars and post.</p>
-<div class="st" aria-hidden="true">★★★★★</div>
-<div class="qt" id="qt" aria-live="polite">Your review will appear here.</div>
-<button class="btn bp" id="post" type="button">Write, Copy &amp; Open Google</button>
-</div></div>
-</div></section>
-
-<section id="contact"><div class="wrap">
-<h2 class="ac">Visit Us</h2>
-<p class="sub">Bridge, near Tekulapalli, Indira Nagar, Rotary Nagar, Khammam, Telangana.</p>
-<div class="cl">
-<div class="cards">
-<a class="cc" href="tel:+919848564387"><b>Call</b><span>Talk to the team</span></a>
-<a class="cc" href="https://wa.me/919848564387" target="_blank" rel="noopener"><b>WhatsApp</b><span>Direct order</span></a>
-<a class="cc" href="https://www.instagram.com/alganisalibhaibiryani27?stkn=MTg5OHA4d3FzNmhncw%3D%3D" target="_blank" rel="noopener"><b>Instagram</b><span>Follow us</span></a>
-<a class="cc" href="https://www.google.com/maps?cid=11349762933536175206" target="_blank" rel="noopener"><b>Directions</b><span>Open in Google Maps</span></a>
+    <div class="visual-area">
+        <div class="floating-badge fb-1"><span>⭐</span> 4.9 Rating</div>
+        <div class="floating-badge fb-2"><span>🔥</span> Best Seller</div>
+        
+        <div class="food-plate-container" onclick="openModal()">
+            <!-- Uses Pexels Food images masked as circular plates to simulate Dribbble top-down 3D UI -->
+            <div class="food-plate" id="food-plate" style="background-image: url('https://images.pexels.com/photos/34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=800')"></div>
+            <div class="tap-hint">👆 Tap to see how it's made</div>
+        </div>
+    </div>
 </div>
-<div class="map"><iframe title="Map to Al-Gani's Ali Bhai Biryani" src="https://maps.google.com/maps?q=17.2489581,80.1736228&hl=en&z=15&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+<div class="controls" id="controls">
+    <!-- Dots generated by JS -->
 </div>
-</div></section>
-</main>
 
-<footer>
-<div class="cp">© Al-Gani's Ali Bhai Biryani &amp; Cafe Restaurant, Khammam</div>
-<a class="dev" href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-<span>Syed Zeeshaan Ali | High-Fledged Engineering</span></a>
-</footer>
+<a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener" class="dev-link">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    Developed by Syed Zeeshaan Ali
+</a>
 
-<button class="btn bw pill" id="pill" type="button">🛒 <span id="pc">0 items</span> · <span id="pt">₹0</span></button>
-
-<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Your order"><div class="sb2">
-<h3 class="ac">Your Order</h3>
-<ul class="ln" id="ln"></ul>
-<div class="tot"><span>Total</span><span id="tot">₹0</span></div>
-<label for="nm">Your name</label><input id="nm" autocomplete="name" placeholder="Your name">
-<label for="ty">Order type</label>
-<select id="ty"><option>Dine-in (table)</option><option>Takeaway</option><option>Home delivery</option></select>
-<label>Quick concerns</label><div class="chips" id="chips"></div>
-<label for="nt">Message to the owner</label>
-<textarea id="nt" rows="3" placeholder="Example: less spicy, deliver to Indira Nagar, call before arriving"></textarea>
-<p class="err" id="err" role="alert"></p>
-<div class="row2"><button class="btn bw" id="send" type="button" style="flex:1">Send on WhatsApp</button><button class="btn bo" id="close" type="button">Close</button></div>
-</div></div>
-
-<div class="toast" id="toast" role="status"></div>
+<!-- Interactive "How it's made" Modal -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-image" id="modal-img"></div>
+        <div class="modal-info">
+            <h3 id="modal-title">Behind the Magic</h3>
+            <p id="modal-desc">Discover the authentic process behind our signature dish.</p>
+            <ul class="process-list" id="modal-process">
+                <!-- Injected via JS -->
+            </ul>
+        </div>
+    </div>
+</div>
 
 <script>
-(function(){
-"use strict";
-var PH="919848564387";
-var REVIEW_URL="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0";
-var CATS=[
- {t:"Chicken Biryani",img:"biryani.jpg",pos:"center"},
- {t:"Fry Piece Biryani",img:"bowl1.jpg",pos:"center"},
- {t:"Paneer & Kaju",img:"bowl2.jpg",pos:"center"},
- {t:"Fried Rice & Noodles",img:"noodles.jpg",pos:"center"},
- {t:"Manchuria & Starters",img:"manchuria.jpg",pos:"center"},
- {t:"Unlimited Rice",img:"biryani.jpg",pos:"20% center"}
+// Slide Data extracted from your menu image & adapted to Dribbble aesthetic
+const slides = [
+    {
+        bgText: "BIRYANI",
+        category: "Signature Item",
+        title: "Royal Dum<br>Biryani",
+        desc: "Slow-cooked to perfection. Every grain of basmati is infused with our secret family spices and incredibly tender chicken pieces.",
+        price: "150/-",
+        color: "#FF4500", // Vibrant Orange
+        img: "https://images.pexels.com/photos/34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        process: [
+            { step: "01", text: "Marination: Fresh chicken marinated overnight in rich yogurt and 12 secret spices." },
+            { step: "02", text: "Layering: Aromatic long-grain basmati rice layered carefully over the meat." },
+            { step: "03", text: "Dum Cooking: Sealed in a handi and slow-cooked over low flame to trap all flavors." }
+        ]
+    },
+    {
+        bgText: "CRISPY",
+        category: "Crowd Favorite",
+        title: "Crispy Fry<br>Piece",
+        desc: "A bold explosion of flavors. Perfectly fried, heavily spiced chicken served atop our rich, aromatic bagara rice.",
+        price: "250/-",
+        color: "#FFB300", // Warm Amber
+        img: "https://images.pexels.com/photos/32825910/pexels-photo-32825910.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        process: [
+            { step: "01", text: "Spice Rub: Coated in a fiery blend of Guntur chilies and roasted coriander." },
+            { step: "02", text: "Deep Fry: Flash-fried to achieve a perfectly crisp exterior while locking in juices." },
+            { step: "03", text: "Plating: Served piping hot alongside fragrant biryani rice and fresh raita." }
+        ]
+    },
+    {
+        bgText: "ROYAL",
+        category: "Vegetarian Premium",
+        title: "Kaju Paneer<br>Biryani",
+        desc: "A regal vegetarian feast. Soft paneer cubes and golden roasted cashews nestled in fragrant, spiced basmati.",
+        price: "250/-",
+        color: "#00E676", // Fresh Green
+        img: "https://images.pexels.com/photos/34159106/pexels-photo-34159106.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        process: [
+            { step: "01", text: "Roasting: Premium whole cashews gently roasted in pure desi ghee until golden." },
+            { step: "02", text: "Paneer Toss: Fresh malai paneer cubes tossed in a rich, mild spice gravy." },
+            { step: "03", text: "The Mix: Folded gently into steaming biryani rice, garnished with fried onions." }
+        ]
+    }
 ];
-var GAL=["bowl1.jpg","biryani.jpg","noodles.jpg","manchuria.jpg","bowl2.jpg"];
-/* [name, detail, price, category index] – taken from the printed menu */
-var M=[
-["Single Biryani (Chicken)","1 piece",120,0],["Full Chicken Biryani","2 pieces",150,0],["KG Biryani (Chicken)","3 pieces",180,0],["Couple Pack Chicken Biryani","4 pieces",300,0],["Family Chicken Biryani","6 pieces",500,0],["Jumbo Chicken Biryani","9 pieces",750,0],
-["Fry Piece Biryani – Single","",160,1],["Fry Piece Biryani – Full","",250,1],["Fry Piece Couple Pack","",350,1],["Fry Piece Family","",550,1],["Fry Piece Jumbo","",800,1],
-["Paneer Biryani – Single","",180,2],["Paneer Biryani – Full","",250,2],["Paneer Biryani – Couple","",400,2],["Paneer Biryani – Family","",550,2],["Paneer Biryani – Jumbo","",800,2],["Kaju Biryani Paneer","",250,2],["Kaju Biryani","",260,2],["Bagara with Chicken Curry","",120,2],
-["Egg Fried Rice","Basmati",90,3],["Egg Noodles","",70,3],["Chicken Fried Rice","",100,3],["Chicken Noodles","",90,3],["Veg Noodles","",70,3],["Veg Fried Rice","Basmati",80,3],["Manchuria Fried Rice","",80,3],["Manchuria Noodles","",70,3],["Kaju Fried Rice","",100,3],["Paneer Fried Rice","",90,3],["Kaju Egg Fried Rice","",120,3],["Kaju Egg Noodles","",110,3],["Kaju Noodles","",100,3],
-["Egg Manchuria","",90,4],["Chicken Manchuria","",120,4],["Chicken 65","",150,4],["Chilli Chicken","",140,4],["Kaju Chicken","",160,4],["Veg Manchuria","",80,4],["Chicken Curry","",80,4],
-["Biryani Unlimited Rice","1 piece, table only",130,5],["Extra Piece","",50,5],["Extra Rice","",80,5]
-];
-var cart={},concerns=[];
-function $(i){return document.getElementById(i)}
-function rs(n){return "₹"+n}
-function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-var tt;function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){e.classList.remove("on")},3000)}
-function photo(src,alt){var i=new Image();i.alt=alt||"";i.loading="lazy";i.onerror=function(){i.style.display="none"};i.src=src;return i}
-function lab(m){return m[0]+(m[1]?" ("+m[1]+")":"")}
 
-/* theme + embers */
-var emberCol="255,87,34";
-$("tg").onclick=function(){document.body.classList.toggle("crimson");emberCol=document.body.classList.contains("crimson")?"212,175,55":"255,87,34"};
-var cv=$("fx"),cx=cv.getContext("2d"),ps=[],W=0,H=0;
-function fit(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
-fit();window.addEventListener("resize",fit);
-if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&cx){
- for(var i=0;i<45;i++)ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.2+.6,v:Math.random()*.6+.2,a:Math.random()*.5+.15,d:Math.random()*Math.PI*2});
- (function loop(){cx.clearRect(0,0,W,H);ps.forEach(function(p){p.y-=p.v;p.d+=.01;p.x+=Math.sin(p.d)*.4;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}cx.beginPath();cx.fillStyle="rgba("+emberCol+","+p.a+")";cx.arc(p.x,p.y,p.r,0,6.283);cx.fill()});requestAnimationFrame(loop)})();
+let currentIndex = 0;
+let slideInterval;
+const SLIDE_DURATION = 7000; // 7 seconds
+
+// DOM Elements
+const contentArea = document.getElementById('content-area');
+const bgText = document.getElementById('bg-text');
+const elCat = document.getElementById('slide-category');
+const elTitle = document.getElementById('slide-title');
+const elDesc = document.getElementById('slide-desc');
+const elPrice = document.getElementById('slide-price');
+const elPlate = document.getElementById('food-plate');
+const controlsContainer = document.getElementById('controls');
+
+// Initialize dots
+slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.innerHTML = '<div class="dot-fill" id="fill-'+i+'"></div>';
+    dot.onclick = () => goToSlide(i);
+    controlsContainer.appendChild(dot);
+});
+
+function updateSlide(index) {
+    const data = slides[index];
+    
+    // CSS Variable update for dynamic theme color
+    document.documentElement.style.setProperty('--primary', data.color);
+    
+    // Fade out text area
+    contentArea.classList.add('fade-out');
+    bgText.style.opacity = '0';
+    
+    // Update plate image smoothly
+    elPlate.style.opacity = '0.5';
+    elPlate.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+        // Change Data
+        bgText.innerText = data.bgText;
+        elCat.innerText = data.category;
+        elTitle.innerHTML = data.title;
+        elDesc.innerText = data.desc;
+        elPrice.innerText = data.price;
+        elPlate.style.backgroundImage = `url('${data.img}')`;
+        
+        // Fade back in
+        contentArea.classList.remove('fade-out');
+        bgText.style.opacity = '1';
+        elPlate.style.opacity = '1';
+        elPlate.style.transform = 'scale(1)';
+    }, 400);
+
+    // Update Dots
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        const fill = document.getElementById('fill-'+i);
+        fill.style.transition = 'none';
+        fill.style.width = i === index ? '0%' : (i < index ? '100%' : '0%');
+        
+        // Trigger fill animation for active dot
+        if(i === index) {
+            setTimeout(() => {
+                fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                fill.style.width = '100%';
+            }, 50);
+        }
+    });
 }
 
-/* hero tilt (desktop) */
-document.addEventListener("mousemove",function(e){if(window.innerWidth<800)return;var x=(window.innerWidth/2-e.clientX)/60,y=(window.innerHeight/2-e.clientY)/60;$("hc").style.transform="rotateY("+x+"deg) rotateX("+y+"deg)"});
-
-/* marquee */
-var mk="Dum Biryani ✦ Fry Piece ✦ Paneer Biryani ✦ Kaju Biryani ✦ Fried Rice ✦ Noodles ✦ Chicken 65 ✦ Manchuria ✦ ";
-$("mq").textContent=mk+mk+mk+mk;
-
-/* 3D ring */
-var ring=$("ring"),stage=$("stage"),ang=0,drag=false,lx=0;
-GAL.forEach(function(u,i){var d=el("div","pn");d.appendChild(photo(u,"Signature dish "+(i+1)));ring.appendChild(d)});
-function layout(){var r=window.innerWidth<520?165:235;for(var i=0;i<GAL.length;i++)ring.children[i].style.transform="rotateY("+(i*360/GAL.length)+"deg) translateZ("+r+"px)"}
-function spin(){if(!drag)ang+=.25;ring.style.transform="rotateX(-5deg) rotateY("+ang+"deg)";requestAnimationFrame(spin)}
-stage.addEventListener("pointerdown",function(e){drag=true;lx=e.clientX});
-window.addEventListener("pointerup",function(){drag=false});
-window.addEventListener("pointermove",function(e){if(drag){ang+=(e.clientX-lx)*.5;lx=e.clientX}});
-layout();window.addEventListener("resize",layout);spin();
-
-/* review background strip */
-for(var k=0;k<20;k++)$("rt").appendChild(photo(GAL[k%GAL.length],""));
-
-/* menu cards */
-function buildMenu(){
- var mg=$("mg");
- CATS.forEach(function(c,ci){
-  var items=M.filter(function(m){return m[3]===ci});
-  var sc=el("div","scene"),c3=el("div","c3");
-  var f=el("div","face front");f.style.backgroundImage="url('"+c.img+"')";f.style.backgroundPosition=c.pos;
-  var fc=el("div","fc");fc.appendChild(el("h3",null,c.t));fc.appendChild(el("p",null,"Tap to see the menu"));fc.appendChild(el("span","cnt",items.length+" dishes"));
-  f.appendChild(fc);f.appendChild(el("div","tap","↻"));
-  var b=el("div","face back");b.appendChild(el("h4",null,c.t));
-  var bs=el("div","bs"),ul=el("ul");
-  items.forEach(function(m){
-   var id=M.indexOf(m),li=el("li"),n=el("div","n",m[0]);
-   if(m[1])n.appendChild(el("small",null,m[1]));
-   var pr=el("strong",null,rs(m[2])),q=el("div","q");
-   var mi=el("button","mi","−");mi.type="button";mi.setAttribute("aria-label","Remove one "+m[0]);
-   var qs=el("span",null,"0");qs.setAttribute("data-q",id);
-   var pl=el("button",null,"+");pl.type="button";pl.setAttribute("aria-label","Add one "+m[0]);
-   mi.onclick=function(e){e.stopPropagation();chg(id,-1)};pl.onclick=function(e){e.stopPropagation();chg(id,1)};
-   q.appendChild(mi);q.appendChild(qs);q.appendChild(pl);
-   li.appendChild(n);li.appendChild(pr);li.appendChild(q);ul.appendChild(li)});
-  bs.appendChild(ul);b.appendChild(bs);
-  var fb=el("button","fb","↻ Flip back");fb.type="button";fb.onclick=function(e){e.stopPropagation();c3.classList.remove("flip")};b.appendChild(fb);
-  c3.appendChild(f);c3.appendChild(b);
-  c3.addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".back"))return;c3.classList.add("flip")});
-  sc.appendChild(c3);mg.appendChild(sc)});
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlide(currentIndex);
 }
-buildMenu();
 
-/* cart */
-function chg(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];sync()}
-function totals(){var c=0,t=0;for(var k in cart){c+=cart[k];t+=cart[k]*M[+k][2]}return[c,t]}
-function sync(){
- var qs=document.querySelectorAll("[data-q]");for(var i=0;i<qs.length;i++)qs[i].textContent=cart[qs[i].getAttribute("data-q")]||0;
- var t=totals();$("pc").textContent=t[0]+(t[0]===1?" item":" items");$("pt").textContent=rs(t[1]);$("pill").classList.toggle("on",t[0]>0);
- if($("sheet").classList.contains("on"))paint();
+function goToSlide(index) {
+    clearInterval(slideInterval);
+    currentIndex = index;
+    updateSlide(currentIndex);
+    startSlider();
 }
-function paint(){
- var l=$("ln");l.innerHTML="";var t=totals();
- if(!t[0]){var e=el("li",null,"No dishes selected. You can still send a message below.");e.style.color="var(--mu)";l.appendChild(e)}
- for(var k in cart){var m=M[+k],li=el("li");li.appendChild(el("span",null,cart[k]+" × "+lab(m)));li.appendChild(el("span",null,rs(cart[k]*m[2])));l.appendChild(li)}
- $("tot").textContent=rs(t[1]);
-}
-$("pill").onclick=function(){paint();$("sheet").classList.add("on")};
-$("close").onclick=function(){$("sheet").classList.remove("on")};
-$("sheet").addEventListener("click",function(e){if(e.target===$("sheet"))$("sheet").classList.remove("on")});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")$("sheet").classList.remove("on")});
-["Less spicy","Extra spicy","Extra raita","Pack separately","Call me before delivery","Need it urgently","Bulk or party order"].forEach(function(c){
- var b=el("button","chip",c);b.type="button";b.setAttribute("aria-pressed","false");
- b.onclick=function(){var i=concerns.indexOf(c);if(i>-1)concerns.splice(i,1);else concerns.push(c);b.setAttribute("aria-pressed",i===-1)};
- $("chips").appendChild(b)});
-$("send").onclick=function(){
- var t=totals(),note=$("nt").value.trim(),nm=$("nm").value.trim();
- if(!t[0]&&!note&&!concerns.length){$("err").textContent="Select at least one dish or write your concern before sending.";return}
- $("err").textContent="";
- var L=["*New request – Al-Gani's Ali Bhai Biryani*","Name: "+(nm||"Not given"),"Order type: "+$("ty").value,""];
- if(t[0]){L.push("*Items*");for(var k in cart){var m=M[+k];L.push(cart[k]+" x "+lab(m)+" – "+rs(cart[k]*m[2]))}L.push("*Total: "+rs(t[1])+"*")}else L.push("(No dishes selected – enquiry only)");
- if(concerns.length)L.push("","*Concerns:* "+concerns.join(", "));
- if(note)L.push("","*Message:* "+note);
- window.open("https://wa.me/"+PH+"?text="+encodeURIComponent(L.join("\n")),"_blank","noopener");
- toast("Opening WhatsApp with your order…")};
 
-/* reviews: 16 x 16 x 16 x 14 = 57,000+ unique reviews */
-var A=["Absolutely loved the biryani here!","Best biryani in Khammam, hands down.","Went with my family and everyone enjoyed it.","Such a satisfying meal at a fair price.","Finally found a proper dum biryani spot.","Tried it on a friend's suggestion and it was worth it.","Great food and great vibes.","Had lunch here today and was thoroughly impressed.","This place never disappoints.","What a flavourful experience!","Came here after work and left very happy.","Genuinely tasty food from the first bite.","One of my favourite biryani places now.","Highly recommend Ali Bhai Biryani.","Ordered for a group and it was a hit.","A real hidden gem in Indira Nagar."];
-var B=["The chicken biryani was fragrant, perfectly spiced and the pieces were tender.","The fry piece biryani had crisp, juicy chicken with rich masala rice.","The paneer biryani was soft, flavourful and well balanced.","The kaju biryani was rich and generous with cashews.","The chicken 65 was crunchy outside and juicy inside.","The chicken fried rice and noodles were hot, fresh and full of flavour.","The chicken manchuria was spicy, saucy and just right.","The jumbo pack was great value for our group.","The bagara rice with chicken curry tasted homely and delicious.","The egg fried rice was fluffy and well cooked.","The unlimited rice with biryani was a real treat.","The basmati rice was long-grained, aromatic and not oily.","The chilli chicken had a perfect kick.","The portions were generous for the price.","The kaju chicken was creamy and full of taste.","The veg manchuria and fried rice combo was excellent."];
-var C=["Service was quick and the staff were polite.","The place was clean and the team was very friendly.","Food was served hot and fresh.","The owner was welcoming and made sure we were happy.","Takeaway packing was neat and nothing spilled.","Seating was comfortable and the atmosphere was pleasant.","Delivery arrived on time and still piping hot.","Prices are very reasonable for this quality.","The staff handled our order without any delay.","Hygiene and taste both stood out.","Great hospitality from the whole team.","Quick service even during the rush.","Everything tasted freshly made.","The menu has plenty of choices for every taste.","Ordering on WhatsApp was smooth and easy.","They even adjusted the spice level for us."];
-var D=["Will definitely visit again!","Five stars from me.","Do try it once, you will come back.","Perfect for family dinners and group orders.","Keep up the great work!","Totally worth every rupee.","Already planning my next visit.","Recommended to all biryani lovers in Khammam.","A must-visit near Indira Nagar.","Thank you, Ali Bhai team!","Highly recommended.","Great job, keep serving this taste.","Easily five stars.","Can't wait to order again."];
-function pick(a){return a[Math.floor(Math.random()*a.length)]}
-var last="";
-function gen(){var r;do{r=[pick(A),pick(B),pick(C),pick(D)].join(" ")}while(r===last);last=r;var q=$("qt");q.textContent=r;q.classList.remove("pop");void q.offsetWidth;q.classList.add("pop");return r}
-function copy(t){
- var ok=false;
- try{var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);ok=document.execCommand("copy");document.body.removeChild(ta)}catch(e){}
- try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(function(){},function(){})}catch(e){}
- return ok}
-$("post").onclick=function(){
- var t=gen(),ok=copy(t);
- window.open(REVIEW_URL,"_blank","noopener");
- toast(ok?"Review copied! Paste it on Google and post.":"Opening Google. Press and hold the text to copy it.")};
-
-/* scroll reveal (added by script so content is never hidden if JS fails) */
-var secs=document.querySelectorAll("section .wrap");
-if("IntersectionObserver" in window){
- var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.08});
- secs.forEach(function(s){s.classList.add("rv");io.observe(s)});
+function startSlider() {
+    slideInterval = setInterval(nextSlide, SLIDE_DURATION);
 }
-sync();
+
+// Modal Logic
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalProcess = document.getElementById('modal-process');
+
+function openModal() {
+    clearInterval(slideInterval); // Pause slider while viewing
+    const data = slides[currentIndex];
+    
+    modalImg.style.backgroundImage = `url('${data.img}')`;
+    modalTitle.innerText = data.title.replace('<br>', ' ');
+    
+    // Build process list
+    modalProcess.innerHTML = '';
+    data.process.forEach(p => {
+        modalProcess.innerHTML += `<li><span class="step">${p.step}</span><p>${p.text}</p></li>`;
+    });
+    
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    startSlider(); // Resume slider
+}
+
+// Start
+updateSlide(0);
+startSlider();
+
 })();
 </script>
 </body>
