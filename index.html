@@ -3,123 +3,238 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Customer Reviews — Al-Gani's Ali Bhai Biryani & Cafe</title>
-<style>
-  :root { --bg:#140b07; --ink:#fdf3e3; --gold:#e8b84b; --saffron:#ff9a3c; --dim:#cbb59a; }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:System, -apple-system, "Segoe UI", Roboto, sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;height:100vh}
-  .wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;padding:24px;max-width:720px;text-align:center}
-  h1{font-size:1.7rem;margin-bottom:8px;letter-spacing:.02em}
-  .sub{color:var(--dim);font-size:.92rem;margin-bottom:30px}
-  .card{background:rgba(30,17,9,.78);border:1px solid rgba(232,184,75,.28);border-radius:20px;padding:30px 26px;width:100%;box-shadow:0 24px 70px rgba(0,0,0,.6)}
-  .stars{display:inline-flex;gap:5px;font-size:1.8rem}
-  .stars input{opacity:0;position:absolute}
-  .stars label{color:#f4a322;cursor:pointer;transition:.15s}
-  .stars input:checked ~ label, .stars label:hover{transform:scale(1.18);color:#f4a322}
-  .name{font-weight:700;font-size:1.05rem;margin:10px 0 4px}
-  .at{color:var(--dim);font-size:.84rem}
-  .txt{color:var(--ink);line-height:1.65;font-size:.98rem}
-  .badge{display:inline-block;background:linear-gradient(120deg,var(--gold-2),var(--saffron));color:#24120a;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:14px}
-  .post-btn{background:linear-gradient(120deg,var(--gold-2),var(--saffron));color:#24120a;font-weight:700;font-size:1rem;padding:16px 30px;border:none;border-radius:999px;cursor:pointer;box-shadow:0 12px 36px rgba(232,184,75,.38);width:100%;transition:transform .2s}
-  .post-btn:active{transform:scale(.98)}
-  .msg{background:rgba(232,184,75,.16);border:1px solid rgba(232,184,75,.32);color:var(--gold);padding:13px 18px;border-radius:12px;font-size:.88rem;margin-top:18px}
-  .pool-hint{color:var(--dim);font-size:.78rem;text-align:center;margin-top:20px}
-  .comment-input{width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(232,184,75,.25);background:rgba(30,17,9,.6);color:var(--ink);font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
-  .comment-input:focus{border-color:var(--saffron)}
-  .add-btn{margin-top:10px;width:100%;padding:13px;background:var(--gold-2);color:#24120a;font-weight:700;border:none;border-radius:12px;cursor:pointer}
-  .add-btn:active{transform:scale(.98)}
-  .step{font-size:.78rem;color:var(--dim);margin-top:14px;line-height:1.7}
-</style>
+<title>Al-Gani's Ali Bhai Biryani & Cafe — 3D Experience</title>
+<meta name="description" content="Al-Gani's Ali Bhai Biryani & Cafe, Khammam — authentic dum biryani, fry piece biryani, paneer & kaju, Chinese and family packs. Order on WhatsApp." />
+<link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/styles.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "/node_modules/three/build/three.module.js",
+    "three/addons/": "/node_modules/three/examples/jsm/"
+  }
+}
+</script>
 </head>
 <body>
-<div class="wrap">
-  <h1>Customer Reviews</h1>
-  <div class="sub">Your customer's rating &amp; comment go through Google's own screen — this button just starts it.</div>
+<div id="webgl" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
-  <div class="card">
-    <div class="badge">Your review on our page</div>
-    <div class="stars" id="stars">
-      <input type="radio" name="rating" id="r5" value="5" /><label for="r5" title="5 stars">☆</label>
-      <input type="radio" name="rating" id="r4" value="4" /><label for="r4" title="4 stars">☆</label>
-      <input type="radio" name="rating" id="r3" value="3" /><label for="r3" title="3 stars">☆</label>
-      <input type="radio" name="rating" id="r2" value="2" /><label for="r2" title="2 stars">☆</label>
-      <input type="radio" name="rating" id="r1" value="1" /><label for="r1" title="1 star">☆</label>
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#home">
+      <img src="./assets/logo.svg" alt="Al-Gani's Ali Bhai Biryani & Cafe logo" width="44" height="44" />
+      <span class="nav__name">Al-Gani's<small>Ali Bhai Biryani & Cafe</small></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#signature">Signature</a>
+      <a href="#menu">Menu</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--gold" href="https://wa.me/919848564387" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
     </div>
-    <div class="name">Customer</div>
-    <div class="at">Your rating &amp; comment will be sent to Al-Gani's Ali Bhai Biryani &amp; Cafe only when you post.</div>
-    <div class="txt" id="hint">Tap the stars above, write your own comment, then hit the post button.</div>
   </div>
+</header>
 
-  <button class="post-btn" id="postBtn">Post on Google Review →</button>
-  <div class="msg" id="msg"></div>
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+      <img class="hero__logo reveal in" src="./assets/logo.svg" alt="Al-Gani's Ali Bhai Biryani & Cafe emblem" width="148" height="148" />
+      <p class="hero__eyebrow reveal">Khammam · Telangana · Since the first dum</p>
+      <h1 class="hero__title">
+        <span class="reveal" style="--d:.08s">Al-Gani's</span>
+        <span class="reveal hero__title-accent" style="--d:.18s">Ali Bhai Biryani</span>
+        <span class="reveal hero__title-amp" style="--d:.28s">&amp; Cafe</span>
+      </h1>
+      <p class="hero__sub reveal" style="--d:.36s">
+        Slow-cooked dum biryani in sealed handis — chicken, fry-piece, paneer &amp; kaju,
+        sizzling Chinese, and packs built for every appetite.
+      </p>
+      <div class="hero__cta reveal" style="--d:.44s">
+        <a class="btn btn--gold btn--lg" href="https://wa.me/919848564387" target="_blank" rel="noopener">Order on WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href="#menu">Explore the menu</a>
+      </div>
+      <div class="hero__chips reveal" style="--d:.52s">
+        <a class="chip" href="tel:+919848564387">📞 +91 98485 64387</a>
+        <a class="chip" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="chip" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener">⭐ Rate on Google</a>
+      </div>
+    </div>
+    <a class="hero__scroll" href="#signature" aria-label="Scroll to dishes">
+      <span class="hero__scroll-track"><span class="hero__scroll-dot"></span></span>
+      <em>Scroll</em>
+    </a>
+  </section>
 
-  <div class="pool-hint">Want more variety? Add a customer comment below — the random pick re-scrambles automatically.</div>
-  <textarea class="comment-input" id="newComment" rows="3" placeholder="Type a customer's feedback word-for-word (optional)"></textarea>
-  <button class="add-btn" id="addBtn">+ Add to the review pool</button>
+  <!-- ================= MARQUEE ================= -->
+  <section class="marquee" aria-label="Specialities">
+    <div class="marquee__track">
+      <span>Chicken Dum Biryani</span><i>◆</i><span>Fry Piece Biryani</span><i>◆</i><span>Paneer &amp; Kaju</span><i>◆</i><span>Family Packs</span><i>◆</i><span>Chinese Counter</span><i>◆</i><span>Unlimited Rice</span><i>◆</i>
+      <span>Chicken Dum Biryani</span><i>◆</i><span>Fry Piece Biryani</span><i>◆</i><span>Paneer &amp; Kaju</span><i>◆</i><span>Family Packs</span><i>◆</i><span>Chinese Counter</span><i>◆</i><span>Unlimited Rice</span><i>◆</i>
+    </div>
+  </section>
 
-  <div class="step">
-    1. Tap a star rating &nbsp;·&nbsp; 2. Write your own comment &nbsp;·&nbsp; 3. Hit post — Google takes over from there
+  <!-- ================= SIGNATURE ================= -->
+  <section class="section signature" id="signature">
+    <div class="section__head">
+      <p class="kicker reveal">House Specials</p>
+      <h2 class="reveal" style="--d:.08s">The plates people come back for</h2>
+    </div>
+    <div class="signature__grid">
+      <article class="dish dish--hero reveal" data-tilt style="--d:.05s">
+        <div class="dish__img"><img src="./assets/img/chicken-biryani.jpg" alt="Chicken dum biryani served in a traditional handi" loading="lazy" /></div>
+        <div class="dish__body">
+          <span class="dish__badge">Bestseller</span>
+          <h3>Chicken Dum Biryani</h3>
+          <p>Sealed-handi dum, long-grain basmati, succulent chicken pieces.</p>
+          <span class="dish__price">₹120<span>/- onwards</span></span>
+        </div>
+      </article>
+      <article class="dish reveal" data-tilt style="--d:.14s">
+        <div class="dish__img"><img src="./assets/img/biryani-hero.jpg" alt="Family pack biryani handi" loading="lazy" /></div>
+        <div class="dish__body">
+          <span class="dish__badge dish__badge--alt">Sharing size</span>
+          <h3>Family Pack — 6 Pieces</h3>
+          <p>One handi that feeds the whole table, biryani layered to the rim.</p>
+          <span class="dish__price">₹500<span>/-</span></span>
+        </div>
+      </article>
+      <article class="dish reveal" data-tilt style="--d:.23s">
+        <div class="dish__img"><img src="./assets/img/chicken-65.jpg" alt="Hot and spicy Chicken 65" loading="lazy" /></div>
+        <div class="dish__body">
+          <span class="dish__badge">Spicy</span>
+          <h3>Chicken 65</h3>
+          <p>Crunchy, curry-leaf hot, and the perfect biryani sidekick.</p>
+          <span class="dish__price">₹150<span>/-</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= MENU ================= -->
+  <section class="section menu" id="menu">
+    <div class="section__head section__head--center">
+      <p class="kicker reveal">Full Menu</p>
+      <h2 class="reveal" style="--d:.08s">Everything, with honest prices</h2>
+      <p class="section__lede reveal" style="--d:.16s">All prices in ₹. Pick a category — the kitchen picks the rest.</p>
+    </div>
+    <nav class="menu__chips reveal" id="menuChips" aria-label="Menu categories"></nav>
+    <div id="menuRoot"></div>
+    <noscript><p class="noscript">Enable JavaScript to see the interactive menu — or call +91 98485 64387 for the full list.</p></noscript>
+  </section>
+
+  <!-- ================= LOCATION ================= -->
+  <section class="section location" id="location">
+    <div class="section__head">
+      <p class="kicker reveal">Find Us</p>
+      <h2 class="reveal" style="--d:.08s">Bridge Road, Indira Nagar, Khammam</h2>
+    </div>
+    <div class="location__grid">
+      <div class="location__map reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=17.2489581,80.1736228&amp;hl=en&amp;z=15&amp;output=embed"
+          title="Map to Al-Gani's Ali Bhai Biryani &amp; Cafe, Khammam"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <aside class="location__card reveal" style="--d:.12s">
+        <h3>Al-Gani's Ali Bhai Biryani &amp; Cafe</h3>
+        <p>Near Tekulapalli Bridge, Indira Nagar,<br />Rotary Nagar, Khammam,<br />Telangana — 507001</p>
+        <p class="location__coords">📍 17.2489581, 80.1736228</p>
+        <div class="location__actions">
+          <a class="btn btn--gold" href="https://maps.google.com/maps?q=17.2489581,80.1736228" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn--ghost" href="tel:+919848564387">Call now</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="section__head section__head--center">
+      <p class="kicker reveal">Order · Chat · Review</p>
+      <h2 class="reveal" style="--d:.08s">One tap away</h2>
+    </div>
+    <div class="contact__grid">
+      <a class="contact__card reveal" href="tel:+919848564387" style="--d:.05s">
+        <span class="contact__icon">📞</span>
+        <h3>Call</h3>
+        <p>+91 98485 64387</p>
+        <em>Tap to dial</em>
+      </a>
+      <a class="contact__card contact__card--wa reveal" href="https://wa.me/919848564387" target="_blank" rel="noopener" style="--d:.12s">
+        <span class="contact__icon">💬</span>
+        <h3>WhatsApp</h3>
+        <p>wa.me/919848564387</p>
+        <em>Send your order</em>
+      </a>
+      <a class="contact__card contact__card--ig reveal" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener" style="--d:.19s">
+        <span class="contact__icon">📸</span>
+        <h3>Instagram</h3>
+        <p>@alganisalibhaibiryani27</p>
+        <em>See today's specials</em>
+      </a>
+      <a class="contact__card contact__card--rev reveal" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener" style="--d:.26s">
+        <span class="contact__icon">⭐</span>
+        <h3>Google Review</h3>
+        <p>Share your experience</p>
+        <em>Rate the flavour</em>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="./assets/logo.svg" alt="Al-Gani's logo" width="72" height="72" />
+      <p>Al-Gani's Ali Bhai Biryani &amp; Cafe<br /><span>Near Tekulapalli Bridge, Indira Nagar, Khammam, Telangana</span></p>
+      <p class="footer__tel"><a href="tel:+919848564387">+91 98485 64387</a></p>
+    </div>
+    <div class="footer__col">
+      <h4>Menu</h4>
+      <a href="#menu">Chicken Biryani</a>
+      <a href="#menu">Fry Piece Biryani</a>
+      <a href="#menu">Paneer &amp; Kaju</a>
+      <a href="#menu">Rice &amp; Noodles</a>
+      <a href="#menu">Chinese Items</a>
+    </div>
+    <div class="footer__col">
+      <h4>Quick links</h4>
+      <a href="https://wa.me/919848564387" target="_blank" rel="noopener">WhatsApp Order</a>
+      <a href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener">Google Review</a>
+      <a href="https://maps.google.com/maps?q=17.2489581,80.1736228" target="_blank" rel="noopener">Directions</a>
+    </div>
+    <div class="footer__col footer__dev">
+      <h4>Developed by</h4>
+      <a class="footer__devlogo" href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener">
+        <img src="./assets/dev-logo.svg" alt="High Fledged Engineering And Digital Tech Solutions" width="220" height="47" loading="lazy" />
+      </a>
+      <p class="footer__devnote">High Fledged Engineering And Digital Tech Solutions</p>
+    </div>
   </div>
+  <div class="footer__base">
+    <span>© 2026 Al-Gani's Ali Bhai Biryani &amp; Cafe, Khammam</span>
+    <span>Dish photography: Wikimedia Commons contributors (CC BY-SA / CC0)</span>
+  </div>
+</footer>
 
-  <script>
-  (function(){
-    // =============== CONFIG — replace these 3 values ===============
-    const CONFIG = {
-      client_id:     'YOUR_GOOGLE_CLIENT_ID',   // Google Cloud → Credentials → OAuth Client ID
-      client_secret: 'YOUR_BASE64_SECRET',      // base64-encoded client_secret
-      place_id:      'YOUR_PLACE_ID',           // Business Profile → Info & settings → placeid
-      baseUrl:       'https://yoursite.com/review.html'
-    };
+<a class="wa-float" href="https://wa.me/919848564387" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor">
+    <path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.5.8 3.1 1.2 4.7 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.8c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.3 1.4 1.4-4.2-.2-.3c-1.2-1.5-1.8-3.3-1.8-5.2 0-5.4 4.4-9.7 9.8-9.7s9.7 4.4 9.7 9.7-4.3 9.9-10 9.9zm5.5-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+  </svg>
+</a>
 
-    const POOL_KEY = 'algani_review_pool';
-    let pool = JSON.parse(localStorage.getItem(POOL_KEY) || '[]');
-
-    const stars = document.getElementById('stars');
-    const hint = document.getElementById('hint');
-    const postBtn = document.getElementById('postBtn');
-    const msg = document.getElementById('msg');
-    const addBtn = document.getElementById('addBtn');
-    const newComment = document.getElementById('newComment');
-
-    stars.addEventListener('change', () => {
-      const r = document.querySelector('input[name="rating"]:checked');
-      hint.textContent = r ? 'You rated ' + r.value + ' star' + (r.value === '1' ? 's' : '') + '. Write your own comment, then post it to Google Review.' : 'Tap the stars above, write your own comment, then post it to Google Review.';
-    });
-
-    addBtn.addEventListener('click', () => {
-      const t = newComment.value.trim();
-      if (!t) return;
-      pool.unshift({ name:'Customer', time:new Date().toLocaleString(), txt:t });
-      localStorage.setItem(POOL_KEY, JSON.stringify(pool));
-      newComment.value = '';
-      const first = pool[0];
-      document.getElementById('randomChip').textContent = first.name + ' ★ ' + first.txt;
-      showMsg('Added to the pool — the random pick re-scrambles automatically.');
-    });
-
-    postBtn.addEventListener('click', () => {
-      const r = document.querySelector('input[name="rating"]:checked');
-      const rating = r ? '&rating=' + r.value : '&rating=4';
-      const params = new URLSearchParams({
-        client_id:       CONFIG.client_id,
-        redirect_uri:    CONFIG.baseUrl + '?done',
-        scope:           'https://www.googleapis.com/auth/businessmessages.reviews',
-        action:          'create',
-        placeholder:     'Tell us about your experience at Al-Gani’s Ali Bhai Biryani & Cafe',
-        review_text:     ''
-      });
-      if (rating) params.set('rating', rating);
-      const url = 'https://accounts.google.com/o/oauth2/v2/auth?' + params.toString();
-      window.open(url, 'google-review', 'width=700,height=680,resizable=yes,scrollbars=yes');
-      showMsg('Opening Google’s review screen… choose your stars & type your own comment, then submit.');
-    });
-
-    function showMsg(t) { msg.textContent = t; }
-
-    if (pool.length) {
-      document.getElementById('randomChip').textContent = pool[0].name + ' ★ ' + pool[0].txt;
-    }
-  })();
-  </script>
+<script type="module" src="./js/main.js"></script>
 </body>
 </html>
