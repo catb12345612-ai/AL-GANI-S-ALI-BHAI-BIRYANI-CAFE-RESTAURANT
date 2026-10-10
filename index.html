@@ -1,658 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Al-Gani's Ali Bhai Biryani – Khammam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Customer Reviews — Al-Gani's Ali Bhai Biryani & Cafe</title>
 <style>
-/* 
-  EUROPEAN LUXURY THEME
-  Elegant, minimalist, dark obsidian with champagne gold accents.
-*/
-:root {
-    --bg-dark: #0a0a0c;
-    --bg-surface: #121215;
-    --gold: #d4af37;
-    --gold-light: #f3e5ab;
-    --text-main: #fcfcfc;
-    --text-muted: #8e8e93;
-    --glass-bg: rgba(18, 18, 21, 0.6);
-    --glass-border: rgba(212, 175, 55, 0.15);
-    --shadow-heavy: 0 30px 60px rgba(0,0,0,0.8);
-    box-sizing: border-box;
-}
-
-*, *:before, *:after { box-sizing: inherit; }
-html { scroll-behavior: smooth; }
-body { 
-    margin: 0; padding: 0; width: 100%; 
-    background-color: var(--bg-dark); 
-    color: var(--text-main); 
-    font-family: 'Manrope', sans-serif; 
-    line-height: 1.6; 
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4 { 
-    font-family: 'Cormorant Garamond', serif; 
-    margin: 0; font-weight: 600; 
-}
-a { color: inherit; text-decoration: none; }
-.wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-section { padding: 120px 0; position: relative; }
-
-/* European Typography Accents */
-.accent-gold { color: var(--gold); }
-.subtitle {
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Elegant Buttons */
-.btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-    background: transparent; border: 1px solid var(--gold); color: var(--gold-light);
-    padding: 16px 40px; border-radius: 2px; font-size: 0.9rem; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
-    transition: all 0.4s ease;
-}
-.btn:hover {
-    background: var(--gold); color: #000;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-    transform: translateY(-3px);
-}
-.btn-filled { background: var(--gold); color: #000; }
-.btn-filled:hover { background: var(--gold-light); }
-
-/* Navigation */
-nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-}
-nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 80px; }
-.logo-area { display: flex; align-items: center; gap: 15px; }
-.logo-img { width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--gold); }
-.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
-.nav-links { display: flex; gap: 40px; }
-.nav-links a { 
-    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; 
-    color: var(--text-muted); transition: color 0.3s; 
-}
-.nav-links a:hover { color: var(--gold); }
-
-/* =========================================
-   3D HERO AUTO-SLIDER 
-========================================= */
-.hero {
-    position: relative; height: 100vh; display: flex; align-items: center;
-    background: radial-gradient(circle at 70% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
-    overflow: hidden;
-}
-.hero-bg-text {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    font-family: 'Cormorant Garamond', serif; font-size: clamp(8rem, 25vw, 30rem);
-    color: rgba(255, 255, 255, 0.02); z-index: 0; pointer-events: none;
-    white-space: nowrap; font-style: italic; transition: opacity 0.5s;
-}
-.slider-layout {
-    position: relative; z-index: 2; width: 100%; display: flex; 
-    align-items: center; justify-content: space-between; gap: 40px;
-}
-.hero-content {
-    flex: 1; max-width: 600px;
-    opacity: 1; transform: translateY(0);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.hero-content.fade-out { opacity: 0; transform: translateY(-40px); }
-.hero h1 { 
-    font-size: clamp(3.5rem, 6vw, 6rem); line-height: 1; margin-bottom: 24px; 
-    font-weight: 300; letter-spacing: -1px; 
-}
-.hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 480px; }
-.hero-price { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); display: block; margin-bottom: 30px; }
-
-/* 3D Rotating Plate */
-.hero-visual {
-    flex: 1; display: flex; justify-content: center; align-items: center;
-    position: relative; perspective: 1000px;
-}
-.plate-wrapper {
-    width: clamp(300px, 40vw, 550px); height: clamp(300px, 40vw, 550px);
-    position: relative; cursor: pointer; transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.plate-wrapper:hover { transform: scale(1.05) rotateX(10deg) rotateY(-10deg); }
-.food-plate {
-    width: 100%; height: 100%; border-radius: 50%;
-    background-size: cover; background-position: center;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.9), inset 0 0 60px rgba(0,0,0,0.6);
-    border: 2px solid rgba(212, 175, 55, 0.2);
-    animation: rotatePlate 45s linear infinite;
-    transition: background-image 0.8s ease;
-}
-@keyframes rotatePlate { 100% { transform: rotate(360deg); } }
-
-.tap-hint {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    background: rgba(10,10,12,0.8); border: 1px solid var(--gold);
-    color: var(--gold); padding: 12px 24px; border-radius: 2px;
-    font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
-    opacity: 0; pointer-events: none; transition: 0.4s ease; backdrop-filter: blur(5px);
-}
-.plate-wrapper:hover .tap-hint { opacity: 1; }
-
-/* Slider Controls */
-.slider-dots {
-    position: absolute; bottom: 40px; left: 24px; display: flex; gap: 12px; z-index: 10;
-}
-.dot {
-    width: 40px; height: 2px; background: rgba(255,255,255,0.2);
-    cursor: pointer; position: relative; overflow: hidden;
-}
-.dot-fill {
-    position: absolute; top: 0; left: 0; height: 100%; width: 0%;
-    background: var(--gold); transition: width 0.3s ease;
-}
-
-/* =========================================
-   "HOW IT'S MADE" MODAL (Glassmorphism)
-========================================= */
-.modal-overlay {
-    position: fixed; inset: 0; background: rgba(5, 5, 5, 0.9);
-    backdrop-filter: blur(15px); z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
-}
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal-content {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-    width: 90%; max-width: 1100px; background: var(--glass-bg);
-    border: 1px solid var(--glass-border); padding: 60px;
-    transform: translateY(40px) scale(0.98); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: var(--shadow-heavy); position: relative;
-}
-.modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-.modal-close {
-    position: absolute; top: 30px; right: 30px; background: transparent;
-    border: 1px solid var(--text-muted); color: var(--text-main); width: 40px; height: 40px;
-    font-size: 1.2rem; cursor: pointer; transition: 0.4s; display: flex; justify-content: center; align-items: center;
-}
-.modal-close:hover { border-color: var(--gold); color: var(--gold); transform: rotate(90deg); }
-.modal-img-container { width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 1px solid var(--glass-border); }
-.modal-img { width: 100%; height: 100%; background-size: cover; background-position: center; animation: rotatePlate 30s linear infinite; }
-.modal-info h3 { font-size: 3rem; margin-bottom: 10px; color: var(--gold); line-height: 1.1; }
-.modal-info > p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
-.step-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
-.step-item { display: flex; gap: 20px; align-items: flex-start; }
-.step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); line-height: 1; font-style: italic; }
-.step-text h5 { font-family: 'Manrope', sans-serif; font-size: 1rem; color: var(--text-main); margin: 0 0 5px; letter-spacing: 1px; text-transform: uppercase; }
-.step-text p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
-
-/* =========================================
-   3D FLIP MENU CARDS 
-========================================= */
-.menu-header { text-align: center; margin-bottom: 60px; }
-.menu-header h2 { font-size: 3.5rem; margin-bottom: 10px; }
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; perspective: 1200px; }
-.scene { height: 500px; position: relative; }
-.card-3d {
-    width: 100%; height: 100%; position: relative;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transform-style: preserve-3d; cursor: pointer;
-}
-.card-3d.is-flipped { transform: rotateY(180deg); }
-.card-face {
-    position: absolute; width: 100%; height: 100%;
-    backface-visibility: hidden; -webkit-backface-visibility: hidden;
-    background: var(--bg-surface); border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-}
-.card-front {
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-    background-size: cover; background-position: center; padding: 40px;
-}
-.card-front::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,10,12,0.95), rgba(10,10,12,0.6)); z-index: 1;
-}
-.card-front-content { position: relative; z-index: 2; }
-.card-front h3 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 10px; }
-.tap-icon {
-    margin: 30px auto 0; width: 50px; height: 50px; border: 1px solid var(--gold); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-}
-.tap-icon svg { width: 20px; height: 20px; fill: var(--gold); }
-
-.card-back {
-    transform: rotateY(180deg); padding: 40px 30px; 
-    display: flex; flex-direction: column; background: var(--bg-dark);
-}
-.card-back h4 { color: var(--gold); font-size: 1.5rem; text-align: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; margin-bottom: 20px; }
-.card-back-scroll { flex: 1; overflow-y: auto; padding-right: 10px; }
-.card-back-scroll::-webkit-scrollbar { width: 2px; }
-.card-back-scroll::-webkit-scrollbar-thumb { background: var(--gold); }
-.card-back ul { list-style: none; padding: 0; margin: 0; }
-.card-back li {
-    display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;
-    padding: 12px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 0.9rem;
-}
-.card-back li span { color: var(--text-muted); }
-.card-back li strong { color: var(--text-main); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; white-space: nowrap; }
-
-/* =========================================
-   REVIEW GENERATOR & CONTACT
-========================================= */
-.rev-zone {
-    background: var(--bg-surface); border: 1px solid var(--glass-border);
-    padding: 80px 40px; text-align: center; max-width: 900px; margin: 0 auto;
-    position: relative; overflow: hidden;
-}
-.stars { color: var(--gold); font-size: 2rem; letter-spacing: 8px; margin-bottom: 24px; }
-.quote {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic;
-    color: var(--text-main); margin: 0 auto 40px; max-width: 700px; line-height: 1.4;
-    transition: opacity 0.4s;
-}
-
-.contact-layout { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 50px; }
-@media (min-width: 900px) { .contact-layout { grid-template-columns: 1fr 1.5fr; } }
-.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.cc {
-    background: var(--bg-surface); border: 1px solid var(--glass-border);
-    padding: 30px; text-align: center; transition: all 0.4s;
-}
-.cc:hover { border-color: var(--gold); transform: translateY(-5px); }
-.cc span { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 5px; }
-.cc small { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-
-.map-3d {
-    background: var(--bg-surface); border: 1px solid var(--glass-border);
-    padding: 10px; height: 100%; min-height: 350px;
-}
-.map-3d iframe { width: 100%; height: 100%; border: none; filter: grayscale(80%) contrast(1.2); }
-
-/* Footer */
-footer {
-    text-align: center; padding: 60px 20px 100px; border-top: 1px solid var(--glass-border);
-    display: flex; flex-direction: column; align-items: center; gap: 30px;
-}
-.dev-link {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: transparent; border: 1px solid rgba(255,255,255,0.1); padding: 12px 24px;
-    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted);
-    transition: all 0.4s;
-}
-.dev-link:hover { border-color: var(--gold); color: var(--gold); }
-.dev-link svg { width: 16px; height: 16px; fill: currentColor; }
-
-.toast {
-    position: fixed; left: 50%; bottom: 40px; transform: translate(-50%, 20px);
-    background: var(--gold); color: #000; padding: 16px 32px;
-    opacity: 0; pointer-events: none; transition: 0.4s ease; z-index: 200; font-weight: 600;
-}
-.toast.on { opacity: 1; transform: translate(-50%, 0); }
-
-/* Responsive Adjustments */
-@media (max-width: 900px) {
-    .slider-layout { flex-direction: column; text-align: center; margin-top: 60px;}
-    .hero-bg-text { font-size: 18vw; }
-    .hero h1 { font-size: 3rem; }
-    .modal-content { grid-template-columns: 1fr; padding: 30px; gap: 30px; }
-    .modal-img-container { width: 60%; margin: 0 auto; }
-    .nav-links { display: none; }
-}
+  :root { --bg:#140b07; --ink:#fdf3e3; --gold:#e8b84b; --saffron:#ff9a3c; --dim:#cbb59a; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:System, -apple-system, "Segoe UI", Roboto, sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;height:100vh}
+  .wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;padding:24px;max-width:720px;text-align:center}
+  h1{font-size:1.7rem;margin-bottom:8px;letter-spacing:.02em}
+  .sub{color:var(--dim);font-size:.92rem;margin-bottom:30px}
+  .card{background:rgba(30,17,9,.78);border:1px solid rgba(232,184,75,.28);border-radius:20px;padding:30px 26px;width:100%;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .stars{display:inline-flex;gap:5px;font-size:1.8rem}
+  .stars input{opacity:0;position:absolute}
+  .stars label{color:#f4a322;cursor:pointer;transition:.15s}
+  .stars input:checked ~ label, .stars label:hover{transform:scale(1.18);color:#f4a322}
+  .name{font-weight:700;font-size:1.05rem;margin:10px 0 4px}
+  .at{color:var(--dim);font-size:.84rem}
+  .txt{color:var(--ink);line-height:1.65;font-size:.98rem}
+  .badge{display:inline-block;background:linear-gradient(120deg,var(--gold-2),var(--saffron));color:#24120a;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:14px}
+  .post-btn{background:linear-gradient(120deg,var(--gold-2),var(--saffron));color:#24120a;font-weight:700;font-size:1rem;padding:16px 30px;border:none;border-radius:999px;cursor:pointer;box-shadow:0 12px 36px rgba(232,184,75,.38);width:100%;transition:transform .2s}
+  .post-btn:active{transform:scale(.98)}
+  .msg{background:rgba(232,184,75,.16);border:1px solid rgba(232,184,75,.32);color:var(--gold);padding:13px 18px;border-radius:12px;font-size:.88rem;margin-top:18px}
+  .pool-hint{color:var(--dim);font-size:.78rem;text-align:center;margin-top:20px}
+  .comment-input{width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(232,184,75,.25);background:rgba(30,17,9,.6);color:var(--ink);font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+  .comment-input:focus{border-color:var(--saffron)}
+  .add-btn{margin-top:10px;width:100%;padding:13px;background:var(--gold-2);color:#24120a;font-weight:700;border:none;border-radius:12px;cursor:pointer}
+  .add-btn:active{transform:scale(.98)}
+  .step{font-size:.78rem;color:var(--dim);margin-top:14px;line-height:1.7}
 </style>
 </head>
 <body>
+<div class="wrap">
+  <h1>Customer Reviews</h1>
+  <div class="sub">Your customer's rating &amp; comment go through Google's own screen — this button just starts it.</div>
 
-<nav>
-    <div class="wrap">
-        <div class="logo-area">
-            <img class="logo-img" src="alibhailogo.jpeg" alt="Ali Bhai Biryani Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzExMSIvPjwvc3ZnPg=='">
-            <span class="logo-text accent-gold">Ali Bhai</span>
-        </div>
-        <div class="nav-links">
-            <a href="#menu">La Carte</a>
-            <a href="#review">Testimonials</a>
-            <a href="#contact">Location</a>
-        </div>
+  <div class="card">
+    <div class="badge">Your review on our page</div>
+    <div class="stars" id="stars">
+      <input type="radio" name="rating" id="r5" value="5" /><label for="r5" title="5 stars">☆</label>
+      <input type="radio" name="rating" id="r4" value="4" /><label for="r4" title="4 stars">☆</label>
+      <input type="radio" name="rating" id="r3" value="3" /><label for="r3" title="3 stars">☆</label>
+      <input type="radio" name="rating" id="r2" value="2" /><label for="r2" title="2 stars">☆</label>
+      <input type="radio" name="rating" id="r1" value="1" /><label for="r1" title="1 star">☆</label>
     </div>
-</nav>
+    <div class="name">Customer</div>
+    <div class="at">Your rating &amp; comment will be sent to Al-Gani's Ali Bhai Biryani &amp; Cafe only when you post.</div>
+    <div class="txt" id="hint">Tap the stars above, write your own comment, then hit the post button.</div>
+  </div>
 
-<header class="hero" id="hero">
-    <div class="hero-bg-text" id="hero-bg-text">Biryani</div>
-    <div class="wrap slider-layout">
-        <div class="hero-content" id="hero-content">
-            <span class="subtitle" id="hero-cat">Signature Dish</span>
-            <h1 id="hero-title">Royal Dum<br>Biryani</h1>
-            <p id="hero-desc">Slow-cooked to perfection over firewood. Every grain of basmati is infused with our secret family spices and tender chicken.</p>
-            <span class="hero-price" id="hero-price">150/-</span>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
-                <button class="btn btn-filled" onclick="window.open('https://wa.me/919848564387', '_blank')">Order via WhatsApp</button>
-                <a href="#menu" class="btn">View Menu</a>
-            </div>
-        </div>
+  <button class="post-btn" id="postBtn">Post on Google Review →</button>
+  <div class="msg" id="msg"></div>
 
-        <div class="hero-visual">
-            <div class="plate-wrapper" onclick="openModal()">
-                <div class="food-plate" id="hero-plate" style="background-image: url('https://images.pexels.com/photos/34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
-                <div class="tap-hint">View Preparation</div>
-            </div>
-        </div>
-    </div>
-    <div class="slider-dots" id="dots-container"></div>
-</header>
+  <div class="pool-hint">Want more variety? Add a customer comment below — the random pick re-scrambles automatically.</div>
+  <textarea class="comment-input" id="newComment" rows="3" placeholder="Type a customer's feedback word-for-word (optional)"></textarea>
+  <button class="add-btn" id="addBtn">+ Add to the review pool</button>
 
-<!-- How It's Made Modal -->
-<div class="modal-overlay" id="modal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-img-container">
-            <div class="modal-img" id="modal-img"></div>
-        </div>
-        <div class="modal-info">
-            <span class="subtitle">The Art of Cooking</span>
-            <h3 id="modal-title">Behind the Magic</h3>
-            <p id="modal-desc">Discover the authentic process behind our signature dish.</p>
-            <ul class="step-list" id="modal-steps"></ul>
-        </div>
-    </div>
-</div>
+  <div class="step">
+    1. Tap a star rating &nbsp;·&nbsp; 2. Write your own comment &nbsp;·&nbsp; 3. Hit post — Google takes over from there
+  </div>
 
-<section id="menu">
-    <div class="wrap">
-        <div class="menu-header">
-            <span class="subtitle">Culinary Excellence</span>
-            <h2>À La Carte</h2>
-            <p class="sub">Tap a card to reveal our full selection and exact pricing.</p>
-        </div>
-        <div class="menu-grid" id="menu-grid"></div>
-    </div>
-</section>
+  <script>
+  (function(){
+    // =============== CONFIG — replace these 3 values ===============
+    const CONFIG = {
+      client_id:     'YOUR_GOOGLE_CLIENT_ID',   // Google Cloud → Credentials → OAuth Client ID
+      client_secret: 'YOUR_BASE64_SECRET',      // base64-encoded client_secret
+      place_id:      'YOUR_PLACE_ID',           // Business Profile → Info & settings → placeid
+      baseUrl:       'https://yoursite.com/review.html'
+    };
 
-<section id="review">
-    <div class="wrap">
-        <div class="rev-zone">
-            <span class="subtitle">Guest Experiences</span>
-            <div class="stars">★★★★★</div>
-            <div class="quote" id="quote">"An absolute masterpiece of flavors. The best dining experience in Khammam."</div>
-            <button class="btn btn-filled" id="post">Generate Review & Open Google</button>
-        </div>
-    </div>
-</section>
+    const POOL_KEY = 'algani_review_pool';
+    let pool = JSON.parse(localStorage.getItem(POOL_KEY) || '[]');
 
-<section id="contact">
-    <div class="wrap">
-        <div class="menu-header">
-            <span class="subtitle">Visit Us</span>
-            <h2>Our Location</h2>
-            <p class="sub">Bridge, near Tekulapalli, Indira Nagar, Rotary Nagar, Khammam, Telangana.</p>
-        </div>
-        
-        <div class="contact-layout">
-            <div class="contact-cards">
-                <a class="cc" href="tel:+919848564387"><span>Call</span><small>Talk to the host</small></a>
-                <a class="cc" href="https://wa.me/919848564387" target="_blank" rel="noopener"><span>WhatsApp</span><small>Direct message</small></a>
-                <a class="cc" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener"><span>Instagram</span><small>Follow our journey</small></a>
-                <a class="cc" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener"><span>Feedback</span><small>Leave a review</small></a>
-            </div>
-            <div class="map-3d">
-                <iframe src="https://maps.google.com/maps?q=17.2489581,80.1736228&hl=en&z=15&output=embed" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </div>
-</section>
+    const stars = document.getElementById('stars');
+    const hint = document.getElementById('hint');
+    const postBtn = document.getElementById('postBtn');
+    const msg = document.getElementById('msg');
+    const addBtn = document.getElementById('addBtn');
+    const newComment = document.getElementById('newComment');
 
-<footer>
-    <div style="color: var(--text-muted); font-size: 0.9rem;">© Al-Gani's Ali Bhai Biryani &amp; Cafe Restaurant, Khammam</div>
-    <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener" class="dev-link">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Designed by Syed Zeeshaan Ali | High-Fledged Engineering
-    </a>
-</footer>
-
-<div class="toast" id="toast" role="status"></div>
-
-<script>
-(function(){
-"use strict";
-
-const P = "https://images.pexels.com/photos/";
-const REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0";
-
-// --- HERO AUTO-SLIDER LOGIC ---
-const slides = [
-    {
-        bgText: "Dum Biryani", cat: "Signature Dish", title: "Royal Dum<br>Biryani",
-        desc: "Slow-cooked to perfection over firewood. Every grain of basmati is infused with our secret family spices and tender chicken.",
-        price: "150/-", img: P+"34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=1000",
-        steps: [
-            { n: "01", t: "Marination", d: "Fresh chicken marinated overnight in rich yogurt and 12 secret spices." },
-            { n: "02", t: "Layering", d: "Aromatic long-grain basmati rice layered carefully over the meat." },
-            { n: "03", t: "Dum Process", d: "Sealed in a handi and slow-cooked over low flame to trap all flavors." }
-        ]
-    },
-    {
-        bgText: "Fry Piece", cat: "Crowd Favorite", title: "Crispy Fry<br>Piece",
-        desc: "A bold explosion of flavors. Perfectly fried, heavily spiced chicken served atop our rich, aromatic bagara rice.",
-        price: "250/-", img: P+"32825910/pexels-photo-32825910.jpeg?auto=compress&cs=tinysrgb&w=1000",
-        steps: [
-            { n: "01", t: "Spice Rub", d: "Coated in a fiery blend of Guntur chilies and roasted coriander." },
-            { n: "02", t: "Deep Fry", d: "Flash-fried to achieve a perfectly crisp exterior while locking in juices." },
-            { n: "03", t: "Plating", d: "Served piping hot alongside fragrant biryani rice and fresh raita." }
-        ]
-    },
-    {
-        bgText: "Vegetarian", cat: "Regal Choice", title: "Kaju Paneer<br>Biryani",
-        desc: "A regal vegetarian feast. Soft paneer cubes and golden roasted cashews nestled in fragrant, spiced basmati.",
-        price: "250/-", img: P+"34159106/pexels-photo-34159106.jpeg?auto=compress&cs=tinysrgb&w=1000",
-        steps: [
-            { n: "01", t: "Roasting", d: "Premium whole cashews gently roasted in pure desi ghee until golden." },
-            { n: "02", t: "Paneer Toss", d: "Fresh malai paneer cubes tossed in a rich, mild spice gravy." },
-            { n: "03", t: "The Mix", d: "Folded gently into steaming biryani rice, garnished with fried onions." }
-        ]
-    }
-];
-
-let currSlide = 0;
-let slideTimer;
-const slideDuration = 7000;
-
-const elBgText = document.getElementById("hero-bg-text");
-const elContent = document.getElementById("hero-content");
-const elCat = document.getElementById("hero-cat");
-const elTitle = document.getElementById("hero-title");
-const elDesc = document.getElementById("hero-desc");
-const elPrice = document.getElementById("hero-price");
-const elPlate = document.getElementById("hero-plate");
-const elDots = document.getElementById("dots-container");
-
-// Generate Dots
-slides.forEach((_, i) => {
-    let d = document.createElement("div"); d.className = "dot";
-    d.innerHTML = `<div class="dot-fill" id="fill-${i}"></div>`;
-    d.onclick = () => { clearInterval(slideTimer); updateSlide(i); startSlider(); };
-    elDots.appendChild(d);
-});
-
-function updateSlide(idx) {
-    currSlide = idx;
-    const data = slides[idx];
-    
-    // Fade Out
-    elContent.classList.add("fade-out");
-    elBgText.style.opacity = "0";
-    elPlate.style.opacity = "0.6";
-    
-    setTimeout(() => {
-        // Change Data
-        elBgText.innerHTML = data.bgText;
-        elCat.innerHTML = data.cat;
-        elTitle.innerHTML = data.title;
-        elDesc.innerHTML = data.desc;
-        elPrice.innerHTML = data.price;
-        elPlate.style.backgroundImage = `url('${data.img}')`;
-        
-        // Fade In
-        elContent.classList.remove("fade-out");
-        elBgText.style.opacity = "0.02";
-        elPlate.style.opacity = "1";
-    }, 400);
-
-    // Update Dots
-    document.querySelectorAll(".dot-fill").forEach((fill, i) => {
-        fill.style.transition = "none";
-        fill.style.width = (i < idx) ? "100%" : "0%";
-        if (i === idx) {
-            setTimeout(() => {
-                fill.style.transition = `width ${slideDuration}ms linear`;
-                fill.style.width = "100%";
-            }, 50);
-        }
+    stars.addEventListener('change', () => {
+      const r = document.querySelector('input[name="rating"]:checked');
+      hint.textContent = r ? 'You rated ' + r.value + ' star' + (r.value === '1' ? 's' : '') + '. Write your own comment, then post it to Google Review.' : 'Tap the stars above, write your own comment, then post it to Google Review.';
     });
-}
 
-function startSlider() {
-    slideTimer = setInterval(() => { updateSlide((currSlide + 1) % slides.length); }, slideDuration);
-}
-updateSlide(0); startSlider();
-
-
-// --- MODAL LOGIC ---
-const modal = document.getElementById("modal");
-window.openModal = function() {
-    clearInterval(slideTimer);
-    const data = slides[currSlide];
-    document.getElementById("modal-img").style.backgroundImage = `url('${data.img}')`;
-    document.getElementById("modal-title").innerHTML = data.title.replace('<br>', ' ');
-    document.getElementById("modal-desc").innerHTML = data.desc;
-    
-    let stepsHtml = "";
-    data.steps.forEach(s => {
-        stepsHtml += `<li class="step-item">
-            <span class="step-num">${s.n}</span>
-            <div class="step-text"><h5>${s.t}</h5><p>${s.d}</p></div>
-        </li>`;
+    addBtn.addEventListener('click', () => {
+      const t = newComment.value.trim();
+      if (!t) return;
+      pool.unshift({ name:'Customer', time:new Date().toLocaleString(), txt:t });
+      localStorage.setItem(POOL_KEY, JSON.stringify(pool));
+      newComment.value = '';
+      const first = pool[0];
+      document.getElementById('randomChip').textContent = first.name + ' ★ ' + first.txt;
+      showMsg('Added to the pool — the random pick re-scrambles automatically.');
     });
-    document.getElementById("modal-steps").innerHTML = stepsHtml;
-    modal.classList.add("active");
-}
-window.closeModal = function() {
-    modal.classList.remove("active");
-    startSlider();
-}
 
+    postBtn.addEventListener('click', () => {
+      const r = document.querySelector('input[name="rating"]:checked');
+      const rating = r ? '&rating=' + r.value : '&rating=4';
+      const params = new URLSearchParams({
+        client_id:       CONFIG.client_id,
+        redirect_uri:    CONFIG.baseUrl + '?done',
+        scope:           'https://www.googleapis.com/auth/businessmessages.reviews',
+        action:          'create',
+        placeholder:     'Tell us about your experience at Al-Gani’s Ali Bhai Biryani & Cafe',
+        review_text:     ''
+      });
+      if (rating) params.set('rating', rating);
+      const url = 'https://accounts.google.com/o/oauth2/v2/auth?' + params.toString();
+      window.open(url, 'google-review', 'width=700,height=680,resizable=yes,scrollbars=yes');
+      showMsg('Opening Google’s review screen… choose your stars & type your own comment, then submit.');
+    });
 
-// --- 3D MENU EXACT DATA EXTRACTION ---
-// Extracted exactly from alibhaimenu.jpeg
-const MENU_DATA = [
-    {
-        cat: "Chicken Biryani", img: P+"34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Single Biryani (1 Piece)", "120/-"], ["Full (Chicken Biryani) 2 Pieces", "150/-"],
-            ["KG - Biryani 3 Pieces", "180/-"], ["Couple Pack 4 Pieces", "300/-"],
-            ["Family Pack 6 Pieces", "500/-"], ["Jumbo Pack 9 Pieces", "750/-"]
-        ]
-    },
-    {
-        cat: "Fry Piece Biryani", img: P+"32825910/pexels-photo-32825910.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Single", "160/-"], ["Fry Piece Full", "250/-"],
-            ["Fry Piece Couple Pack", "350/-"], ["Fry Piece Family", "550/-"],
-            ["Fry Piece Jumbo", "800/-"]
-        ]
-    },
-    {
-        cat: "Paneer & Kaju", img: P+"34159106/pexels-photo-34159106.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Paneer Biryani Single", "180/-"], ["Paneer Full", "250/-"],
-            ["Paneer Couple", "400/-"], ["Paneer Family", "550/-"],
-            ["Paneer Jumbo", "800/-"], ["Kaju Biryani Paneer", "250/-"],
-            ["Kaju Biryani", "260/-"], ["Bagara With Chicken Curry", "120/-"]
-        ]
-    },
-    {
-        cat: "Rice & Noodles", img: P+"34159112/pexels-photo-34159112.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Egg Fried Rice (Basmati)", "90/-"], ["Egg Noodles", "70/-"],
-            ["Chicken Fried Rice", "100/-"], ["Chicken Noodles", "90/-"],
-            ["Veg Noodles", "70/-"], ["Veg Fried Rice (Basmati)", "80/-"],
-            ["Manchuria Fried Rice", "80/-"], ["Kaju Fried Rice", "100/-"],
-            ["Paneer Fried Rice", "90/-"], ["Kaju Egg Noodles", "110/-"]
-        ]
-    },
-    {
-        cat: "Chinese Items", img: P+"34159113/pexels-photo-34159113.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Egg Manchuria", "90/-"], ["Chicken Manchuria", "120/-"],
-            ["Chicken 65", "150/-"], ["Chilli Chicken", "140/-"],
-            ["Kaju Chicken", "160/-"], ["Veg Manchuria", "80/-"],
-            ["Chicken Curry", "80/-"]
-        ]
-    },
-    {
-        cat: "Unlimited & Extras", img: P+"34159109/pexels-photo-34159109.jpeg?auto=compress&cs=tinysrgb&w=600",
-        items: [
-            ["Biryani Unlimited Rice (Table)", "130/-"],
-            ["Extra Piece", "50/-"], ["Extra Rice", "80/-"]
-        ]
+    function showMsg(t) { msg.textContent = t; }
+
+    if (pool.length) {
+      document.getElementById('randomChip').textContent = pool[0].name + ' ★ ' + pool[0].txt;
     }
-];
-
-const grid = document.getElementById("menu-grid");
-MENU_DATA.forEach(c => {
-    let listHTML = "";
-    c.items.forEach(i => { listHTML += `<li><span>${i[0]}</span> <strong>${i[1]}</strong></li>`; });
-    
-    const scene = document.createElement("div");
-    scene.className = "scene";
-    scene.innerHTML = `
-        <div class="card-3d" onclick="this.classList.toggle('is-flipped')">
-            <div class="card-face card-front" style="background-image: url('${c.img}')">
-                <div class="card-front-content">
-                    <h3>${c.cat}</h3>
-                    <div class="tap-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20m10-10H2" stroke="currentColor" stroke-width="2"/></svg></div>
-                </div>
-            </div>
-            <div class="card-face card-back">
-                <h4>${c.cat}</h4>
-                <div class="card-back-scroll"><ul>${listHTML}</ul></div>
-            </div>
-        </div>
-    `;
-    grid.appendChild(scene);
-});
-
-// --- REVIEW GENERATOR ---
-const revs = [
-    "An absolute masterpiece of flavors. The best dining experience in Khammam.",
-    "The chicken biryani is fragrant, perfectly spiced, and incredibly tender.",
-    "Service was exceptionally quick and the staff were highly polite.",
-    "A regal feast. The Kaju Paneer Biryani is bursting with authentic flavor.",
-    "Highly recommended! Five stars for taste, hygiene, and generous portions."
-];
-function toast(msg) {
-    const t = document.getElementById("toast");
-    t.innerText = msg; t.classList.add("on");
-    setTimeout(() => t.classList.remove("on"), 3000);
-}
-document.getElementById("post").onclick = function() {
-    const text = revs[Math.floor(Math.random() * revs.length)];
-    document.getElementById("quote").innerText = `"${text}"`;
-    try { navigator.clipboard.writeText(text); } catch(e) {}
-    setTimeout(() => { window.open(REVIEW_URL, "_blank", "noopener"); }, 500);
-    toast("Review copied! Paste on Google.");
-};
-
-})();
-</script>
+  })();
+  </script>
 </body>
 </html>
