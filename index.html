@@ -2,35 +2,250 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Al-Gani's Ali Bhai Biryani & Cafe — 3D Experience</title>
-<meta name="description" content="Al-Gani's Ali Bhai Biryani & Cafe, Khammam — authentic dum biryani, fry piece biryani, paneer & kaju, Chinese and family packs. Order on WhatsApp." />
-<link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Al-Gani's Ali Bhai Biryani &amp; Cafe — Khammam</title>
+<meta name="description" content="Al-Gani's Ali Bhai Biryani & Cafe, Khammam — dum biryani, fry piece, paneer &amp; kaju, Chinese and family packs. Order on WhatsApp +91 98485 64387." />
+<meta name="theme-color" content="#140b07" />
+<meta property="og:title" content="Al-Gani's Ali Bhai Biryani &amp; Cafe — Khammam" />
+<meta property="og:description" content="Slow-cooked dum biryani in sealed handis. Order on WhatsApp." />
+<meta property="og:type" content="restaurant" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23140b07'/%3E%3Cpath d='M12 28h40a20 20 0 0 1-40 0Z' fill='%23e8b84b'/%3E%3Crect x='6' y='24' width='52' height='7' rx='3.5' fill='%23f6d78a'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./css/styles.css" />
-<script type="importmap">
-{
-  "imports": {
-    "three": "/node_modules/three/build/three.module.js",
-    "three/addons/": "/node_modules/three/examples/jsm/"
-  }
+<style>
+:root{
+  --bg:#140b07;--ink:#fdf3e3;--ink-dim:#cbb59a;--ink-faint:#8f7a63;
+  --gold:#e8b84b;--gold-2:#f6d78a;--saffron:#ff9a3c;--green:#3fbf6a;--red:#e04b3a;
+  --line:rgba(232,184,75,.18);--radius:18px;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(60% 42% at 50% 10%,rgba(255,150,60,.18),transparent 70%),
+  radial-gradient(42% 32% at 86% 72%,rgba(138,34,34,.20),transparent 70%),
+  linear-gradient(180deg,#160c07,#0c0603 60%,#120906)}
+::selection{background:rgba(232,184,75,.4);color:#140b07}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.12;letter-spacing:-.01em}
+sup{font-size:.55em}
+
+/* ---- 3D layer ---- */
+#webgl{position:fixed;inset:0;z-index:0;opacity:var(--scene-opacity,1);transition:opacity .6s ease}
+#webgl canvas{display:block;width:100%;height:100%}
+.glow-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+  radial-gradient(115% 85% at 50% 42%,transparent 36%,rgba(20,11,7,.8) 100%),
+  linear-gradient(180deg,rgba(20,11,7,.35) 0,transparent 16%,transparent 66%,rgba(12,6,3,.96) 100%)}
+main,.nav,.footer,.wa-float{position:relative;z-index:2}
+
+/* ---- reveal ---- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.22,1,.36,1) var(--d,0s),transform .9s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ---- buttons / chips ---- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.94rem;border:1px solid transparent;white-space:nowrap;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s}
+.btn--lg{padding:15px 32px;font-size:1rem}
+.btn--gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#25170a;box-shadow:0 10px 30px rgba(232,184,75,.28)}
+.btn--gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,184,75,.42)}
+.btn--ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px)}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:9px 17px;border-radius:999px;border:1px solid var(--line);background:rgba(28,16,10,.6);font-size:.86rem;color:var(--ink-dim);transition:.25s}
+.chip:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px)}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .35s,backdrop-filter .35s,border-color .35s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(14,8,5,.86);backdrop-filter:blur(16px) saturate(140%);border-bottom-color:var(--line)}
+.nav__inner{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:20px}
+.nav__brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.nav__mark{width:42px;height:42px;flex:0 0 42px}
+.nav__name{font-family:var(--display);font-weight:700;font-size:1.22rem;line-height:1;display:flex;flex-direction:column;gap:3px;color:var(--gold-2)}
+.nav__name small{font-family:var(--body);font-weight:500;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.nav__links{display:flex;align-items:center;gap:6px}
+.nav__links a{padding:9px 14px;border-radius:999px;font-size:.93rem;font-weight:500;color:var(--ink-dim);transition:.22s}
+.nav__links a:hover{color:var(--gold-2);background:rgba(232,184,75,.08)}
+.nav__actions{display:flex;align-items:center;gap:10px}
+.nav__burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.nav__burger span{width:18px;height:2px;background:var(--gold-2);border-radius:2px;transition:.25s}
+.nav__burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.nav__burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+
+/* ---- layout ---- */
+.section{max-width:1180px;margin:0 auto;padding:96px 22px;position:relative}
+.section__head{max-width:760px;margin-bottom:48px}
+.section__head--center{margin-left:auto;margin-right:auto;text-align:center}
+.kicker{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
+.section h2{font-size:clamp(1.8rem,4vw,2.9rem)}
+.section__lede{margin-top:18px;color:var(--ink-dim);font-size:1.05rem;max-width:60ch}
+.section__head--center .section__lede{margin-left:auto;margin-right:auto}
+
+/* ---- hero ---- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 22px 90px;position:relative}
+.hero__logo{width:clamp(96px,14vw,148px);margin:0 auto 26px;filter:drop-shadow(0 12px 34px rgba(232,184,75,.35))}
+.hero__logo svg{width:100%;height:auto}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:600}
+.hero__title{font-size:clamp(2.4rem,7.4vw,5.2rem);display:flex;flex-direction:column;gap:.06em}
+.hero__title-accent{color:var(--gold-2);text-shadow:0 4px 40px rgba(232,184,75,.35)}
+.hero__title-amp{font-size:.42em;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-dim);font-family:var(--body);font-weight:500}
+.hero__sub{margin:26px auto 0;max-width:56ch;color:var(--ink-dim);font-size:clamp(1rem,2vw,1.16rem)}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.hero__chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.hero__scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--ink-faint);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+.hero__scroll em{font-style:normal}
+.hero__scroll-track{width:1px;height:44px;background:var(--line);position:relative;overflow:hidden}
+.hero__scroll-dot{position:absolute;top:0;width:1px;height:14px;background:var(--gold);animation:drop 1.9s ease-in-out infinite}
+@keyframes drop{0%{transform:translateY(-16px);opacity:0}40%{opacity:1}100%{transform:translateY(46px);opacity:0}}
+
+/* ---- marquee ---- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;background:rgba(16,9,6,.6)}
+.marquee__track{display:flex;align-items:center;gap:28px;width:max-content;animation:slide 34s linear infinite}
+.marquee__track span{font-family:var(--display);font-size:1.28rem;color:var(--ink-dim);white-space:nowrap}
+.marquee__track i{color:var(--gold);font-style:normal;font-size:.8rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+/* ---- dish art (no images, never breaks) ---- */
+.art{position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(120% 100% at 50% 16%,var(--c1,#5a3418),var(--c2,#160c06) 74%)}
+.art::after{content:"";position:absolute;inset:0;background:radial-gradient(72% 52% at 50% 102%,rgba(255,170,80,.24),transparent 72%)}
+.art span{font-size:2.7rem;line-height:1;filter:drop-shadow(0 8px 16px rgba(0,0,0,.65));position:relative;z-index:1}
+.a-biryani{--c1:#7d3c12;--c2:#1c0d05}
+.a-fry{--c1:#8a4a12;--c2:#211006}
+.a-paneer{--c1:#6d5a1c;--c2:#1d1808}
+.a-noodle{--c1:#5c3c1d;--c2:#180f07}
+.a-chinese{--c1:#6e2314;--c2:#1a0a05}
+.a-rice{--c1:#4c4c1e;--c2:#15150a}
+
+/* ---- signature ---- */
+.signature__grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:22px}
+.dish{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(24,14,9,.62);backdrop-filter:blur(6px);transition:transform .3s,box-shadow .3s,border-color .3s;will-change:transform}
+.dish:hover{border-color:rgba(232,184,75,.4);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.dish .art{aspect-ratio:16/10}
+.dish--hero .art{aspect-ratio:16/11}
+.dish--hero .art span{font-size:3.6rem}
+.dish__body{padding:20px 22px 24px;position:relative}
+.dish__badge{display:inline-block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#2a1808;background:linear-gradient(135deg,var(--gold-2),var(--gold));padding:5px 11px;border-radius:999px;margin-bottom:12px}
+.dish__badge--alt{background:linear-gradient(135deg,#ffb774,var(--saffron));color:#3a1a05}
+.dish h3{font-size:1.28rem;margin-bottom:8px}
+.dish p{color:var(--ink-dim);font-size:.94rem}
+.dish__price{display:inline-block;margin-top:14px;font-family:var(--display);font-size:1.3rem;color:var(--gold-2);font-weight:700}
+.dish__price span{font-family:var(--body);font-size:.72rem;color:var(--ink-faint);font-weight:500;margin-left:4px}
+
+/* ---- menu ---- */
+.menu__chips{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 18px;margin-bottom:26px;position:sticky;top:64px;z-index:5;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.menu__chips::-webkit-scrollbar{display:none}
+.menu__chip{flex:0 0 auto;padding:9px 17px;border-radius:999px;border:1px solid var(--line);background:rgba(22,13,8,.9);backdrop-filter:blur(10px);font-size:.85rem;font-weight:600;color:var(--ink-dim);transition:.22s}
+.menu__chip:hover{color:var(--gold-2);border-color:var(--gold)}
+.menu__chip.active{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#241505;border-color:transparent}
+.menu__cat{padding-top:36px;scroll-margin-top:118px}
+.menu__cat-head{display:flex;align-items:baseline;gap:16px;margin-bottom:10px}
+.menu__cat-head h3{font-size:1.5rem;white-space:nowrap}
+.menu__cat-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.menu__cat-head .count{font-size:.76rem;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.menu__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:22px}
+.menu__item{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;border:1px solid rgba(232,184,75,.12);border-radius:14px;background:rgba(22,13,8,.55);transition:border-color .25s,transform .25s,background .25s}
+.menu__item:hover{border-color:rgba(232,184,75,.38);background:rgba(30,18,10,.72);transform:translateY(-2px)}
+.menu__item-art{flex:0 0 58px;width:58px;height:58px;border-radius:12px}
+.menu__item-art span{font-size:1.7rem}
+.menu__item-body{flex:1;min-width:0}
+.menu__item-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:600;font-size:.97rem}
+.veg-mark{width:13px;height:13px;border-radius:3px;border:1.6px solid var(--green);position:relative;flex:0 0 13px}
+.veg-mark::after{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--green)}
+.veg-mark.nonveg{border-color:var(--red)}
+.veg-mark.nonveg::after{background:var(--red)}
+.menu__item-tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#2a1808;background:var(--gold);padding:2px 7px;border-radius:999px}
+.menu__item-note{color:var(--ink-faint);font-size:.82rem;margin-top:2px}
+.menu__item-price{font-family:var(--display);font-weight:700;font-size:1.06rem;color:var(--gold-2);white-space:nowrap}
+.noscript{color:var(--ink-dim);text-align:center}
+
+/* ---- location ---- */
+.location__grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:stretch}
+.location__map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-height:360px;background:#1a0f08}
+.location__map iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:saturate(.85) contrast(1.05)}
+.location__card{border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:rgba(24,14,9,.66);backdrop-filter:blur(8px)}
+.location__card h3{font-size:1.3rem;margin-bottom:14px}
+.location__card p{color:var(--ink-dim);font-size:.96rem}
+.location__coords{margin-top:14px;font-size:.86rem;color:var(--ink-faint)}
+.location__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+/* ---- contact ---- */
+.contact__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.contact__card{display:block;border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;background:rgba(24,14,9,.6);transition:transform .3s,border-color .3s,box-shadow .3s}
+.contact__card:hover{transform:translateY(-6px);border-color:rgba(232,184,75,.45);box-shadow:0 24px 54px rgba(0,0,0,.5)}
+.contact__icon{font-size:1.8rem;display:block;margin-bottom:14px}
+.contact__card h3{font-size:1.12rem;margin-bottom:6px}
+.contact__card p{color:var(--ink-dim);font-size:.92rem;word-break:break-word}
+.contact__card em{display:block;margin-top:12px;font-style:normal;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* ---- footer ---- */
+.footer{border-top:1px solid var(--line);background:rgba(12,7,4,.9);padding:70px 22px 34px;margin-top:40px}
+.footer__inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:34px}
+.footer__brand svg{width:64px;height:64px;margin-bottom:16px}
+.footer__brand p{color:var(--ink-dim);font-size:.92rem}
+.footer__brand p span{color:var(--ink-faint);font-size:.86rem}
+.footer__tel{margin-top:14px}
+.footer__tel a{color:var(--gold-2);font-family:var(--display);font-size:1.2rem;font-weight:700}
+.footer__col{display:flex;flex-direction:column;gap:11px}
+.footer__col h4{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-family:var(--body);margin-bottom:6px}
+.footer__col a{color:var(--ink-dim);font-size:.92rem;transition:.2s}
+.footer__col a:hover{color:var(--gold-2)}
+.footer__devnote{color:var(--ink-faint);font-size:.82rem}
+.footer__base{max-width:1180px;margin:52px auto 0;padding-top:22px;border-top:1px solid rgba(232,184,75,.1);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink-faint);font-size:.8rem}
+
+/* ---- floating whatsapp ---- */
+.wa-float{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#40d06a,#1faa4f);color:#fff;box-shadow:0 14px 34px rgba(31,170,79,.45);transition:transform .25s;z-index:30}
+.wa-float:hover{transform:scale(1.08)}
+
+/* ---- responsive ---- */
+@media (max-width:980px){
+  .nav__burger{display:flex}
+  .nav__links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(14,8,5,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);
+    padding:0 22px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .35s ease,opacity .3s ease,padding .3s ease}
+  .nav__links.open{max-height:440px;opacity:1;pointer-events:auto;padding:8px 22px 18px}
+  .nav__links a{padding:15px 0;border-bottom:1px solid rgba(232,184,75,.1);border-radius:0}
+  .nav__actions .btn--gold{display:none}
+  .signature__grid{grid-template-columns:1fr 1fr}
+  .dish--hero{grid-column:1/-1}
+  .location__grid{grid-template-columns:1fr}
+  .footer__inner{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .section{padding:70px 20px}
+  .signature__grid{grid-template-columns:1fr}
+  .footer__inner{grid-template-columns:1fr}
+  .footer__base{flex-direction:column}
+  .hero{padding-top:112px}
+  .menu__chips{top:58px}
+}
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
 </head>
 <body>
 <div id="webgl" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
+<div class="glow-overlay" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="nav__brand" href="#home">
-      <img src="./assets/logo.svg" alt="Al-Gani's Ali Bhai Biryani & Cafe logo" width="44" height="44" />
-      <span class="nav__name">Al-Gani's<small>Ali Bhai Biryani & Cafe</small></span>
+    <a class="nav__brand" href="#home" aria-label="Al-Gani's Ali Bhai Biryani and Cafe — home">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="42" height="42">
+          <path d="M11 27h42a21 21 0 0 1-42 0Z" fill="#e8b84b"/>
+          <rect x="5" y="23" width="54" height="7" rx="3.5" fill="#f6d78a"/>
+          <path d="M15 22c0-8 7.6-12 17-12s17 4 17 12" fill="none" stroke="#a8761f" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+          <circle cx="32" cy="6" r="3.4" fill="#f6d78a"/>
+        </svg>
+      </span>
+      <span class="nav__name">Al-Gani's<small>Ali Bhai Biryani &amp; Cafe</small></span>
     </a>
-    <nav class="nav__links" id="navLinks">
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
       <a href="#home">Home</a>
       <a href="#signature">Signature</a>
       <a href="#menu">Menu</a>
@@ -47,27 +262,30 @@
 <main>
   <!-- ================= HERO ================= -->
   <section class="hero" id="home">
-    <div class="hero__inner">
-      <img class="hero__logo reveal in" src="./assets/logo.svg" alt="Al-Gani's Ali Bhai Biryani & Cafe emblem" width="148" height="148" />
-      <p class="hero__eyebrow reveal">Khammam · Telangana · Since the first dum</p>
-      <h1 class="hero__title">
-        <span class="reveal" style="--d:.08s">Al-Gani's</span>
-        <span class="reveal hero__title-accent" style="--d:.18s">Ali Bhai Biryani</span>
-        <span class="reveal hero__title-amp" style="--d:.28s">&amp; Cafe</span>
-      </h1>
-      <p class="hero__sub reveal" style="--d:.36s">
-        Slow-cooked dum biryani in sealed handis — chicken, fry-piece, paneer &amp; kaju,
-        sizzling Chinese, and packs built for every appetite.
-      </p>
-      <div class="hero__cta reveal" style="--d:.44s">
-        <a class="btn btn--gold btn--lg" href="https://wa.me/919848564387" target="_blank" rel="noopener">Order on WhatsApp</a>
-        <a class="btn btn--ghost btn--lg" href="#menu">Explore the menu</a>
-      </div>
-      <div class="hero__chips reveal" style="--d:.52s">
-        <a class="chip" href="tel:+919848564387">📞 +91 98485 64387</a>
-        <a class="chip" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener">📸 Instagram</a>
-        <a class="chip" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener">⭐ Rate on Google</a>
-      </div>
+    <span class="hero__logo reveal in" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="148" height="148">
+        <path d="M11 27h42a21 21 0 0 1-42 0Z" fill="#e8b84b"/>
+        <rect x="5" y="23" width="54" height="7" rx="3.5" fill="#f6d78a"/>
+        <path d="M15 22c0-8 7.6-12 17-12s17 4 17 12" fill="none" stroke="#a8761f" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+        <circle cx="32" cy="6" r="3.4" fill="#f6d78a"/>
+        <path d="M20 40a12 12 0 0 0 24 0" fill="none" stroke="#8a5a12" stroke-width="1.6" opacity=".5"/>
+      </svg>
+    </span>
+    <p class="hero__eyebrow reveal">Khammam · Telangana · Since the first dum</p>
+    <h1 class="hero__title">
+      <span class="reveal" style="--d:.08s">Al-Gani's</span>
+      <span class="reveal hero__title-accent" style="--d:.18s">Ali Bhai Biryani</span>
+      <span class="reveal hero__title-amp" style="--d:.28s">&amp; Cafe</span>
+    </h1>
+    <p class="hero__sub reveal" style="--d:.36s">Slow-cooked dum biryani in sealed handis — chicken, fry-piece, paneer &amp; kaju, sizzling Chinese, and packs built for every appetite.</p>
+    <div class="hero__cta reveal" style="--d:.44s">
+      <a class="btn btn--gold btn--lg" href="https://wa.me/919848564387" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a class="btn btn--ghost btn--lg" href="#menu">Explore the menu</a>
+    </div>
+    <div class="hero__chips reveal" style="--d:.52s">
+      <a class="chip" href="tel:+919848564387">📞 +91 98485 64387</a>
+      <a class="chip" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener">📸 Instagram</a>
+      <a class="chip" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener">⭐ Write a Google Review</a>
     </div>
     <a class="hero__scroll" href="#signature" aria-label="Scroll to dishes">
       <span class="hero__scroll-track"><span class="hero__scroll-dot"></span></span>
@@ -91,7 +309,7 @@
     </div>
     <div class="signature__grid">
       <article class="dish dish--hero reveal" data-tilt style="--d:.05s">
-        <div class="dish__img"><img src="./assets/img/chicken-biryani.jpg" alt="Chicken dum biryani served in a traditional handi" loading="lazy" /></div>
+        <div class="art a-biryani"><span aria-hidden="true">🍛</span></div>
         <div class="dish__body">
           <span class="dish__badge">Bestseller</span>
           <h3>Chicken Dum Biryani</h3>
@@ -100,7 +318,7 @@
         </div>
       </article>
       <article class="dish reveal" data-tilt style="--d:.14s">
-        <div class="dish__img"><img src="./assets/img/biryani-hero.jpg" alt="Family pack biryani handi" loading="lazy" /></div>
+        <div class="art a-rice"><span aria-hidden="true">🍚</span></div>
         <div class="dish__body">
           <span class="dish__badge dish__badge--alt">Sharing size</span>
           <h3>Family Pack — 6 Pieces</h3>
@@ -109,7 +327,7 @@
         </div>
       </article>
       <article class="dish reveal" data-tilt style="--d:.23s">
-        <div class="dish__img"><img src="./assets/img/chicken-65.jpg" alt="Hot and spicy Chicken 65" loading="lazy" /></div>
+        <div class="art a-chinese"><span aria-hidden="true">🍗</span></div>
         <div class="dish__body">
           <span class="dish__badge">Spicy</span>
           <h3>Chicken 65</h3>
@@ -140,10 +358,7 @@
     </div>
     <div class="location__grid">
       <div class="location__map reveal">
-        <iframe
-          src="https://maps.google.com/maps?q=17.2489581,80.1736228&amp;hl=en&amp;z=15&amp;output=embed"
-          title="Map to Al-Gani's Ali Bhai Biryani &amp; Cafe, Khammam"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <iframe src="https://maps.google.com/maps?q=17.2489581,80.1736228&amp;hl=en&amp;z=15&amp;output=embed" title="Map to Al-Gani's Ali Bhai Biryani &amp; Cafe, Khammam" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
       <aside class="location__card reveal" style="--d:.12s">
         <h3>Al-Gani's Ali Bhai Biryani &amp; Cafe</h3>
@@ -165,28 +380,16 @@
     </div>
     <div class="contact__grid">
       <a class="contact__card reveal" href="tel:+919848564387" style="--d:.05s">
-        <span class="contact__icon">📞</span>
-        <h3>Call</h3>
-        <p>+91 98485 64387</p>
-        <em>Tap to dial</em>
+        <span class="contact__icon">📞</span><h3>Call</h3><p>+91 98485 64387</p><em>Tap to dial</em>
       </a>
-      <a class="contact__card contact__card--wa reveal" href="https://wa.me/919848564387" target="_blank" rel="noopener" style="--d:.12s">
-        <span class="contact__icon">💬</span>
-        <h3>WhatsApp</h3>
-        <p>wa.me/919848564387</p>
-        <em>Send your order</em>
+      <a class="contact__card reveal" href="https://wa.me/919848564387" target="_blank" rel="noopener" style="--d:.12s">
+        <span class="contact__icon">💬</span><h3>WhatsApp</h3><p>wa.me/919848564387</p><em>Send your order</em>
       </a>
-      <a class="contact__card contact__card--ig reveal" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener" style="--d:.19s">
-        <span class="contact__icon">📸</span>
-        <h3>Instagram</h3>
-        <p>@alganisalibhaibiryani27</p>
-        <em>See today's specials</em>
+      <a class="contact__card reveal" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener" style="--d:.19s">
+        <span class="contact__icon">📸</span><h3>Instagram</h3><p>@alganisalibhaibiryani27</p><em>See today's specials</em>
       </a>
-      <a class="contact__card contact__card--rev reveal" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener" style="--d:.26s">
-        <span class="contact__icon">⭐</span>
-        <h3>Google Review</h3>
-        <p>Share your experience</p>
-        <em>Rate the flavour</em>
+      <a class="contact__card reveal" href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener" style="--d:.26s">
+        <span class="contact__icon">⭐</span><h3>Google Review</h3><p>Share your experience</p><em>Rate the flavour</em>
       </a>
     </div>
   </section>
@@ -196,17 +399,18 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="./assets/logo.svg" alt="Al-Gani's logo" width="72" height="72" />
+      <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+        <path d="M11 27h42a21 21 0 0 1-42 0Z" fill="#e8b84b"/>
+        <rect x="5" y="23" width="54" height="7" rx="3.5" fill="#f6d78a"/>
+        <path d="M15 22c0-8 7.6-12 17-12s17 4 17 12" fill="none" stroke="#a8761f" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+        <circle cx="32" cy="6" r="3.4" fill="#f6d78a"/>
+      </svg>
       <p>Al-Gani's Ali Bhai Biryani &amp; Cafe<br /><span>Near Tekulapalli Bridge, Indira Nagar, Khammam, Telangana</span></p>
       <p class="footer__tel"><a href="tel:+919848564387">+91 98485 64387</a></p>
     </div>
     <div class="footer__col">
       <h4>Menu</h4>
-      <a href="#menu">Chicken Biryani</a>
-      <a href="#menu">Fry Piece Biryani</a>
-      <a href="#menu">Paneer &amp; Kaju</a>
-      <a href="#menu">Rice &amp; Noodles</a>
-      <a href="#menu">Chinese Items</a>
+      <a href="#menu">Chicken Biryani</a><a href="#menu">Fry Piece Biryani</a><a href="#menu">Paneer &amp; Kaju</a><a href="#menu">Rice &amp; Noodles</a><a href="#menu">Chinese Items</a>
     </div>
     <div class="footer__col">
       <h4>Quick links</h4>
@@ -215,26 +419,540 @@
       <a href="https://search.google.com/local/writereview?placeid=ChIJ6cQuxAlZNDoRZrRRIkF1gp0" target="_blank" rel="noopener">Google Review</a>
       <a href="https://maps.google.com/maps?q=17.2489581,80.1736228" target="_blank" rel="noopener">Directions</a>
     </div>
-    <div class="footer__col footer__dev">
+    <div class="footer__col">
       <h4>Developed by</h4>
-      <a class="footer__devlogo" href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener">
-        <img src="./assets/dev-logo.svg" alt="High Fledged Engineering And Digital Tech Solutions" width="220" height="47" loading="lazy" />
-      </a>
-      <p class="footer__devnote">High Fledged Engineering And Digital Tech Solutions</p>
+      <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener">High Fledged Engineering<br />And Digital Tech Solutions</a>
+      <p class="footer__devnote">Design &amp; build — Syed Zeeshaan Ali</p>
     </div>
   </div>
   <div class="footer__base">
     <span>© 2026 Al-Gani's Ali Bhai Biryani &amp; Cafe, Khammam</span>
-    <span>Dish photography: Wikimedia Commons contributors (CC BY-SA / CC0)</span>
+    <span>Built as a single self-contained page — no build step.</span>
   </div>
 </footer>
 
 <a class="wa-float" href="https://wa.me/919848564387" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
-  <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor">
-    <path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.5.8 3.1 1.2 4.7 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.8c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.3 1.4 1.4-4.2-.2-.3c-1.2-1.5-1.8-3.3-1.8-5.2 0-5.4 4.4-9.7 9.8-9.7s9.7 4.4 9.7 9.7-4.3 9.9-10 9.9zm5.5-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
-  </svg>
+  <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.5.8 3.1 1.2 4.7 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.8c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.3 1.4 1.4-4.2-.2-.3c-1.2-1.5-1.8-3.3-1.8-5.2 0-5.4 4.4-9.7 9.8-9.7s9.7 4.4 9.7 9.7-4.3 9.9-10 9.9zm5.5-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
 </a>
 
-<script type="module" src="./js/main.js"></script>
+<!-- ============================================================
+     UI — menu, nav, reveals, tilt. Runs even if 3D/CDN fails.
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  var MENU = [
+    { id:'chicken-biryani', title:'Chicken Biryani', art:'a-biryani', note:'Dum-cooked in a sealed handi', items:[
+      { n:'Single Biryani', d:'1 Piece', p:120, veg:false },
+      { n:'Full Chicken Biryani', d:'2 Pieces', p:150, veg:false },
+      { n:'KG Biryani', d:'3 Pieces', p:180, veg:false },
+      { n:'Couple Pack', d:'4 Pieces', p:300, veg:false, tag:'Popular' },
+      { n:'Family Pack', d:'6 Pieces', p:500, veg:false, tag:'Value' },
+      { n:'Jumbo Pack', d:'9 Pieces', p:750, veg:false } ]},
+    { id:'fry-piece', title:'Fry Piece Biryani', art:'a-fry', note:'Crisp fried chicken layered into dum rice', items:[
+      { n:'Fry Piece Single', d:'1 fry piece', p:160, veg:false },
+      { n:'Fry Piece Full', d:'2 fry pieces', p:250, veg:false },
+      { n:'Fry Piece Couple Pack', d:'Sharing size', p:350, veg:false, tag:'Popular' },
+      { n:'Fry Piece Family', d:'Family size', p:550, veg:false },
+      { n:'Fry Piece Jumbo', d:'Party size', p:800, veg:false } ]},
+    { id:'paneer-kaju', title:'Paneer & Kaju', art:'a-paneer', note:'Vegetarian dum, cashew-rich gravy', items:[
+      { n:'Paneer Biryani Single', d:'Single', p:180, veg:true },
+      { n:'Paneer Biryani Full', d:'Full', p:250, veg:true },
+      { n:'Paneer Couple Pack', d:'Sharing size', p:400, veg:true },
+      { n:'Paneer Family Pack', d:'Family size', p:550, veg:true },
+      { n:'Paneer Jumbo Pack', d:'Party size', p:800, veg:true },
+      { n:'Kaju Biryani Paneer', d:'Cashew + paneer', p:250, veg:true, tag:'Rich' },
+      { n:'Kaju Biryani', d:'Cashew dum biryani', p:260, veg:true },
+      { n:'Bagara with Chicken Curry', d:'Bagara rice + curry', p:120, veg:false } ]},
+    { id:'rice-noodles', title:'Rice & Noodles', art:'a-noodle', note:'Wok-tossed classics & basmati staples', items:[
+      { n:'Egg Fried Rice (Basmati)', d:'Basmati, egg', p:90, veg:false },
+      { n:'Egg Noodles', d:'Wok-tossed', p:70, veg:false },
+      { n:'Chicken Fried Rice', d:'Basmati, chicken', p:100, veg:false },
+      { n:'Chicken Noodles', d:'Wok-tossed', p:90, veg:false },
+      { n:'Veg Noodles', d:'Garden vegetables', p:70, veg:true },
+      { n:'Veg Fried Rice (Basmati)', d:'Garden vegetables', p:80, veg:true },
+      { n:'Manchuria Fried Rice', d:'Manchurian style', p:80, veg:true },
+      { n:'Kaju Fried Rice', d:'Cashew crunch', p:100, veg:true },
+      { n:'Paneer Fried Rice', d:'Cottage cheese', p:90, veg:true },
+      { n:'Kaju Egg Noodles', d:'Cashew + egg', p:110, veg:false } ]},
+    { id:'chinese', title:'Chinese Items', art:'a-chinese', note:'Indo-Chinese counter, made to order', items:[
+      { n:'Egg Manchuria', d:'Tangy & crisp', p:90, veg:false },
+      { n:'Chicken Manchuria', d:'Dry or gravy', p:120, veg:false, tag:'Popular' },
+      { n:'Chicken 65', d:'Curry-leaf hot', p:150, veg:false, tag:'Bestseller' },
+      { n:'Chilli Chicken', d:'Extra spicy', p:140, veg:false },
+      { n:'Kaju Chicken', d:'Cashew chicken', p:160, veg:false },
+      { n:'Veg Manchuria', d:'Mixed vegetable', p:80, veg:true },
+      { n:'Chicken Curry', d:'House gravy', p:80, veg:false } ]},
+    { id:'unlimited', title:'Unlimited & Extras', art:'a-rice', note:'Add-ons for serious appetites', items:[
+      { n:'Biryani Unlimited Rice', d:'Per table', p:130, veg:false, tag:'Unlimited' },
+      { n:'Extra Piece', d:'Add-on', p:50, veg:false },
+      { n:'Extra Rice', d:'Add-on', p:80, veg:false } ]}
+  ];
+
+  var EMOJI = { 'a-biryani':'🍛', 'a-fry':'🍗', 'a-paneer':'🍲', 'a-noodle':'🍜', 'a-chinese':'🥡', 'a-rice':'🍚' };
+
+  function make(tag, cls, text) {
+    var el = document.createElement(tag);
+    if (cls) el.className = cls;
+    if (text != null) el.textContent = text;
+    return el;
+  }
+
+  function renderMenu() {
+    var root = document.getElementById('menuRoot');
+    var chips = document.getElementById('menuChips');
+    if (!root || !chips) return;
+    var frag = document.createDocumentFragment();
+    var chipFrag = document.createDocumentFragment();
+
+    MENU.forEach(function (cat, idx) {
+      var chip = make('a', 'menu__chip' + (idx === 0 ? ' active' : ''), cat.title);
+      chip.href = '#' + cat.id;
+      chipFrag.appendChild(chip);
+
+      var section = make('section', 'menu__cat');
+      section.id = cat.id;
+
+      var head = make('div', 'menu__cat-head');
+      head.appendChild(make('h3', null, cat.title));
+      head.appendChild(make('span', 'rule'));
+      head.appendChild(make('span', 'count', cat.items.length + ' items'));
+      section.appendChild(head);
+      section.appendChild(make('p', 'section__lede', cat.note));
+
+      var grid = make('div', 'menu__grid');
+      cat.items.forEach(function (it, i) {
+        var card = make('article', 'menu__item reveal');
+        card.style.setProperty('--d', Math.min(i * 0.05, 0.3) + 's');
+
+        var art = make('div', 'menu__item-art art ' + cat.art);
+        var emo = make('span', null, EMOJI[cat.art] || '🍽');
+        emo.setAttribute('role', 'img');
+        emo.setAttribute('aria-label', it.n);
+        art.appendChild(emo);
+
+        var body = make('div', 'menu__item-body');
+        var name = make('div', 'menu__item-name');
+        var mark = make('span', 'veg-mark' + (it.veg ? '' : ' nonveg'));
+        mark.setAttribute('role', 'img');
+        mark.setAttribute('aria-label', it.veg ? 'Vegetarian' : 'Non-vegetarian');
+        name.appendChild(mark);
+        name.appendChild(make('span', null, it.n));
+        if (it.tag) name.appendChild(make('span', 'menu__item-tag', it.tag));
+        body.appendChild(name);
+        body.appendChild(make('div', 'menu__item-note', it.d));
+
+        card.appendChild(art);
+        card.appendChild(body);
+        card.appendChild(make('div', 'menu__item-price', '₹' + it.p + '/-'));
+        grid.appendChild(card);
+      });
+
+      section.appendChild(grid);
+      frag.appendChild(section);
+    });
+
+    chips.appendChild(chipFrag);
+    root.appendChild(frag);
+  }
+
+  function initReveals() {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(els, function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  }
+
+  function initNav() {
+    var nav = document.getElementById('nav');
+    var burger = document.getElementById('navBurger');
+    var links = document.getElementById('navLinks');
+    if (!nav || !burger || !links) return;
+
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 24); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    burger.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function initMenuSpy() {
+    var chips = document.querySelectorAll('.menu__chip');
+    if (!chips.length || !('IntersectionObserver' in window)) return;
+    var byId = new Map();
+    Array.prototype.forEach.call(chips, function (c) { byId.set(c.getAttribute('href').slice(1), c); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          Array.prototype.forEach.call(chips, function (c) { c.classList.remove('active'); });
+          var chip = byId.get(en.target.id);
+          if (chip) chip.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -55% 0px' });
+    byId.forEach(function (_, id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+
+  function initTilt() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tilt]'), function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;
+        var y = (e.clientY - r.top) / r.height;
+        card.style.transform = 'perspective(900px) rotateX(' + (y - 0.5) * -5 + 'deg) rotateY(' + (x - 0.5) * 5 + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('pointerleave', function () { card.style.transform = ''; });
+    });
+  }
+
+  renderMenu();
+  initReveals();
+  initNav();
+  initMenuSpy();
+  initTilt();
+})();
+</script>
+
+<!-- ============================================================
+     3D — golden handi. Upgrades the page when the CDN is up;
+     the page is complete without it.
+     ============================================================ -->
+<script type="module">
+const mount = document.getElementById('webgl');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (mount && !reduce) {
+  try {
+    const THREE = await import('three');
+    initScene(THREE, mount);
+  } catch (err) {
+    console.warn('[3D] unavailable, using CSS fallback:', err);
+    document.body.classList.add('no-3d');
+    mount.remove();
+  }
+} else if (mount) {
+  document.body.classList.add('no-3d');
+  mount.remove();
+}
+
+function initScene(THREE, mount) {
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+  } catch (e) {
+    document.body.classList.add('no-3d');
+    mount.remove();
+    return;
+  }
+
+  const mobile = window.innerWidth < 760;
+  const DPR = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2);
+  renderer.setPixelRatio(DPR);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.88;
+  mount.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0.55, 6.4);
+
+  /* environment: procedural canvas gradient — no external HDR, no addons */
+  const eCv = document.createElement('canvas');
+  eCv.width = 256; eCv.height = 128;
+  const ec = eCv.getContext('2d');
+  const eg = ec.createLinearGradient(0, 0, 0, 128);
+  eg.addColorStop(0, '#241610'); eg.addColorStop(0.42, '#6d4318');
+  eg.addColorStop(0.52, '#c68b3c'); eg.addColorStop(0.64, '#4a2a12'); eg.addColorStop(1, '#140b07');
+  ec.fillStyle = eg; ec.fillRect(0, 0, 256, 128);
+  const hg = ec.createRadialGradient(80, 52, 2, 80, 52, 64);
+  hg.addColorStop(0, 'rgba(255,220,160,0.95)'); hg.addColorStop(1, 'rgba(255,170,80,0)');
+  ec.fillStyle = hg; ec.fillRect(0, 0, 256, 128);
+  const envTex = new THREE.CanvasTexture(eCv);
+  envTex.mapping = THREE.EquirectangularReflectionMapping;
+  envTex.colorSpace = THREE.SRGBColorSpace;
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromEquirectangular(envTex).texture;
+  envTex.dispose(); pmrem.dispose();
+
+  const world = new THREE.Group();
+  scene.add(world);
+
+  /* soft round sprite (shared by glow + particles) */
+  const sCv = document.createElement('canvas');
+  sCv.width = sCv.height = 64;
+  const sx = sCv.getContext('2d');
+  const sg = sx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  sg.addColorStop(0, 'rgba(255,255,255,1)');
+  sg.addColorStop(0.4, 'rgba(255,255,255,0.5)');
+  sg.addColorStop(1, 'rgba(255,255,255,0)');
+  sx.fillStyle = sg; sx.fillRect(0, 0, 64, 64);
+  const sprite = new THREE.CanvasTexture(sCv);
+
+  /* ---- the handi ---- */
+  const pot = new THREE.Group();
+  const goldMat = new THREE.MeshStandardMaterial({ color: 0xd9a441, metalness: 0.95, roughness: 0.28, envMapIntensity: 1.35 });
+  const goldDark = new THREE.MeshStandardMaterial({ color: 0x9a6a1e, metalness: 0.9, roughness: 0.44, envMapIntensity: 1.1 });
+
+  const bodyPts = [
+    new THREE.Vector2(0.02, 0), new THREE.Vector2(0.5, 0.01), new THREE.Vector2(0.86, 0.12),
+    new THREE.Vector2(1.08, 0.48), new THREE.Vector2(1.04, 0.84), new THREE.Vector2(0.88, 1.1),
+    new THREE.Vector2(0.7, 1.24), new THREE.Vector2(0.77, 1.3), new THREE.Vector2(0.68, 1.32)
+  ];
+  pot.add(new THREE.Mesh(new THREE.LatheGeometry(bodyPts, 96), goldMat));
+
+  const lidPts = [
+    new THREE.Vector2(0.02, 1.66), new THREE.Vector2(0.14, 1.64), new THREE.Vector2(0.4, 1.56),
+    new THREE.Vector2(0.62, 1.44), new THREE.Vector2(0.76, 1.34), new THREE.Vector2(0.72, 1.3)
+  ];
+  pot.add(new THREE.Mesh(new THREE.LatheGeometry(lidPts, 96), goldMat));
+
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(0.1, 32, 24), goldDark);
+  knob.position.y = 1.7;
+  pot.add(knob);
+
+  const band1 = new THREE.Mesh(new THREE.TorusGeometry(0.79, 0.035, 16, 96), goldDark);
+  band1.rotation.x = Math.PI / 2; band1.position.y = 1.26; pot.add(band1);
+  const band2 = new THREE.Mesh(new THREE.TorusGeometry(1.07, 0.028, 16, 96), goldDark);
+  band2.rotation.x = Math.PI / 2; band2.position.y = 0.52; pot.add(band2);
+
+  const handleGeo = new THREE.TorusGeometry(0.16, 0.045, 14, 40, Math.PI);
+  const hL = new THREE.Mesh(handleGeo, goldDark);
+  hL.position.set(-1.04, 0.78, 0); hL.rotation.set(0, Math.PI / 2, Math.PI / 1.7); pot.add(hL);
+  const hR = new THREE.Mesh(handleGeo, goldDark);
+  hR.position.set(1.04, 0.78, 0); hR.rotation.set(0, -Math.PI / 2, -Math.PI / 1.7); pot.add(hR);
+
+  pot.position.y = -1.35;
+  world.add(pot);
+
+  /* ---- warm glow: backlight + table pool (replaces bloom) ---- */
+  const backGlow = new THREE.Mesh(
+    new THREE.PlaneGeometry(10, 10),
+    new THREE.MeshBasicMaterial({ map: sprite, color: 0xff8a2a, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending })
+  );
+  backGlow.position.set(0, 0.25, -3.4);
+  scene.add(backGlow);
+
+  const glowCv = document.createElement('canvas');
+  glowCv.width = glowCv.height = 256;
+  const gc = glowCv.getContext('2d');
+  const gg = gc.createRadialGradient(128, 128, 10, 128, 128, 128);
+  gg.addColorStop(0, 'rgba(255,170,80,0.55)');
+  gg.addColorStop(0.5, 'rgba(255,120,40,0.18)');
+  gg.addColorStop(1, 'rgba(255,100,30,0)');
+  gc.fillStyle = gg; gc.fillRect(0, 0, 256, 256);
+  const glowTex = new THREE.CanvasTexture(glowCv);
+  const tableGlow = new THREE.Mesh(
+    new THREE.PlaneGeometry(7, 7),
+    new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })
+  );
+  tableGlow.rotation.x = -Math.PI / 2;
+  tableGlow.position.y = -1.34;
+  world.add(tableGlow);
+
+  /* ---- steam ---- */
+  const STEAM = mobile ? 24 : 40;
+  const sPos = new Float32Array(STEAM * 3);
+  const sPhase = new Float32Array(STEAM);
+  const sSpeed = new Float32Array(STEAM);
+  for (let i = 0; i < STEAM; i++) {
+    const a = Math.random() * Math.PI * 2;
+    const r = Math.random() * 0.4;
+    sPos[i * 3] = Math.cos(a) * r;
+    sPos[i * 3 + 1] = 0;
+    sPos[i * 3 + 2] = Math.sin(a) * r;
+    sPhase[i] = Math.random();
+    sSpeed[i] = 0.1 + Math.random() * 0.12;
+  }
+  const steamGeo = new THREE.BufferGeometry();
+  steamGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+  steamGeo.setAttribute('aPhase', new THREE.BufferAttribute(sPhase, 1));
+  steamGeo.setAttribute('aSpeed', new THREE.BufferAttribute(sSpeed, 1));
+  const steamMat = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 }, uMap: { value: sprite }, uPR: { value: DPR } },
+    vertexShader: `
+      attribute float aPhase; attribute float aSpeed;
+      uniform float uTime; uniform float uPR;
+      varying float vFade;
+      void main(){
+        float life = fract(aPhase + uTime * aSpeed);
+        vec3 p = position;
+        p.y = 0.35 + life * 2.6;
+        p.x += sin(uTime * 0.9 + aPhase * 40.0) * 0.28 * life;
+        p.z += cos(uTime * 0.7 + aPhase * 34.0) * 0.2 * life;
+        vFade = smoothstep(0.0, 0.18, life) * (1.0 - smoothstep(0.55, 1.0, life));
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = (0.5 + life * 1.4) * uPR * (58.0 / -mv.z);
+      }`,
+    fragmentShader: `
+      uniform sampler2D uMap; varying float vFade;
+      void main(){
+        float a = texture2D(uMap, gl_PointCoord).a * vFade * 0.17;
+        if (a < 0.01) discard;
+        gl_FragColor = vec4(vec3(1.0, 0.94, 0.85), a);
+      }`,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+  });
+  const steam = new THREE.Points(steamGeo, steamMat);
+  steam.position.y = 0.05;
+  world.add(steam);
+
+  /* ---- floating embers / spice dust ---- */
+  const EMBER = mobile ? 260 : 750;
+  const ePos = new Float32Array(EMBER * 3);
+  const eCol = new Float32Array(EMBER * 3);
+  const ePhase = new Float32Array(EMBER);
+  const eSpeed = new Float32Array(EMBER);
+  const palette = [new THREE.Color(0xffc978), new THREE.Color(0xff9a3c), new THREE.Color(0xe8b84b), new THREE.Color(0xff7a4d)];
+  for (let i = 0; i < EMBER; i++) {
+    ePos[i * 3] = (Math.random() - 0.5) * 22;
+    ePos[i * 3 + 1] = (Math.random() - 0.5) * 14;
+    ePos[i * 3 + 2] = (Math.random() - 0.5) * 14 - 3;
+    const c = palette[(Math.random() * palette.length) | 0];
+    eCol[i * 3] = c.r; eCol[i * 3 + 1] = c.g; eCol[i * 3 + 2] = c.b;
+    ePhase[i] = Math.random();
+    eSpeed[i] = 0.014 + Math.random() * 0.03;
+  }
+  const emberGeo = new THREE.BufferGeometry();
+  emberGeo.setAttribute('position', new THREE.BufferAttribute(ePos, 3));
+  emberGeo.setAttribute('color', new THREE.BufferAttribute(eCol, 3));
+  emberGeo.setAttribute('aPhase', new THREE.BufferAttribute(ePhase, 1));
+  emberGeo.setAttribute('aSpeed', new THREE.BufferAttribute(eSpeed, 1));
+  const emberMat = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 }, uMap: { value: sprite }, uPR: { value: DPR } },
+    vertexShader: `
+      attribute float aPhase; attribute float aSpeed;
+      uniform float uTime; uniform float uPR;
+      varying vec3 vColor; varying float vTw;
+      void main(){
+        vColor = color;
+        vTw = 0.55 + 0.45 * sin(uTime * 2.2 + aPhase * 60.0);
+        vec3 p = position;
+        p.y = mod(p.y + uTime * aSpeed * 10.0 + 7.0, 14.0) - 7.0;
+        p.x += sin(uTime * 0.5 + aPhase * 50.0) * 0.5;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = (0.35 + aPhase * 0.9) * uPR * (52.0 / -mv.z);
+      }`,
+    fragmentShader: `
+      uniform sampler2D uMap; varying vec3 vColor; varying float vTw;
+      void main(){
+        float a = texture2D(uMap, gl_PointCoord).a * 0.75 * vTw;
+        if (a < 0.02) discard;
+        gl_FragColor = vec4(vColor, a);
+      }`,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, vertexColors: true
+  });
+  const embers = new THREE.Points(emberGeo, emberMat);
+  scene.add(embers);
+
+  /* ---- orbiting spice rings ---- */
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xffb45c, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.5, 0.012, 8, 160), ringMat);
+  ring1.rotation.x = Math.PI / 2.4; ring1.position.y = -0.3; world.add(ring1);
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.1, 0.008, 8, 160), ringMat.clone());
+  ring2.material.opacity = 0.14; ring2.rotation.x = Math.PI / 1.9; ring2.rotation.z = 0.4;
+  ring2.position.y = 0.2; world.add(ring2);
+
+  /* ---- lights ---- */
+  scene.add(new THREE.AmbientLight(0x603515, 1.5));
+  const key = new THREE.DirectionalLight(0xffd9a0, 2.5);
+  key.position.set(3, 4, 5); scene.add(key);
+  const rim = new THREE.PointLight(0xff7a2a, 26, 20);
+  rim.position.set(-3.4, 1.4, -2.6); scene.add(rim);
+  const fill = new THREE.PointLight(0xffc76a, 14, 16);
+  fill.position.set(2.6, -0.6, 3.2); scene.add(fill);
+
+  /* ---- interaction ---- */
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  window.addEventListener('pointermove', (e) => {
+    mouse.tx = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.ty = (e.clientY / window.innerHeight) * 2 - 1;
+  }, { passive: true });
+
+  let scrollP = 0;
+  const onScroll = () => {
+    scrollP = Math.min(window.scrollY / window.innerHeight, 1.6);
+    document.documentElement.style.setProperty('--scene-opacity', Math.max(1 - scrollP * 1.1, 0.1).toFixed(3));
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  /* ---- render loop (paused when the tab is hidden) ---- */
+  function applyFrame(t) {
+    mouse.x += (mouse.tx - mouse.x) * 0.05;
+    mouse.y += (mouse.ty - mouse.y) * 0.05;
+
+    pot.rotation.y = t * 0.22 + mouse.x * 0.35;
+    world.rotation.x = mouse.y * 0.1;
+
+    const breathe = 1 + Math.sin(t * 2.1) * 0.05;
+    tableGlow.material.opacity = 0.5 + Math.sin(t * 2.1) * 0.12;
+    tableGlow.scale.setScalar(breathe);
+    backGlow.material.opacity = 0.48 + Math.sin(t * 1.7) * 0.07;
+
+    ring1.rotation.z = t * 0.16;
+    ring2.rotation.z = -t * 0.11;
+
+    steamMat.uniforms.uTime.value = t;
+    emberMat.uniforms.uTime.value = t;
+
+    camera.position.z = 6.4 + scrollP * 1.8;
+    camera.position.x = mouse.x * 0.4;
+    camera.position.y = 0.55 - mouse.y * 0.25 - scrollP * 0.5;
+    camera.lookAt(0, 0.15 - scrollP * 0.3, 0);
+
+    renderer.render(scene, camera);
+  }
+
+  let raf = 0, last = performance.now(), elapsed = 0;
+  function tick() {
+    raf = requestAnimationFrame(tick);
+    const now = performance.now();
+    elapsed += (now - last) / 1000;
+    last = now;
+    applyFrame(elapsed);
+  }
+  tick();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(raf); raf = 0;
+    } else if (!raf) {
+      last = performance.now();
+      tick();
+    }
+  });
+}
+</script>
 </body>
 </html>
