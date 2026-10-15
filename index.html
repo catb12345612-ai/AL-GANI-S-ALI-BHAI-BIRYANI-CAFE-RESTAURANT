@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#120905" />
   
   <!-- Favicon -->
-  <link rel="icon" href="alibhailogo.jpeg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23140b07' stroke='%23e8b84b' stroke-width='3'/%3E%3Cpath d='M14 30h36a18 18 0 0 1-36 0Z' fill='%23e8b84b'/%3E%3Crect x='10' y='25' width='44' height='6' rx='3' fill='%23f6d78a'/%3E%3Ccircle cx='32' cy='21' r='4' fill='%23ff9a3c'/%3E%3C/svg%3E" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,8 +23,8 @@
   <style>
     :root {
       --bg: #0f0704;
-      --bg-card: rgba(26, 14, 9, 0.78);
-      --bg-glass: rgba(18, 9, 5, 0.88);
+      --bg-card: rgba(26, 14, 9, 0.72);
+      --bg-glass: rgba(18, 9, 5, 0.85);
       --ink: #fdf5e6;
       --ink-dim: #d2bda4;
       --ink-faint: #8f7963;
@@ -35,8 +35,8 @@
       --crimson: #8a1c14;
       --green: #38c169;
       --red: #e54837;
-      --line: rgba(232, 184, 75, 0.24);
-      --line-strong: rgba(232, 184, 75, 0.52);
+      --line: rgba(232, 184, 75, 0.22);
+      --line-strong: rgba(232, 184, 75, 0.48);
       --radius: 20px;
       --display: "Playfair Display", Georgia, serif;
       --royal: "Cinzel", Georgia, serif;
@@ -173,15 +173,15 @@
       border-bottom: 1px solid transparent;
     }
     .nav.scrolled {
-      background: rgba(14, 7, 4, 0.9);
+      background: rgba(14, 7, 4, 0.88);
       backdrop-filter: blur(18px) saturate(150%);
       border-bottom-color: var(--line);
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
     }
     .nav__inner {
-      max-width: 1240px;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 12px 22px;
+      padding: 14px 22px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -193,28 +193,19 @@
       margin-right: auto;
     }
     .nav__mark {
-      width: 52px;
-      height: 52px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       border: 2px solid var(--gold);
-      background: #ffffff;
-      padding: 2px;
       display: grid;
       place-items: center;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(232, 184, 75, 0.35);
-      flex-shrink: 0;
-    }
-    .nav__mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #3a1d0e, #120804);
+      box-shadow: 0 0 20px rgba(232, 184, 75, 0.3);
     }
     .nav__name {
       font-family: var(--royal);
       font-weight: 800;
-      font-size: 1.18rem;
+      font-size: 1.2rem;
       line-height: 1.05;
       color: var(--gold-light);
       display: flex;
@@ -229,15 +220,11 @@
       color: var(--ink-dim);
       margin-top: 2px;
     }
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .nav__links { display: flex; align-items: center; gap: 4px; }
     .nav__links a {
-      padding: 8px 13px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--ink-dim);
       transition: 0.22s;
@@ -246,11 +233,8 @@
       color: var(--gold-light);
       background: rgba(232, 184, 75, 0.1);
     }
-    .nav__actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .nav__actions { display: flex; align-items: center; gap: 10px; }
+    
     .lang-switch {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--line);
@@ -305,8 +289,7 @@
       gap: 5px;
     }
     .nav__burger span {
-      width: 18px;
-      height: 2px;
+      width: 18px; height: 2px;
       background: var(--gold-light);
       border-radius: 2px;
       transition: 0.25s;
@@ -341,8 +324,7 @@
       margin-bottom: 18px;
     }
     .pulse-dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--green);
       box-shadow: 0 0 12px var(--green);
@@ -353,25 +335,16 @@
       50% { transform: scale(1.4); opacity: 0.5; }
     }
 
-    /* Fixed & Styled Restaurant Logo Frame */
     .hero__crest {
-      width: 165px;
-      height: 165px;
-      margin: 0 auto 22px;
-      border-radius: 28px;
-      border: 3px solid var(--gold);
-      background: #ffffff;
-      padding: 8px;
+      width: 112px; height: 112px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: radial-gradient(circle at 50% 35%, rgba(232, 184, 75, 0.25), rgba(20, 11, 7, 0.92));
       display: grid;
       place-items: center;
-      overflow: hidden;
-      box-shadow: 0 18px 50px rgba(232, 184, 75, 0.38), 0 0 0 6px rgba(232, 184, 75, 0.12);
+      box-shadow: 0 15px 45px rgba(232, 184, 75, 0.3), inset 0 0 25px rgba(232, 184, 75, 0.25);
       animation: floatCrest 5s ease-in-out infinite;
-    }
-    .hero__crest img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
     @keyframes floatCrest {
       0%, 100% { transform: translateY(0); }
@@ -421,18 +394,10 @@
       font-size: clamp(0.98rem, 1.8vw, 1.14rem);
     }
     .hero__cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 30px;
     }
     .hero__chips {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 24px;
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 24px;
     }
 
     .hero__stats {
@@ -442,7 +407,7 @@
       gap: 28px;
       padding: 18px 32px;
       border-radius: 22px;
-      background: rgba(22, 11, 6, 0.75);
+      background: rgba(22, 11, 6, 0.72);
       border: 1px solid var(--line);
       backdrop-filter: blur(14px);
     }
@@ -504,7 +469,7 @@
     .section h2 { font-size: clamp(1.9rem, 4vw, 2.85rem); }
     .section__lede { margin-top: 14px; color: var(--ink-dim); font-size: 1.02rem; }
 
-    /* ---- Dish Art & Real Food Photos ---- */
+    /* ---- Dish Art (CSS + Image) ---- */
     .art {
       position: relative;
       display: grid;
@@ -513,11 +478,14 @@
       background: radial-gradient(120% 100% at 50% 20%, var(--c1, #6b3310), var(--c2, #160a04) 76%);
     }
     .art__emoji {
-      font-size: 2.5rem;
+      font-size: 3rem;
       line-height: 1;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,0.65));
+      transition: transform 0.4s ease;
       z-index: 0;
     }
+    
+    /* The actual image styles to ensure it layers perfectly over the emoji */
     .art__img {
       position: absolute;
       inset: 0;
@@ -525,16 +493,12 @@
       height: 100%;
       object-fit: cover;
       z-index: 1;
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity: 0; /* Hidden until loaded */
+      transition: opacity 0.5s ease-in-out;
     }
-    .art::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent 55%, rgba(14, 7, 4, 0.55) 100%);
-    }
+    .art__img.is-ready { opacity: 1; }
+    .art__img.failed { display: none; }
+
     .a-biryani { --c1: #8d4315; --c2: #1c0c04; }
     .a-fry     { --c1: #944812; --c2: #210e05; }
     .a-paneer  { --c1: #7c6218; --c2: #1c1606; }
@@ -563,7 +527,7 @@
       border-color: var(--gold);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 25px rgba(232, 184, 75, 0.15);
     }
-    .dish:hover .art__img { transform: scale(1.08); }
+    .dish:hover .art__emoji { transform: scale(1.14) rotate(-4deg); }
     .dish .art { aspect-ratio: 16 / 10; }
     .dish__body {
       padding: 22px;
@@ -610,7 +574,7 @@
       margin-left: 4px;
     }
 
-    /* ---- Menu Controls ---- */
+    /* ---- Menu Controls (Search + Filters + Chips) ---- */
     .menu__controls {
       display: flex;
       flex-wrap: wrap;
@@ -618,7 +582,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 20px;
-      background: rgba(24, 13, 8, 0.85);
+      background: rgba(24, 13, 8, 0.8);
       border: 1px solid var(--line);
       padding: 14px 18px;
       border-radius: 16px;
@@ -717,9 +681,10 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+    
     .menu__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 16px;
       margin-top: 18px;
     }
@@ -727,29 +692,30 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 12px 14px;
-      border: 1px solid rgba(232, 184, 75, 0.18);
+      padding: 14px;
+      border: 1px solid rgba(232, 184, 75, 0.16);
       border-radius: 16px;
-      background: rgba(24, 13, 8, 0.74);
+      background: rgba(24, 13, 8, 0.68);
       backdrop-filter: blur(8px);
       transition: all 0.25s ease;
     }
     .menu__item:hover {
       border-color: var(--gold);
-      background: rgba(36, 20, 11, 0.9);
+      background: rgba(34, 19, 11, 0.85);
       transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
     }
-    .menu__item:hover .art__img { transform: scale(1.1); }
     .menu__item-art {
-      flex: 0 0 76px;
-      width: 76px;
-      height: 76px;
+      flex: 0 0 68px;
+      width: 68px;
+      height: 68px;
       border-radius: 14px;
-      border: 1.5px solid rgba(232, 184, 75, 0.35);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      border: 1px solid rgba(232, 184, 75, 0.25);
+      position: relative;
+      overflow: hidden;
     }
-    .menu__item-art .art__emoji { font-size: 1.8rem; }
+    .menu__item-art .art__emoji { font-size: 2rem; z-index: 0; }
+    
     .menu__item-body { flex: 1; min-width: 0; }
     .menu__item-name {
       display: flex;
@@ -757,7 +723,7 @@
       gap: 7px;
       flex-wrap: wrap;
       font-weight: 700;
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       color: var(--ink);
     }
     .veg-mark {
@@ -779,18 +745,18 @@
     .veg-mark.nonveg::after { background: var(--red); }
 
     .menu__item-tag {
-      font-size: 0.6rem;
+      font-size: 0.62rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 800;
       color: #241406;
       background: var(--gold);
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 999px;
     }
     .menu__item-note {
       color: var(--ink-faint);
-      font-size: 0.81rem;
+      font-size: 0.82rem;
       margin-top: 3px;
     }
     .menu__item-right {
@@ -888,103 +854,6 @@
       margin-bottom: 18px;
     }
 
-    /* ---- 165+ Interactive Review Hub ---- */
-    .reviews-hub {
-      border: 1px solid var(--line-strong);
-      border-radius: 26px;
-      padding: 36px 28px;
-      background: linear-gradient(160deg, rgba(28, 15, 9, 0.88), rgba(12, 6, 3, 0.95));
-      backdrop-filter: blur(14px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
-    }
-    .reviews-hub__top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 22px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-    }
-    .reviews-hub__tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .rev-tab {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--ink-dim);
-      background: rgba(255,255,255,0.03);
-      transition: 0.2s;
-    }
-    .rev-tab.active, .rev-tab:hover {
-      background: var(--gold);
-      color: #1c0f05;
-      border-color: transparent;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 14px;
-      max-height: 460px;
-      overflow-y: auto;
-      padding-right: 6px;
-    }
-    .reviews-grid::-webkit-scrollbar { width: 6px; }
-    .reviews-grid::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 999px; }
-    .rev-card {
-      text-align: left;
-      padding: 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(232, 184, 75, 0.18);
-      background: rgba(255, 255, 255, 0.03);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-      transition: all 0.22s ease;
-      cursor: pointer;
-    }
-    .rev-card:hover {
-      border-color: var(--gold);
-      background: rgba(232, 184, 75, 0.09);
-      transform: translateY(-2px);
-    }
-    .rev-card__stars {
-      font-size: 0.82rem;
-      color: var(--gold-light);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .rev-card__stars span {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-faint);
-      font-weight: 700;
-    }
-    .rev-card p {
-      font-size: 0.88rem;
-      color: var(--ink);
-      line-height: 1.5;
-    }
-    .rev-card__action {
-      font-size: 0.76rem;
-      font-weight: 800;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
     /* ---- Location & Contact ---- */
     .location__grid {
       display: grid;
@@ -1000,10 +869,7 @@
       background: #1a0f08;
     }
     .location__map iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 370px;
-      border: 0;
+      width: 100%; height: 100%; min-height: 370px; border: 0;
       filter: saturate(0.9) contrast(1.05);
     }
     .location__card {
@@ -1018,12 +884,7 @@
     }
     .location__card h3 { font-size: 1.4rem; color: var(--gold-light); margin-bottom: 12px; }
     .location__card p { color: var(--ink-dim); font-size: 0.96rem; margin-bottom: 10px; }
-    .location__coords {
-      font-size: 0.84rem;
-      color: var(--ink-faint);
-      font-family: monospace;
-      margin-bottom: 20px;
-    }
+    .location__coords { font-size: 0.84rem; color: var(--ink-faint); font-family: monospace; margin-bottom: 20px; }
     .location__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .contact__grid {
@@ -1174,10 +1035,10 @@
       color: var(--gold-light);
     }
 
-    /* ---- Footer & Fixed Logos ---- */
+    /* ---- Footer ---- */
     .footer {
       border-top: 1px solid var(--line);
-      background: rgba(10, 5, 3, 0.96);
+      background: rgba(10, 5, 3, 0.94);
       padding: 70px 22px 36px;
       margin-top: 40px;
     }
@@ -1185,7 +1046,7 @@
       max-width: 1180px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.4fr 0.9fr 0.9fr 1.5fr;
+      grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
       gap: 34px;
     }
     .footer__col { display: flex; flex-direction: column; gap: 10px; }
@@ -1199,51 +1060,20 @@
     }
     .footer__col a { color: var(--ink-dim); font-size: 0.92rem; transition: 0.2s; }
     .footer__col a:hover { color: var(--gold-light); }
-
-    .footer__rest-logo {
-      width: 96px;
-      height: 96px;
-      border-radius: 20px;
-      background: #ffffff;
-      padding: 6px;
-      border: 2px solid var(--gold);
-      box-shadow: 0 8px 25px rgba(232, 184, 75, 0.25);
-      margin-bottom: 8px;
-      object-fit: contain;
-    }
-
     .dev-badge {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      flex-direction: column;
+      gap: 8px;
       padding: 16px;
-      border-radius: 18px;
-      border: 1.5px solid var(--line-strong);
-      background: linear-gradient(135deg, rgba(30, 16, 9, 0.9), rgba(12, 6, 3, 0.95));
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-      transition: 0.28s;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      transition: 0.25s;
     }
     .dev-badge:hover {
-      border-color: var(--gold-light);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 38px rgba(232, 184, 75, 0.28);
+      border-color: var(--gold);
+      transform: translateY(-3px);
     }
-    .dev-badge__img {
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      object-fit: cover;
-      flex-shrink: 0;
-      background: #0b0d13;
-      box-shadow: 0 0 18px rgba(232, 184, 75, 0.35);
-    }
-    .dev-badge__info {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
     .footer__base {
       max-width: 1180px;
       margin: 36px auto 0;
@@ -1322,7 +1152,7 @@
         transition: all 0.3s ease;
       }
       .nav__links.open {
-        max-height: 420px;
+        max-height: 380px;
         opacity: 1;
         pointer-events: auto;
         padding: 12px 22px 20px;
@@ -1340,7 +1170,7 @@
       .section { padding: 65px 18px; }
       .footer__inner { grid-template-columns: 1fr; }
       .hero { padding-top: 112px; }
-      .planner-card, .reviews-hub { padding: 24px 18px; }
+      .planner-card { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -1354,19 +1184,23 @@
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="#home" aria-label="Al-Gani's Ali Bhai Biryani and Cafe">
-        <span class="nav__mark">
-          <img src="alibhailogo.jpeg" alt="Al-Gani's Ali Bhai Biryani Logo" onerror="this.src=window.__REST_LOGO_FALLBACK" />
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="30" height="30">
+            <path d="M12 30h40a20 20 0 0 1-40 0Z" fill="#e8b84b"/>
+            <rect x="8" y="24" width="48" height="6" rx="3" fill="#fbe29d"/>
+            <circle cx="32" cy="19" r="4" fill="#ff8c24"/>
+          </svg>
         </span>
         <span class="nav__name">Al-Gani's<small>Ali Bhai Biryani &amp; Cafe</small></span>
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#signature">Signature</a>
-        <a href="#menu">Full Menu</a>
-        <a href="#planner">Feast Calculator</a>
-        <a href="#reviews">165+ Reviews</a>
-        <a href="#location">Location</a>
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#signature" data-i18n="navSig">Signature</a>
+        <a href="#menu" data-i18n="navMenu">Full Menu</a>
+        <a href="#planner" data-i18n="navPlanner">Feast Calculator</a>
+        <a href="#location" data-i18n="navLoc">Location</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
 
       <div class="nav__actions">
@@ -1396,9 +1230,19 @@
         <span id="t-hero-status">Fresh Dum Handi Steaming Now · Khammam</span>
       </div>
 
-      <!-- Restaurant Logo Framed -->
-      <div class="hero__crest reveal in">
-        <img src="alibhailogo.jpeg" alt="Al-Gani's Ali Bhai Biryani Royal Crest" onerror="this.src=window.__REST_LOGO_FALLBACK" />
+      <div class="hero__crest reveal in" aria-hidden="true">
+        <svg viewBox="0 0 80 80" width="68" height="68">
+          <path d="M26 18c0-4 5-6 5-10m9 10c0-4 5-6 5-10m9 10c0-4 5-6 5-10" stroke="#fbe29d" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+          <rect x="12" y="28" width="56" height="8" rx="4" fill="#fbe29d"/>
+          <path d="M16 36h48a24 24 0 0 1-48 0Z" fill="url(#handiGrad)"/>
+          <defs>
+            <linearGradient id="handiGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fbe29d"/>
+              <stop offset="50%" stop-color="#e8b84b"/>
+              <stop offset="100%" stop-color="#9b6b15"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       <p class="hero__eyebrow reveal in" id="t-hero-eyebrow">Khammam · Telangana · Since the First Dum</p>
@@ -1415,13 +1259,13 @@
 
       <div class="hero__cta reveal in">
         <a class="btn btn--gold btn--lg" href="#menu" id="t-btn-explore">🍛 Explore Menu &amp; Order</a>
-        <a class="btn btn--ghost btn--lg" href="#reviews">⭐ 165+ Ready Google Reviews</a>
+        <a class="btn btn--ghost btn--lg" href="https://wa.me/919848564387?text=Assalamu%20Alaikum%20%2F%20Hello%20Al-Gani%27s%20Ali%20Bhai%20Biryani!%20I%20want%20to%20place%20an%20order." target="_blank" rel="noopener">💬 Direct WhatsApp</a>
       </div>
 
       <div class="hero__chips reveal in">
         <a class="chip" href="tel:+919848564387">📞 +91 98485 64387</a>
         <a class="chip" href="https://www.instagram.com/alganisalibhaibiryani27" target="_blank" rel="noopener">📸 @alganisalibhaibiryani27</a>
-        <button class="chip" onclick="copyAndReview()">⭐ Instant 5★ Review</button>
+        <button class="chip" onclick="copyAndReview()">⭐ 1-Tap 5★ Google Review</button>
       </div>
 
       <div class="hero__stats reveal in">
@@ -1434,8 +1278,8 @@
           <span>Signature Dishes</span>
         </div>
         <div class="stat-box">
-          <strong>165+</strong>
-          <span>Tap-to-Copy Reviews</span>
+          <strong>100%</strong>
+          <span>Authentic Sealed Dum</span>
         </div>
         <div class="stat-box">
           <strong>₹130/-</strong>
@@ -1473,7 +1317,7 @@
         <article class="dish reveal" data-tilt>
           <figure class="art a-biryani">
             <span class="art__emoji" aria-hidden="true">🍛</span>
-            <img class="art__img" src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Chicken Dum Biryani" loading="lazy" onerror="this.style.display='none'" />
+            <img class="art__img" src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800&auto=format&fit=crop" alt="Chicken Biryani" onload="this.classList.add('is-ready')" onerror="this.classList.add('failed')">
           </figure>
           <div class="dish__body">
             <span class="dish__badge">Bestseller</span>
@@ -1489,7 +1333,7 @@
         <article class="dish reveal" data-tilt>
           <figure class="art a-rice">
             <span class="art__emoji" aria-hidden="true">🍲</span>
-            <img class="art__img" src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80" alt="Family Pack Chicken Biryani" loading="lazy" onerror="this.style.display='none'" />
+            <img class="art__img" src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=800&auto=format&fit=crop" alt="Family Pack Biryani" onload="this.classList.add('is-ready')" onerror="this.classList.add('failed')">
           </figure>
           <div class="dish__body">
             <span class="dish__badge dish__badge--alt">Sharing Feast</span>
@@ -1497,7 +1341,7 @@
             <p>One generous handi that feeds the whole family table, layered with 6 juicy chicken pieces.</p>
             <div class="dish__footer">
               <span class="dish__price">₹500<span>/-</span></span>
-              <button class="add-btn" onclick="addToCart('Family Pack', 500)">+ Add to Tray</button>
+              <button class="add-btn" onclick="addToCart('Family Pack (6 Pcs)', 500)">+ Add to Tray</button>
             </div>
           </div>
         </article>
@@ -1505,7 +1349,7 @@
         <article class="dish reveal" data-tilt>
           <figure class="art a-chinese">
             <span class="art__emoji" aria-hidden="true">🍗</span>
-            <img class="art__img" src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=800&q=80" alt="Spicy Chicken 65" loading="lazy" onerror="this.style.display='none'" />
+            <img class="art__img" src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=800&auto=format&fit=crop" alt="Chicken 65" onload="this.classList.add('is-ready')" onerror="this.classList.add('failed')">
           </figure>
           <div class="dish__body">
             <span class="dish__badge">Fiery Starter</span>
@@ -1520,19 +1364,19 @@
       </div>
     </section>
 
-    <!-- ================= FULL INTERACTIVE MENU (ALL 39 ITEMS WITH PHOTOS) ================= -->
+    <!-- ================= FULL INTERACTIVE MENU ================= -->
     <section class="section menu" id="menu">
       <div class="section__head section__head--center">
         <p class="kicker reveal">Full Royal Menu</p>
         <h2 class="reveal" id="t-menu-title">Everything, with honest prices</h2>
-        <p class="section__lede reveal">Every dish pictured clearly — tap "+ Add" to build your WhatsApp order tray.</p>
+        <p class="section__lede reveal">Tap "+ Add" on any dish to build your WhatsApp order tray.</p>
       </div>
 
       <!-- Search & Diet Filter -->
       <div class="menu__controls reveal">
         <div class="menu__search">
           <span>🔍</span>
-          <input type="text" id="menuSearch" placeholder="Search biryani, fry piece, manchuria, kaju, noodles..." oninput="filterMenu()" />
+          <input type="text" id="menuSearch" placeholder="Search biryani, fry piece, kaju, noodles, 65..." oninput="filterMenu()" />
         </div>
         <div class="menu__filters">
           <button class="filter-btn active" data-filter="all" onclick="setDietFilter('all', this)">All Items (39)</button>
@@ -1577,31 +1421,6 @@
       </div>
     </section>
 
-    <!-- ================= 165+ TAP-TO-COPY GOOGLE REVIEW HUB ================= -->
-    <section class="section" id="reviews">
-      <div class="section__head section__head--center">
-        <p class="kicker reveal">Customer Love · 165+ Ready Reviews</p>
-        <h2 class="reveal">Tap any review to Copy &amp; Post on Google</h2>
-        <p class="section__lede reveal">Love our Dum Biryani or Chinese starters? Tap any comment below — it copies automatically and opens our Google Review page!</p>
-      </div>
-
-      <div class="reviews-hub reveal">
-        <div class="reviews-hub__top">
-          <div class="reviews-hub__tabs" id="revTabs">
-            <button class="rev-tab active" onclick="filterReviews('all', this)">All (165)</button>
-            <button class="rev-tab" onclick="filterReviews('Dum Biryani', this)">🍛 Dum Biryani</button>
-            <button class="rev-tab" onclick="filterReviews('Fry Piece', this)">🍗 Fry Piece</button>
-            <button class="rev-tab" onclick="filterReviews('Chinese & 65', this)">🥡 Chinese &amp; 65</button>
-            <button class="rev-tab" onclick="filterReviews('Paneer & Kaju', this)">🍲 Paneer &amp; Kaju</button>
-            <button class="rev-tab" onclick="filterReviews('Family & Service', this)">👨‍👩‍👧‍👦 Family &amp; Service</button>
-          </div>
-          <button class="btn btn--gold" onclick="copyAndReview()">🎲 Pick Random Review &amp; Open Google</button>
-        </div>
-
-        <div class="reviews-grid" id="reviewsGrid"></div>
-      </div>
-    </section>
-
     <!-- ================= LOCATION ================= -->
     <section class="section location" id="location">
       <div class="section__head">
@@ -1624,7 +1443,7 @@
       </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ================= CONTACT & VIP REVIEW ================= -->
     <section class="section contact" id="contact">
       <div class="section__head section__head--center">
         <p class="kicker reveal">Order · Connect · Review</p>
@@ -1663,15 +1482,14 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__col">
-        <img class="footer__rest-logo" src="alibhailogo.jpeg" alt="Al-Gani's Ali Bhai Biryani Logo" onerror="this.src=window.__REST_LOGO_FALLBACK" />
-        <div class="nav__name" style="font-size:1.3rem;margin-bottom:4px;">
+        <div class="nav__name" style="font-size:1.35rem;margin-bottom:8px;">
           Al-Gani's<small>Ali Bhai Biryani &amp; Cafe</small>
         </div>
-        <p style="color:var(--ink-dim);font-size:0.88rem;">
+        <p style="color:var(--ink-dim);font-size:0.9rem;">
           Near Tekulapalli Bridge, Indira Nagar,<br />Rotary Nagar, Khammam, Telangana — 507001
         </p>
-        <p style="margin-top:6px;">
-          <a href="tel:+919848564387" style="color:var(--gold-light);font-family:var(--display);font-size:1.18rem;font-weight:700;">+91 98485 64387</a>
+        <p style="margin-top:10px;">
+          <a href="tel:+919848564387" style="color:var(--gold-light);font-family:var(--display);font-size:1.2rem;font-weight:700;">+91 98485 64387</a>
         </p>
       </div>
 
@@ -1695,12 +1513,9 @@
       <div class="footer__col">
         <h4>Developed By</h4>
         <a class="dev-badge" href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" rel="noopener">
-          <img class="dev-badge__img" src="dev-logo.png.png" alt="Syed Zeeshaan Ali Smart Scan Logo" onerror="this.src=window.__DEV_LOGO_FALLBACK" />
-          <div class="dev-badge__info">
-            <strong style="color:var(--gold-light);font-size:0.96rem;">Syed Zeeshaan Ali</strong>
-            <span style="color:var(--ink-dim);font-size:0.78rem;line-height:1.35;">High-Fledged Engineering &amp; Digital Tech Solutions · Smart Scan</span>
-            <span style="color:var(--gold);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:700;">Visit Portfolio ➔</span>
-          </div>
+          <strong style="color:var(--gold-light);font-size:0.96rem;">Syed Zeeshaan Ali</strong>
+          <span style="color:var(--ink-dim);font-size:0.82rem;line-height:1.4;">High-Fledged Engineering And Digital Tech Solutions</span>
+          <span style="color:var(--gold);font-size:0.74rem;text-transform:uppercase;letter-spacing:0.12em;margin-top:4px;">Visit Developer Portfolio ➔</span>
         </a>
       </div>
     </div>
@@ -1765,109 +1580,67 @@
 
   <!-- ================= APPLICATION JAVASCRIPT ================= -->
   <script>
-    /* --- 0. BUILT-IN HIGH-RES VECTOR FALLBACKS FOR LOGOS --- */
-    window.__REST_LOGO_FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" rx="40" fill="#ffffff"/>
-        <path d="M200 28 C160 80, 90 90, 60 150 C40 190, 45 250, 30 280 L30 330 C30 350, 120 355, 200 375 C280 355, 370 350, 370 330 L370 280 C355 250, 360 190, 340 150 C310 90, 240 80, 200 28 Z" fill="none" stroke="#c5942c" stroke-width="6"/>
-        <path d="M200 42 C164 88, 100 98, 72 154 C55 188, 58 242, 44 272" fill="none" stroke="#124e24" stroke-width="5"/>
-        <path d="M200 42 C236 88, 300 98, 328 154 C345 188, 342 242, 356 272" fill="none" stroke="#124e24" stroke-width="5"/>
-        <text x="200" y="148" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="700" font-size="30" fill="#124e24">AL GANI'S</text>
-        <text x="200" y="225" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="800" font-size="58" fill="#c5942c">ALI BHAI</text>
-        <text x="200" y="295" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="800" font-size="56" fill="#c5942c">BIRYANI</text>
-      </svg>
-    `);
+    /* --- 1. COMPLETE EXTRACTED MENU DATA WITH BEAUTIFUL PLACEHOLDER IMAGES --- */
+    
+    // High-quality, fast-loading Unsplash CDN image URLs 
+    const imgBiryani = "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&auto=format&fit=crop";
+    const imgFry = "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=400&auto=format&fit=crop";
+    const imgPaneer = "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=400&auto=format&fit=crop";
+    const imgRice = "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=400&auto=format&fit=crop";
+    const imgNoodles = "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=400&auto=format&fit=crop";
+    const imgChinese = "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=400&auto=format&fit=crop";
 
-    window.__DEV_LOGO_FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-        <circle cx="150" cy="150" r="144" fill="#0b101d" stroke="#e8b84b" stroke-width="8"/>
-        <circle cx="150" cy="150" r="128" fill="none" stroke="#fbe29d" stroke-width="2" stroke-dasharray="6 4"/>
-        <path d="M110 85 L125 55 L150 75 L175 55 L190 85 Z" fill="#e8b84b"/>
-        <text x="150" y="155" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="68" fill="#fbe29d">SZA</text>
-        <text x="150" y="195" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="15" fill="#e8b84b" letter-spacing="2">SYED ZEESHAAN ALI</text>
-        <text x="150" y="222" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="20" fill="#ffffff" letter-spacing="3">SMART SCAN</text>
-        <text x="150" y="255" text-anchor="middle" font-family="sans-serif" font-weight="600" font-size="12" fill="#d2bda4" letter-spacing="2">KHAMMAM</text>
-      </svg>
-    `);
-
-    /* --- 1. CURATED HIGH-RES FOOD PHOTOGRAPHY FOR EVERY DISH CATEGORY --- */
-    const DISH_PHOTOS = {
-      dum_single: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=80",
-      dum_full: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=500&q=80",
-      dum_kg: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=500&q=80",
-      dum_couple: "https://images.unsplash.com/photo-1642821373181-696a54913e93?auto=format&fit=crop&w=500&q=80",
-      dum_family: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=500&q=80",
-      dum_jumbo: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=500&q=80",
-      fry_piece: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=500&q=80",
-      paneer_biryani: "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?auto=format&fit=crop&w=500&q=80",
-      kaju_biryani: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=500&q=80",
-      bagara_curry: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=500&q=80",
-      egg_rice: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=500&q=80",
-      chicken_rice: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=500&q=80",
-      veg_rice: "https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=500&q=80",
-      noodles_egg: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=500&q=80",
-      noodles_chicken: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=500&q=80",
-      noodles_veg: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80",
-      manchuria: "https://images.unsplash.com/photo-1626777553635-be342a766750?auto=format&fit=crop&w=500&q=80",
-      chicken_65: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=500&q=80",
-      chilli_chicken: "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=500&q=80",
-      kaju_chicken: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=500&q=80",
-      chicken_curry: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=500&q=80",
-      unlimited_rice: "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=500&q=80"
-    };
-
-    /* --- 2. COMPLETE EXTRACTED MENU DATA WITH DEDICATED IMAGES --- */
     const MENU = [
       { id: 'chicken-biryani', title: 'Chicken Biryani', art: 'a-biryani', note: 'Dum-cooked in a sealed handi', items: [
-        { n: 'Single Biryani', d: '1 Piece · Basmati Dum', p: 120, veg: false, img: DISH_PHOTOS.dum_single },
-        { n: 'Full Chicken Biryani', d: '2 Pieces · Basmati Dum', p: 150, veg: false, img: DISH_PHOTOS.dum_full },
-        { n: 'KG Biryani', d: '3 Pieces · Heavy Handi', p: 180, veg: false, img: DISH_PHOTOS.dum_kg },
-        { n: 'Couple Pack', d: '4 Pieces · Sharing Handi', p: 300, veg: false, tag: 'Popular', img: DISH_PHOTOS.dum_couple },
-        { n: 'Family Pack', d: '6 Pieces · Family Feast', p: 500, veg: false, tag: 'Value', img: DISH_PHOTOS.dum_family },
-        { n: 'Jumbo Pack', d: '9 Pieces · Grand Handi', p: 750, veg: false, img: DISH_PHOTOS.dum_jumbo }
+        { n: 'Single Biryani', d: '1 Piece', p: 120, veg: false, img: imgBiryani },
+        { n: 'Full Chicken Biryani', d: '2 Pieces', p: 150, veg: false, img: imgBiryani },
+        { n: 'KG Biryani', d: '3 Pieces', p: 180, veg: false, img: imgBiryani },
+        { n: 'Couple Pack', d: '4 Pieces', p: 300, veg: false, tag: 'Popular', img: imgBiryani },
+        { n: 'Family Pack', d: '6 Pieces', p: 500, veg: false, tag: 'Value', img: imgBiryani },
+        { n: 'Jumbo Pack', d: '9 Pieces', p: 750, veg: false, img: imgBiryani }
       ]},
-      { id: 'fry-piece', title: 'Fry Piece Biryani', art: 'a-fry', note: 'Crisp spiced fried chicken layered into dum rice', items: [
-        { n: 'Fry Piece Single', d: '1 Roast Fry Piece', p: 160, veg: false, img: DISH_PHOTOS.fry_piece },
-        { n: 'Fry Piece Full', d: '2 Roast Fry Pieces', p: 250, veg: false, img: DISH_PHOTOS.fry_piece },
-        { n: 'Fry Piece Couple Pack', d: 'Sharing Size', p: 350, veg: false, tag: 'Popular', img: DISH_PHOTOS.fry_piece },
-        { n: 'Fry Piece Family', d: 'Family Size Handi', p: 550, veg: false, img: DISH_PHOTOS.fry_piece },
-        { n: 'Fry Piece Jumbo', d: 'Party Size Handi', p: 800, veg: false, img: DISH_PHOTOS.fry_piece }
+      { id: 'fry-piece', title: 'Fry Piece Biryani', art: 'a-fry', note: 'Crisp fried chicken layered into dum rice', items: [
+        { n: 'Fry Piece Single', d: '1 fry piece', p: 160, veg: false, img: imgFry },
+        { n: 'Fry Piece Full', d: '2 fry pieces', p: 250, veg: false, img: imgFry },
+        { n: 'Fry Piece Couple Pack', d: 'Sharing size', p: 350, veg: false, tag: 'Popular', img: imgFry },
+        { n: 'Fry Piece Family', d: 'Family size', p: 550, veg: false, img: imgFry },
+        { n: 'Fry Piece Jumbo', d: 'Party size', p: 800, veg: false, img: imgFry }
       ]},
       { id: 'paneer-kaju', title: 'Paneer & Kaju', art: 'a-paneer', note: 'Vegetarian dum & cashew-rich delicacies', items: [
-        { n: 'Paneer Biryani Single', d: 'Single Portion', p: 180, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Paneer Biryani Full', d: 'Full Portion', p: 250, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Paneer Couple Pack', d: 'Sharing Size', p: 400, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Paneer Family Pack', d: 'Family Size', p: 550, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Paneer Jumbo Pack', d: 'Party Size', p: 800, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Kaju Biryani Paneer', d: 'Roasted Cashew + Paneer', p: 250, veg: true, tag: 'Rich', img: DISH_PHOTOS.kaju_biryani },
-        { n: 'Kaju Biryani', d: 'Royal Cashew Dum Biryani', p: 260, veg: true, img: DISH_PHOTOS.kaju_biryani },
-        { n: 'Bagara with Chicken Curry', d: 'Telangana Bagara + Curry', p: 120, veg: false, img: DISH_PHOTOS.bagara_curry }
+        { n: 'Paneer Biryani Single', d: 'Single', p: 180, veg: true, img: imgPaneer },
+        { n: 'Paneer Biryani Full', d: 'Full', p: 250, veg: true, img: imgPaneer },
+        { n: 'Paneer Couple Pack', d: 'Sharing size', p: 400, veg: true, img: imgPaneer },
+        { n: 'Paneer Family Pack', d: 'Family size', p: 550, veg: true, img: imgPaneer },
+        { n: 'Paneer Jumbo Pack', d: 'Party size', p: 800, veg: true, img: imgPaneer },
+        { n: 'Kaju Biryani Paneer', d: 'Cashew + paneer', p: 250, veg: true, tag: 'Rich', img: imgPaneer },
+        { n: 'Kaju Biryani', d: 'Cashew dum biryani', p: 260, veg: true, img: imgPaneer },
+        { n: 'Bagara with Chicken Curry', d: 'Bagara rice + curry', p: 120, veg: false, img: imgBiryani }
       ]},
       { id: 'rice-noodles', title: 'Rice & Noodles', art: 'a-noodle', note: 'Wok-tossed classics & basmati staples', items: [
-        { n: 'Egg Fried Rice (Basmati)', d: 'Wok-tossed Basmati & Egg', p: 90, veg: false, img: DISH_PHOTOS.egg_rice },
-        { n: 'Egg Noodles', d: 'Street-style Wok Tossed', p: 70, veg: false, img: DISH_PHOTOS.noodles_egg },
-        { n: 'Chicken Fried Rice', d: 'Basmati & Juicy Chicken', p: 100, veg: false, img: DISH_PHOTOS.chicken_rice },
-        { n: 'Chicken Noodles', d: 'High-flame Wok Tossed', p: 90, veg: false, img: DISH_PHOTOS.noodles_chicken },
-        { n: 'Veg Noodles', d: 'Crisp Garden Vegetables', p: 70, veg: true, img: DISH_PHOTOS.noodles_veg },
-        { n: 'Veg Fried Rice (Basmati)', d: 'Aromatic Basmati & Veggies', p: 80, veg: true, img: DISH_PHOTOS.veg_rice },
-        { n: 'Manchuria Fried Rice', d: 'Topped with Manchurian Balls', p: 80, veg: true, img: DISH_PHOTOS.manchuria },
-        { n: 'Kaju Fried Rice', d: 'Golden Cashew Crunch', p: 100, veg: true, img: DISH_PHOTOS.kaju_biryani },
-        { n: 'Paneer Fried Rice', d: 'Spiced Cottage Cheese Cubes', p: 90, veg: true, img: DISH_PHOTOS.paneer_biryani },
-        { n: 'Kaju Egg Noodles', d: 'Cashew + Egg Wok Special', p: 110, veg: false, img: DISH_PHOTOS.noodles_egg }
+        { n: 'Egg Fried Rice (Basmati)', d: 'Basmati, egg', p: 90, veg: false, img: imgRice },
+        { n: 'Egg Noodles', d: 'Wok-tossed', p: 70, veg: false, img: imgNoodles },
+        { n: 'Chicken Fried Rice', d: 'Basmati, chicken', p: 100, veg: false, img: imgRice },
+        { n: 'Chicken Noodles', d: 'Wok-tossed', p: 90, veg: false, img: imgNoodles },
+        { n: 'Veg Noodles', d: 'Garden vegetables', p: 70, veg: true, img: imgNoodles },
+        { n: 'Veg Fried Rice (Basmati)', d: 'Garden vegetables', p: 80, veg: true, img: imgRice },
+        { n: 'Manchuria Fried Rice', d: 'Manchurian style', p: 80, veg: true, img: imgRice },
+        { n: 'Kaju Fried Rice', d: 'Cashew crunch', p: 100, veg: true, img: imgRice },
+        { n: 'Paneer Fried Rice', d: 'Cottage cheese', p: 90, veg: true, img: imgRice },
+        { n: 'Kaju Egg Noodles', d: 'Cashew + egg', p: 110, veg: false, img: imgNoodles }
       ]},
-      { id: 'chinese', title: 'Chinese Items', art: 'a-chinese', note: 'Indo-Chinese counter, made fresh to order', items: [
-        { n: 'Egg Manchuria', d: 'Tangy, Crisp & Saucy', p: 90, veg: false, img: DISH_PHOTOS.manchuria },
-        { n: 'Chicken Manchuria', d: 'Dry or Rich Gravy', p: 120, veg: false, tag: 'Popular', img: DISH_PHOTOS.manchuria },
-        { n: 'Chicken 65', d: 'Curry-leaf & Green Chilli Hot', p: 150, veg: false, tag: 'Bestseller', img: DISH_PHOTOS.chicken_65 },
-        { n: 'Chilli Chicken', d: 'Wok-tossed Extra Spicy', p: 140, veg: false, img: DISH_PHOTOS.chilli_chicken },
-        { n: 'Kaju Chicken', d: 'Roasted Cashew Chicken Fry', p: 160, veg: false, img: DISH_PHOTOS.kaju_chicken },
-        { n: 'Veg Manchuria', d: 'Crisp Vegetable Manchurian', p: 80, veg: true, img: DISH_PHOTOS.manchuria },
-        { n: 'Chicken Curry', d: 'Homestyle Spiced Gravy', p: 80, veg: false, img: DISH_PHOTOS.chicken_curry }
+      { id: 'chinese', title: 'Chinese Items', art: 'a-chinese', note: 'Indo-Chinese counter, made to order', items: [
+        { n: 'Egg Manchuria', d: 'Tangy & crisp', p: 90, veg: false, img: imgChinese },
+        { n: 'Chicken Manchuria', d: 'Dry or gravy', p: 120, veg: false, tag: 'Popular', img: imgChinese },
+        { n: 'Chicken 65', d: 'Curry-leaf hot', p: 150, veg: false, tag: 'Bestseller', img: imgFry },
+        { n: 'Chilli Chicken', d: 'Extra spicy', p: 140, veg: false, img: imgChinese },
+        { n: 'Kaju Chicken', d: 'Cashew chicken', p: 160, veg: false, img: imgChinese },
+        { n: 'Veg Manchuria', d: 'Mixed vegetable', p: 80, veg: true, img: imgChinese },
+        { n: 'Chicken Curry', d: 'House gravy', p: 80, veg: false, img: imgBiryani }
       ]},
       { id: 'unlimited', title: 'Unlimited & Extras', art: 'a-rice', note: 'Add-ons for serious appetites', items: [
-        { n: 'Biryani Unlimited Rice', d: 'Per Person / Table Refill', p: 130, veg: false, tag: 'Unlimited', img: DISH_PHOTOS.unlimited_rice },
-        { n: 'Extra Piece', d: 'Hot Dum or Fry Chicken Piece', p: 50, veg: false, img: DISH_PHOTOS.chicken_65 },
-        { n: 'Extra Rice', d: 'Aromatic Dum Kuska Rice', p: 80, veg: false, img: DISH_PHOTOS.unlimited_rice }
+        { n: 'Biryani Unlimited Rice', d: 'Per table', p: 130, veg: false, tag: 'Unlimited' },
+        { n: 'Extra Piece', d: 'Add-on', p: 50, veg: false },
+        { n: 'Extra Rice', d: 'Add-on', p: 80, veg: false }
       ]}
     ];
 
@@ -1886,7 +1659,7 @@
     let currentDiet = 'all';
     let cart = [];
 
-    /* --- 3. RENDER MENU WITH REAL PHOTOS --- */
+    /* --- 2. RENDER MENU WITH IMAGES --- */
     function renderMenu() {
       const root = document.getElementById('menuRoot');
       const chips = document.getElementById('menuChips');
@@ -1935,10 +1708,16 @@
         filteredItems.forEach(it => {
           const card = document.createElement('article');
           card.className = 'menu__item';
+          
+          let imgHTML = '';
+          if(it.img) {
+            imgHTML = `<img class="art__img" src="${it.img}" alt="${it.n}" loading="lazy" onload="this.classList.add('is-ready')" onerror="this.classList.add('failed')" />`;
+          }
+
           card.innerHTML = `
             <div class="menu__item-art art ${cat.art}">
               <span class="art__emoji" aria-hidden="true">${EMOJI[cat.art] || '🍽️'}</span>
-              <img class="art__img" src="${it.img}" alt="${it.n}" loading="lazy" onerror="this.style.display='none'" />
+              ${imgHTML}
             </div>
             <div class="menu__item-body">
               <div class="menu__item-name">
@@ -1972,126 +1751,7 @@
       renderMenu();
     }
 
-    /* --- 4. 165+ AUTHENTIC GOOGLE REVIEW COMMENTS GENERATOR & HUB --- */
-    const REVIEW_POOL = (function build165Reviews() {
-      const list = [];
-      const dumOpeners = [
-        "Best Chicken Dum Biryani in Khammam!",
-        "Visited Al-Gani's Ali Bhai Biryani near Tekulapalli Bridge today.",
-        "The sealed-handi aroma at Ali Bhai Biryani is unmatched in Indira Nagar!",
-        "Ordered the Single Biryani for ₹120 and the quantity is unbelievable.",
-        "Full Chicken Biryani for ₹150 is a total steal!",
-        "The KG Biryani with 3 big chicken pieces easily fed two of us.",
-        "Long-grain basmati rice cooked to perfection with real saffron flavour.",
-        "If you love authentic Hyderabadi-style Dum Biryani in Khammam, this is the spot.",
-        "The chicken pieces in the Dum Biryani are super juicy and tender.",
-        "Mirchi ka salan and raita served with the biryani are fresh and delicious.",
-        "Even late in the evening, the biryani came steaming hot straight from the handi."
-      ];
-      const fryOpeners = [
-        "The Fry Piece Biryani at Al-Gani's Ali Bhai Biryani is pure heaven!",
-        "Ordered Fry Piece Couple Pack (₹350) — crispy spiced chicken on top of flavourful dum rice.",
-        "Best Fry Piece Biryani in Rotary Nagar & Indira Nagar area!",
-        "The masala roast on the Fry Piece Single (₹160) is spicy and mouth-watering.",
-        "Took a Fry Piece Family Pack home and everyone in my family loved the taste.",
-        "Perfectly fried chicken pieces that stay juicy inside and crispy outside.",
-        "Fry Piece Jumbo Pack was the star of our weekend get-together in Khammam!"
-      ];
-      const chineseOpeners = [
-        "Chicken 65 here is crispy, loaded with curry leaves and green chillies!",
-        "Chicken Manchuria (₹120) at Ali Bhai Biryani & Cafe has the best Indo-Chinese flavour.",
-        "Chilli Chicken and Chicken Fried Rice combo is my favourite evening meal here.",
-        "Tried the Kaju Chicken (₹160) — loaded with roasted cashews and rich spices!",
-        "Egg Noodles (₹70) and Chicken Noodles (₹90) are tossed fresh on high flame.",
-        "Veg Manchuria and Manchuria Fried Rice are super tasty and crispy.",
-        "The live Chinese counter near Tekulapalli Bridge serves the freshest starters in town!"
-      ];
-      const vegOpeners = [
-        "Paneer Biryani at Al-Gani's Ali Bhai Biryani is a blessing for vegetarians in Khammam!",
-        "Tried the Kaju Biryani (₹260) and Kaju Paneer Biryani — super rich and loaded with cashews.",
-        "Soft paneer cubes marinated well and layered in aromatic dum basmati rice.",
-        "Paneer Fried Rice and Veg Noodles were fresh, non-greasy, and full of flavour.",
-        "Paneer Family Pack (₹550) was more than enough for 4 of us!"
-      ];
-      const famOpeners = [
-        "Family Pack with 6 pieces for ₹500 is the most pocket-friendly feast in Khammam!",
-        "Jumbo Pack (9 pieces for ₹750) is unbeatable value for money.",
-        "Biryani Unlimited Rice for ₹130 is the best deal for college students and friends!",
-        "Bagara Rice with Chicken Curry for ₹120 tastes just like authentic Telangana home food.",
-        "Clean kitchen, polite staff, and super fast parcel service on Bridge Road.",
-        "Ordered on WhatsApp and my parcel was packed neatly and ready right on time!"
-      ];
-      const closers = [
-        "Highly recommended to everyone in Khammam. 5 stars!",
-        "Will definitely visit again with family and friends!",
-        "Best quality, hygiene, and honest pricing near Tekulapalli Bridge.",
-        "Hands down my new favourite biryani cafe in Khammam!",
-        "Great hospitality by the staff and consistent taste every single time."
-      ];
-
-      dumOpeners.forEach(o => closers.forEach(c => list.push({ cat: 'Dum Biryani', text: `${o} ${c}` })));
-      fryOpeners.forEach(o => closers.forEach(c => list.push({ cat: 'Fry Piece', text: `${o} ${c}` })));
-      chineseOpeners.forEach(o => closers.forEach(c => list.push({ cat: 'Chinese & 65', text: `${o} ${c}` })));
-      vegOpeners.forEach(o => closers.forEach(c => list.push({ cat: 'Paneer & Kaju', text: `${o} ${c}` })));
-      famOpeners.forEach(o => closers.forEach(c => list.push({ cat: 'Family & Service', text: `${o} ${c}` })));
-
-      return list; // 33 openers * 5 closers = 165 unique reviews!
-    })();
-
-    let currentRevCat = 'all';
-
-    function renderReviewsHub() {
-      const grid = document.getElementById('reviewsGrid');
-      if (!grid) return;
-      const filtered = currentRevCat === 'all'
-        ? REVIEW_POOL
-        : REVIEW_POOL.filter(r => r.cat === currentRevCat);
-
-      grid.innerHTML = filtered.map((r, idx) => `
-        <button class="rev-card" onclick="copySpecificReview(${idx}, '${ currentRevCat }')">
-          <div class="rev-card__stars">
-            ⭐️⭐️⭐️⭐️⭐️
-            <span>${r.cat} · #${idx + 1}</span>
-          </div>
-          <p>"${r.text}"</p>
-          <div class="rev-card__action">📋 Tap to Copy &amp; Open Google ➔</div>
-        </button>
-      `).join('');
-    }
-
-    function filterReviews(cat, btn) {
-      currentRevCat = cat;
-      document.querySelectorAll('.rev-tab').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      renderReviewsHub();
-    }
-
-    function copySpecificReview(idx, cat) {
-      const pool = cat === 'all' ? REVIEW_POOL : REVIEW_POOL.filter(r => r.cat === cat);
-      const chosen = pool[idx] ? pool[idx].text : REVIEW_POOL[0].text;
-      triggerClipboardReview(chosen);
-    }
-
-    function copyAndReview() {
-      const randomPick = REVIEW_POOL[Math.floor(Math.random() * REVIEW_POOL.length)].text;
-      triggerClipboardReview(randomPick);
-    }
-
-    function triggerClipboardReview(text) {
-      if (typeof confetti === 'function') {
-        confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
-      }
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast("✅ 5★ Review Copied! Just PASTE on Google.");
-          setTimeout(() => window.open(GOOGLE_REVIEW_URL, '_blank'), 800);
-        }).catch(() => window.open(GOOGLE_REVIEW_URL, '_blank'));
-      } else {
-        window.open(GOOGLE_REVIEW_URL, '_blank');
-      }
-    }
-
-    /* --- 5. CART & WHATSAPP ORDER SYSTEM --- */
+    /* --- 3. CART & WHATSAPP ORDER SYSTEM --- */
     function addToCart(name, price) {
       const existing = cart.find(i => i.name === name);
       if (existing) {
@@ -2175,7 +1835,7 @@
       window.open(url, '_blank');
     }
 
-    /* --- 6. SMART FEAST CALCULATOR --- */
+    /* --- 4. SMART FEAST CALCULATOR --- */
     let currentRecommendation = [{ name: 'Family Pack', price: 500 }];
 
     function updateFeastPlanner() {
@@ -2246,6 +1906,25 @@
       openCart();
     }
 
+    /* --- 5. ONE-TAP GOOGLE REVIEW BOOSTER --- */
+    function copyAndReview() {
+      const reviews = [
+        "Best Dum Biryani in Khammam! The chicken pieces at Al-Gani's Ali Bhai Biryani & Cafe are super tender and the aroma is next level. 5 stars!",
+        "Tried the Fry Piece Biryani and Chicken 65 at Al-Gani's Ali Bhai Biryani near Tekulapalli Bridge. Authentic taste, generous quantity, and very pocket-friendly!",
+        "Our go-to spot in Khammam for Family Pack Biryani and Chinese starters. Super fresh, great hygiene, and fast service!"
+      ];
+      const pick = reviews[Math.floor(Math.random() * reviews.length)];
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(pick).then(() => {
+          showToast("5★ Review copied! Just PASTE on Google.");
+          setTimeout(() => window.open(GOOGLE_REVIEW_URL, '_blank'), 900);
+        }).catch(() => window.open(GOOGLE_REVIEW_URL, '_blank'));
+      } else {
+        window.open(GOOGLE_REVIEW_URL, '_blank');
+      }
+    }
+
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -2254,7 +1933,7 @@
       window.__toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
     }
 
-    /* --- 7. MULTILINGUAL SUPPORT (EN / TE / HI) --- */
+    /* --- 6. MULTILINGUAL SUPPORT (EN / TE / HI) --- */
     const I18N = {
       en: {
         status: "Fresh Dum Handi Steaming Now · Khammam",
@@ -2296,7 +1975,7 @@
       document.getElementById('t-menu-title').textContent = d.menuTitle;
     });
 
-    /* --- 8. NAV, REVEALS & 3D CARD TILT --- */
+    /* --- 7. NAV, REVEALS & 3D CARD TILT --- */
     function initUI() {
       const nav = document.getElementById('nav');
       const burger = document.getElementById('navBurger');
@@ -2318,6 +1997,7 @@
         }
       });
 
+      // Intersection Observer for scroll reveals
       const io = new IntersectionObserver(entries => {
         entries.forEach(en => {
           if (en.isIntersecting) {
@@ -2329,6 +2009,7 @@
 
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+      // 3D Tilt on Signature Dish Cards
       document.querySelectorAll('[data-tilt]').forEach(card => {
         card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
@@ -2342,7 +2023,7 @@
       });
     }
 
-    /* --- 9. THREE.JS 3D ROYAL DUM HANDI & SPICE PARTICLES --- */
+    /* --- 8. THREE.JS 3D ROYAL DUM HANDI & SPICE PARTICLES --- */
     function init3DScene() {
       const container = document.getElementById('webgl');
       if (!container || typeof THREE === 'undefined') return;
@@ -2356,8 +2037,136 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       container.appendChild(renderer.domElement);
 
+      // Lighting
       const ambientLight = new THREE.AmbientLight(0xffdcb0, 0.65);
       scene.add(ambientLight);
 
       const keyLight = new THREE.PointLight(0xffa940, 2.4, 25);
-      keyLight.position.set
+      keyLight.position.set(4, 5, 5);
+      scene.add(keyLight);
+
+      const rimLight = new THREE.PointLight(0xe04b3a, 1.6, 20);
+      rimLight.position.set(-5, -2, 3);
+      scene.add(rimLight);
+
+      // Build 3D Royal Handi Group
+      const handiGroup = new THREE.Group();
+      scene.add(handiGroup);
+
+      const copperMat = new THREE.MeshStandardMaterial({
+        color: 0xd4943a,
+        metalness: 0.78,
+        roughness: 0.26
+      });
+
+      const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xfbe29d,
+        metalness: 0.9,
+        roughness: 0.18
+      });
+
+      // Handi Belly (Lathe profile)
+      const points = [];
+      for (let i = 0; i <= 14; i++) {
+        const t = i / 14;
+        const y = (t - 0.5) * 2.2;
+        const r = Math.sin(t * Math.PI) * 1.45 + 0.35;
+        points.push(new THREE.Vector2(r, y));
+      }
+      const bellyGeo = new THREE.LatheGeometry(points, 40);
+      const bellyMesh = new THREE.Mesh(bellyGeo, copperMat);
+      handiGroup.add(bellyMesh);
+
+      // Handi Neck Rim
+      const rimGeo = new THREE.TorusGeometry(0.95, 0.12, 20, 48);
+      const rimMesh = new THREE.Mesh(rimGeo, goldMat);
+      rimMesh.rotation.x = Math.PI / 2;
+      rimMesh.position.y = 1.02;
+      handiGroup.add(rimMesh);
+
+      // Floating Dum Lid
+      const lidGeo = new THREE.ConeGeometry(1.02, 0.55, 36);
+      const lidMesh = new THREE.Mesh(lidGeo, goldMat);
+      lidMesh.position.y = 1.48;
+      handiGroup.add(lidMesh);
+
+      // Finial Knob on Lid
+      const knobGeo = new THREE.SphereGeometry(0.14, 20, 20);
+      const knobMesh = new THREE.Mesh(knobGeo, copperMat);
+      knobMesh.position.y = 1.8;
+      handiGroup.add(knobMesh);
+
+      // Position Handi slightly to the right on desktop
+      handiGroup.position.set(window.innerWidth > 900 ? 2.2 : 0, -0.3, 0);
+
+      // Rising Golden Saffron & Steam Particles
+      const particleCount = 160;
+      const posArray = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 14;
+        posArray[i + 1] = (Math.random() - 0.5) * 10;
+        posArray[i + 2] = (Math.random() - 0.5) * 8;
+      }
+      const partGeo = new THREE.BufferGeometry();
+      partGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+      const partMat = new THREE.PointsMaterial({
+        size: 0.065,
+        color: 0xf6d78a,
+        transparent: true,
+        opacity: 0.65
+      });
+      const particles = new THREE.Points(partGeo, partMat);
+      scene.add(particles);
+
+      // Mouse & Scroll Parallax
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', e => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 0.8;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        handiGroup.position.x = window.innerWidth > 900 ? 2.2 : 0;
+      });
+
+      const clock = new THREE.Clock();
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsed = clock.getElapsedTime();
+
+        // Rotate Handi & Gently Bob Lid
+        handiGroup.rotation.y = elapsed * 0.35 + mouseX * 0.6;
+        handiGroup.rotation.x = 0.15 + mouseY * 0.3;
+        handiGroup.position.y = -0.3 + Math.sin(elapsed * 1.5) * 0.12;
+        lidMesh.position.y = 1.48 + Math.sin(elapsed * 2.4) * 0.06;
+        knobMesh.position.y = 1.8 + Math.sin(elapsed * 2.4) * 0.06;
+
+        // Drift Spice Particles Upward
+        const positions = partGeo.attributes.position.array;
+        for (let i = 1; i < particleCount * 3; i += 3) {
+          positions[i] += 0.008;
+          if (positions[i] > 5) positions[i] = -5;
+        }
+        partGeo.attributes.position.needsUpdate = true;
+        particles.rotation.y = elapsed * 0.05;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+
+    // Initialize Everything on DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMenu();
+      updateCartUI();
+      updateFeastPlanner();
+      initUI();
+      init3DScene();
+    });
+  </script>
+</body>
+</html>
