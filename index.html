@@ -339,7 +339,6 @@
       50% { transform: scale(1.4); opacity: 0.5; }
     }
 
-    /* Restaurant Logo Showcase in Hero */
     .hero__crest {
       width: clamp(145px, 20vw, 195px);
       height: clamp(145px, 20vw, 195px);
@@ -490,12 +489,20 @@
       overflow: hidden;
       background: radial-gradient(120% 100% at 50% 20%, var(--c1, #6b3310), var(--c2, #160a04) 76%);
     }
+    .art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(75% 55% at 50% 100%, rgba(255, 175, 75, 0.22), transparent 70%);
+      z-index: 2;
+    }
     .art__emoji {
-      font-size: 3rem;
+      font-size: 2.3rem;
       line-height: 1;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.65));
-      transition: transform 0.4s ease;
-      z-index: 0;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.65));
+      transition: transform 0.35s ease;
+      z-index: 1;
     }
     .art__img {
       position: absolute;
@@ -538,7 +545,7 @@
       border-color: var(--gold);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 25px rgba(232, 184, 75, 0.16);
     }
-    .dish:hover .art__img { transform: scale(1.07); }
+    .dish:hover .art__img, .dish:hover .art__emoji { transform: scale(1.08); }
     .dish .art { aspect-ratio: 16 / 10; }
     .dish__body {
       padding: 22px;
@@ -720,16 +727,15 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
     }
     .menu__item-art {
-      flex: 0 0 76px;
-      width: 76px;
-      height: 76px;
+      flex: 0 0 74px;
+      width: 74px;
+      height: 74px;
       border-radius: 14px;
       border: 1.5px solid rgba(232, 184, 75, 0.35);
       position: relative;
       overflow: hidden;
     }
-    .menu__item-art .art__emoji { font-size: 2rem; z-index: 0; }
-    .menu__item:hover .art__img { transform: scale(1.1); }
+    .menu__item:hover .art__img, .menu__item:hover .art__emoji { transform: scale(1.1); }
     
     .menu__item-body { flex: 1; min-width: 0; }
     .menu__item-name {
@@ -799,7 +805,7 @@
     }
     .add-btn:hover { background: var(--gold); color: #1c0f05; }
 
-    /* ---- 150+ 1-Tap Google Review Hub ---- */
+    /* ---- 180+ 1-Tap Google Review Hub ---- */
     .review-hub {
       border: 1.5px solid var(--gold);
       border-radius: 26px;
@@ -1315,7 +1321,7 @@
         <a href="#home">Home</a>
         <a href="#signature">Signature</a>
         <a href="#menu">Full Menu</a>
-        <a href="#reviews">150+ 1-Tap Reviews</a>
+        <a href="#reviews">180+ 1-Tap Reviews</a>
         <a href="#planner">Feast Planner</a>
         <a href="#location">Location</a>
       </nav>
@@ -1477,7 +1483,7 @@
       <div class="section__head section__head--center">
         <p class="kicker reveal">Full Royal Menu</p>
         <h2 class="reveal" id="t-menu-title">Everything, with honest prices</h2>
-        <p class="section__lede reveal">All 39 dishes with live photos. Tap "+ Add" to build your WhatsApp order tray.</p>
+        <p class="section__lede reveal">All 39 dishes ready to order. Tap "+ Add" to build your WhatsApp order tray.</p>
       </div>
 
       <!-- Search & Diet Filter -->
@@ -1780,9 +1786,7 @@
 
   <!-- ================= APPLICATION JAVASCRIPT ================= -->
   <script>
-    /* --- 0. SMART LOGO FALLBACK & MULTI-PATH LOADER ---
-       Tries 'alibhailogo.jpeg' and 'dev-logo.png.png' in root and common folders.
-       If opened without local files present, renders high-precision SVG replicas of your exact uploaded logos! */
+    /* --- 0. SMART LOGO FALLBACK & MULTI-PATH LOADER --- */
     const AL_GANI_SVG_REPLICA = "data:image/svg+xml;utf8," + encodeURIComponent(`
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
         <rect width="400" height="400" rx="40" fill="#ffffff"/>
@@ -1853,18 +1857,16 @@
       });
     }
 
-    /* --- 1. COMPLETE 39-ITEM MENU WITH VERIFIED WORKING HD DISH PHOTOS --- */
+    /* --- 1. COMPLETE 39-ITEM MENU
+       Photos enabled ONLY for Chicken Dum Biryani, Fry Piece, Chicken 65, Chilli Chicken, Chicken Curry, and plain Noodles.
+       Images REMOVED for Basmati Fried Rice, Bagara, Kaju, Manchuria, Paneer, and Extras (they render clean 3D CSS emblem art). --- */
     const IMG = {
       dum1: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=500&auto=format&fit=crop",
       dum2: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=500&auto=format&fit=crop",
       family: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=500&auto=format&fit=crop",
       fry: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=500&auto=format&fit=crop",
- paneer:"🥘",
-      kaju: "🥘",
       curry: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=500&auto=format&fit=crop",
-      friedRice: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=500&auto=format&fit=crop",
-      noodles: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=500&auto=format&fit=crop",
-      manchuria: "🥘"
+      noodles: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=500&auto=format&fit=crop"
     };
 
     const MENU = [
@@ -1884,40 +1886,40 @@
         { n: 'Fry Piece Jumbo', d: 'Party size', p: 800, veg: false, img: IMG.family }
       ]},
       { id: 'paneer-kaju', title: 'Paneer & Kaju', art: 'a-paneer', note: 'Vegetarian dum & cashew-rich delicacies', items: [
-        { n: 'Paneer Biryani Single', d: 'Single · Soft Paneer', p: 180, veg: true, img: IMG.paneer },
-        { n: 'Paneer Biryani Full', d: 'Full · Rich Masala', p: 250, veg: true, img: IMG.paneer },
-        { n: 'Paneer Couple Pack', d: 'Sharing size', p: 400, veg: true, img: IMG.paneer },
-        { n: 'Paneer Family Pack', d: 'Family size', p: 550, veg: true, img: IMG.paneer },
-        { n: 'Paneer Jumbo Pack', d: 'Party size', p: 800, veg: true, img: IMG.paneer },
-        { n: 'Kaju Biryani Paneer', d: 'Roasted Cashew + Paneer', p: 250, veg: true, tag: 'Rich', : .kaju },
-        { n: 'Kaju Biryani', d: 'Golden Cashew Dum Biryani', p: 260, veg: true, img: IMG.kaju },
-        { n: 'Bagara with Chicken Curry', p: 120, veg: false, : .curry }
+        { n: 'Paneer Biryani Single', d: 'Single · Soft Paneer', p: 180, veg: true, icon: '🧀' },
+        { n: 'Paneer Biryani Full', d: 'Full · Rich Masala', p: 250, veg: true, icon: '🧀' },
+        { n: 'Paneer Couple Pack', d: 'Sharing size', p: 400, veg: true, icon: '🍲' },
+        { n: 'Paneer Family Pack', d: 'Family size', p: 550, veg: true, icon: '🍲' },
+        { n: 'Paneer Jumbo Pack', d: 'Party size', p: 800, veg: true, icon: '🍲' },
+        { n: 'Kaju Biryani Paneer', d: 'Roasted Cashew + Paneer', p: 250, veg: true, tag: 'Rich', icon: '🥜' },
+        { n: 'Kaju Biryani', d: 'Golden Cashew Dum Biryani', p: 260, veg: true, icon: '🥜' },
+        { n: 'Bagara with Chicken Curry', d: 'Traditional Bagara Rice + Chicken Curry', p: 120, veg: false, icon: '🍛' }
       ]},
       { id: 'rice-noodles', title: 'Rice & Noodles', art: 'a-noodle', note: 'Wok-tossed classics & basmati staples', items: [
-        { n: 'Egg Fried Rice (Basmati)', d: 'Basmati, double egg', p: 90, veg: false, img: IMG.friedRice },
+        { n: 'Egg Fried Rice (Basmati)', d: 'Basmati, double egg', p: 90, veg: false, icon: '🍚' },
         { n: 'Egg Noodles', d: 'Wok-tossed street style', p: 70, veg: false, img: IMG.noodles },
-        { n: 'Chicken Fried Rice', d: 'Basmati, crispy chicken', p: 100, veg: false, img: IMG.friedRice },
+        { n: 'Chicken Fried Rice', d: 'Basmati, crispy chicken', p: 100, veg: false, icon: '🍚' },
         { n: 'Chicken Noodles', d: 'Wok-tossed chicken strips', p: 90, veg: false, img: IMG.noodles },
         { n: 'Veg Noodles', d: 'Garden vegetables', p: 70, veg: true, img: IMG.noodles },
-        { n: 'Veg Fried Rice (Basmati)', d: 'Garden vegetables', p: 80, veg: true, img: IMG.friedRice },
-        { n: 'Manchuria Fried Rice', d: 'Manchurian balls + rice', p: 80, veg: true, img: IMG.friedRice },
-        { n: 'Kaju Fried Rice', d: 'Roasted cashew crunch', p: 100, veg: true, : IMG.friedRice },
-        { n: 'Paneer Fried Rice', d: 'Golden paneer cubes', p: 90, veg: true, img: IMG.paneer },
-        { n: 'Kaju Egg Noodles', d: 'Cashew + egg wok toss', p: 110, veg: false, img: .noodles }
+        { n: 'Veg Fried Rice (Basmati)', d: 'Garden vegetables', p: 80, veg: true, icon: '🍚' },
+        { n: 'Manchuria Fried Rice', d: 'Manchurian balls + basmati rice', p: 80, veg: true, icon: '🥘' },
+        { n: 'Kaju Fried Rice', d: 'Roasted cashew crunch', p: 100, veg: true, icon: '🥜' },
+        { n: 'Paneer Fried Rice', d: 'Golden paneer cubes', p: 90, veg: true, icon: '🧀' },
+        { n: 'Kaju Egg Noodles', d: 'Cashew + egg wok toss', p: 110, veg: false, icon: '🍜' }
       ]},
       { id: 'chinese', title: 'Chinese Items', art: 'a-chinese', note: 'Indo-Chinese counter, made to order', items: [
-        { n: 'Egg Manchuria', d: 'Tangy & crisp', p: 90, veg: false, img: IMG.manchuria },
-        { n: 'Chicken Manchuria', d: 'Dry or gravy', p: 120, veg: false, tag: 'Popular', img: IMG.manchuria },
+        { n: 'Egg Manchuria', d: 'Tangy & crisp', p: 90, veg: false, icon: '🥘' },
+        { n: 'Chicken Manchuria', d: 'Dry or gravy', p: 120, veg: false, tag: 'Popular', icon: '🥘' },
         { n: 'Chicken 65', d: 'Curry-leaf hot', p: 150, veg: false, tag: 'Bestseller', img: IMG.fry },
-        { n: 'Chilli Chicken', d: 'Green chilli & capsicum', p: 140, veg: false, img: IMG.manchuria },
-        { n: 'Kaju Chicken', d: 'Cashew nut chicken', p: 160, veg: false, img: IMG.kaju },
-        { n: 'Veg Manchuria', d: 'Crisp veg balls', p: 80, veg: true, img: IMG.manchuria },
+        { n: 'Chilli Chicken', d: 'Green chilli & capsicum', p: 140, veg: false, img: IMG.fry },
+        { n: 'Kaju Chicken', d: 'Cashew nut chicken', p: 160, veg: false, icon: '🥜' },
+        { n: 'Veg Manchuria', d: 'Crisp veg balls', p: 80, veg: true, icon: '🧆' },
         { n: 'Chicken Curry', d: 'Homestyle spicy gravy', p: 80, veg: false, img: IMG.curry }
       ]},
       { id: 'unlimited', title: 'Unlimited & Extras', art: 'a-rice', note: 'Add-ons for serious appetites', items: [
-        { n: 'Biryani Unlimited Rice', d: 'Per person / table', p: 130, veg: false, tag: 'Unlimited', img: IMG.dum1 },
-        { n: 'Extra Piece', d: 'Hot Chicken Dum / Fry Piece', p: 50, veg: false, img: IMG.fry },
-        { n: 'Extra Rice', d: 'Aromatic Kuska Dum Rice', p: 80, veg: false, img: IMG.dum2 }
+        { n: 'Biryani Unlimited Rice', d: 'Per person / table', p: 130, veg: false, tag: 'Unlimited', icon: '🍚' },
+        { n: 'Extra Piece', d: 'Hot Chicken Dum / Fry Piece', p: 50, veg: false, icon: '🍗' },
+        { n: 'Extra Rice', d: 'Aromatic Kuska Dum Rice', p: 80, veg: false, icon: '🥣' }
       ]}
     ];
 
@@ -1984,7 +1986,6 @@
       "Best biryani experience in Khammam!"
     ];
 
-    // Build 180+ distinct review combinations dynamically
     let allGeneratedReviews = [];
     let activeReviewTopic = 'all';
     let currentReviewString = "";
@@ -2060,7 +2061,7 @@
       copyCurrentReviewAndOpen();
     }
 
-    /* --- 3. RENDER MENU WITH IMAGES --- */
+    /* --- 3. RENDER MENU --- */
     function renderMenu() {
       const root = document.getElementById('menuRoot');
       const chips = document.getElementById('menuChips');
@@ -2109,13 +2110,14 @@
         filteredItems.forEach(it => {
           const card = document.createElement('article');
           card.className = 'menu__item';
+          const emojiIcon = it.icon || EMOJI[cat.art] || '🍽️';
           const imgHTML = it.img
             ? `<img class="art__img" src="${it.img}" alt="${it.n}" loading="lazy" onload="this.classList.add('is-ready')" onerror="this.classList.add('failed')" />`
             : '';
 
           card.innerHTML = `
             <div class="menu__item-art art ${cat.art}">
-              <span class="art__emoji" aria-hidden="true">${EMOJI[cat.art] || '🍽️'}</span>
+              <span class="art__emoji" aria-hidden="true">${emojiIcon}</span>
               ${imgHTML}
             </div>
             <div class="menu__item-body">
